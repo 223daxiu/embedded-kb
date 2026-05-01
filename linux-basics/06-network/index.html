@@ -12,25 +12,31 @@
         <meta name="author" content="Your Name">
       
       
+        <link rel="canonical" href="https://223daxiu.github.io/embedded-kb/linux-basics/06-network/">
       
+      
+        <link rel="prev" href="../05-process/">
+      
+      
+        <link rel="next" href="../07-archive/">
       
       
         
       
       
-      <link rel="icon" href="/embedded-kb/assets/images/favicon.png">
+      <link rel="icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
     
     
       
-        <title>嵌入式开发知识库</title>
+        <title>06 - 网络命令 - 嵌入式开发知识库</title>
       
     
     
-      <link rel="stylesheet" href="/embedded-kb/assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
       
         
-        <link rel="stylesheet" href="/embedded-kb/assets/stylesheets/palette.ab4e12ef.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
       
       
 
@@ -49,7 +55,7 @@
       
     
     
-    <script>__md_scope=new URL("/embedded-kb/",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -73,6 +79,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#06-" class="md-skip">
+          跳转至
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -83,7 +94,7 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="页眉">
-    <a href="/embedded-kb/." title="嵌入式开发知识库" class="md-header__button md-logo" aria-label="嵌入式开发知识库" data-md-component="logo">
+    <a href="../.." title="嵌入式开发知识库" class="md-header__button md-logo" aria-label="嵌入式开发知识库" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -103,7 +114,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              
+              06 - 网络命令
             
           </span>
         </div>
@@ -216,7 +227,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="/embedded-kb/." class="md-tabs__link">
+      <a href="../.." class="md-tabs__link">
         
   
   
@@ -233,11 +244,13 @@
   
   
   
+    
+  
   
     
     
-      <li class="md-tabs__item">
-        <a href="/embedded-kb/linux-basics/" class="md-tabs__link">
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../" class="md-tabs__link">
           
   
   
@@ -259,7 +272,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="/embedded-kb/linux-driver/" class="md-tabs__link">
+        <a href="../../linux-driver/" class="md-tabs__link">
           
   
   
@@ -281,7 +294,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="/embedded-kb/mcu/" class="md-tabs__link">
+        <a href="../../mcu/" class="md-tabs__link">
           
   
   
@@ -303,7 +316,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="/embedded-kb/c-language/" class="md-tabs__link">
+        <a href="../../c-language/" class="md-tabs__link">
           
   
   
@@ -325,7 +338,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="/embedded-kb/cpp-embedded/" class="md-tabs__link">
+        <a href="../../cpp-embedded/" class="md-tabs__link">
           
   
   
@@ -361,7 +374,7 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="/embedded-kb/." title="嵌入式开发知识库" class="md-nav__button md-logo" aria-label="嵌入式开发知识库" data-md-component="logo">
+    <a href="../.." title="嵌入式开发知识库" class="md-nav__button md-logo" aria-label="嵌入式开发知识库" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -391,7 +404,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/embedded-kb/." class="md-nav__link">
+      <a href="../.." class="md-nav__link">
         
   
   
@@ -415,6 +428,8 @@
       
   
   
+    
+  
   
   
     
@@ -448,20 +463,23 @@
     
     
       
+        
+        
+      
       
         
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="/embedded-kb/linux-basics/" class="md-nav__link ">
+            <a href="../" class="md-nav__link ">
               
   
   
@@ -479,13 +497,13 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="0">
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_2">
             <span class="md-nav__icon md-icon"></span>
             
@@ -505,7 +523,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/embedded-kb/linux-basics/01-shell-intro/" class="md-nav__link">
+      <a href="../01-shell-intro/" class="md-nav__link">
         
   
   
@@ -533,7 +551,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/embedded-kb/linux-basics/02-file-directory/" class="md-nav__link">
+      <a href="../02-file-directory/" class="md-nav__link">
         
   
   
@@ -561,7 +579,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/embedded-kb/linux-basics/03-file-content/" class="md-nav__link">
+      <a href="../03-file-content/" class="md-nav__link">
         
   
   
@@ -589,7 +607,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/embedded-kb/linux-basics/04-user-permission/" class="md-nav__link">
+      <a href="../04-user-permission/" class="md-nav__link">
         
   
   
@@ -617,7 +635,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/embedded-kb/linux-basics/05-process/" class="md-nav__link">
+      <a href="../05-process/" class="md-nav__link">
         
   
   
@@ -642,10 +660,37 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="/embedded-kb/linux-basics/06-network/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    06 - 网络命令
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -661,6 +706,182 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#ip-ifconfig-" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ip / ifconfig - 查看网络配置
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="ip / ifconfig - 查看网络配置">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ip" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        手动配置 IP（嵌入式常用）
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ping-" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ping - 测试网络连通性
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="ping - 测试网络连通性">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        嵌入式网络排查步骤
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ssh-" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ssh - 远程登录
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="ssh - 远程登录">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ssh" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        免密登录（SSH 密钥认证）
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#scp-" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        scp - 远程复制文件
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="scp - 远程复制文件">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        嵌入式开发典型流程
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#curl-wget-" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        curl / wget - 下载文件
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#netstat-ss-" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        netstat / ss - 查看网络连接
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        防火墙
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        练习
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -673,7 +894,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/embedded-kb/linux-basics/07-archive/" class="md-nav__link">
+      <a href="../07-archive/" class="md-nav__link">
         
   
   
@@ -701,7 +922,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/embedded-kb/linux-basics/08-package/" class="md-nav__link">
+      <a href="../08-package/" class="md-nav__link">
         
   
   
@@ -729,7 +950,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/embedded-kb/linux-basics/09-redirect-pipe/" class="md-nav__link">
+      <a href="../09-redirect-pipe/" class="md-nav__link">
         
   
   
@@ -757,7 +978,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/embedded-kb/linux-basics/10-shell-script/" class="md-nav__link">
+      <a href="../10-shell-script/" class="md-nav__link">
         
   
   
@@ -821,7 +1042,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="/embedded-kb/linux-driver/" class="md-nav__link ">
+            <a href="../../linux-driver/" class="md-nav__link ">
               
   
   
@@ -892,7 +1113,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="/embedded-kb/linux-driver/01-char-device/" class="md-nav__link ">
+            <a href="../../linux-driver/01-char-device/" class="md-nav__link ">
               
   
   
@@ -936,7 +1157,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/embedded-kb/linux-driver/02-platform-driver/README.md" class="md-nav__link">
+      <a href="../../linux-driver/02-platform-driver/README.md" class="md-nav__link">
         
   
   
@@ -964,7 +1185,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/embedded-kb/linux-driver/03-device-tree/README.md" class="md-nav__link">
+      <a href="../../linux-driver/03-device-tree/README.md" class="md-nav__link">
         
   
   
@@ -1062,7 +1283,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/embedded-kb/linux-driver/04-gpio-driver/README.md" class="md-nav__link">
+      <a href="../../linux-driver/04-gpio-driver/README.md" class="md-nav__link">
         
   
   
@@ -1090,7 +1311,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/embedded-kb/linux-driver/05-i2c-driver/README.md" class="md-nav__link">
+      <a href="../../linux-driver/05-i2c-driver/README.md" class="md-nav__link">
         
   
   
@@ -1118,7 +1339,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/embedded-kb/linux-driver/06-spi-driver/README.md" class="md-nav__link">
+      <a href="../../linux-driver/06-spi-driver/README.md" class="md-nav__link">
         
   
   
@@ -1146,7 +1367,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/embedded-kb/linux-driver/07-uart-driver/README.md" class="md-nav__link">
+      <a href="../../linux-driver/07-uart-driver/README.md" class="md-nav__link">
         
   
   
@@ -1240,7 +1461,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/embedded-kb/linux-driver/08-dma/README.md" class="md-nav__link">
+      <a href="../../linux-driver/08-dma/README.md" class="md-nav__link">
         
   
   
@@ -1268,7 +1489,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/embedded-kb/linux-driver/09-interrupt/README.md" class="md-nav__link">
+      <a href="../../linux-driver/09-interrupt/README.md" class="md-nav__link">
         
   
   
@@ -1340,7 +1561,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="/embedded-kb/mcu/" class="md-nav__link ">
+            <a href="../../mcu/" class="md-nav__link ">
               
   
   
@@ -1411,7 +1632,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="/embedded-kb/mcu/03-systick/" class="md-nav__link ">
+            <a href="../../mcu/03-systick/" class="md-nav__link ">
               
   
   
@@ -1453,7 +1674,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/embedded-kb/mcu/01-startup/README.md" class="md-nav__link">
+      <a href="../../mcu/01-startup/README.md" class="md-nav__link">
         
   
   
@@ -1481,7 +1702,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/embedded-kb/mcu/02-nvic/README.md" class="md-nav__link">
+      <a href="../../mcu/02-nvic/README.md" class="md-nav__link">
         
   
   
@@ -1579,7 +1800,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/embedded-kb/mcu/04-gpio/README.md" class="md-nav__link">
+      <a href="../../mcu/04-gpio/README.md" class="md-nav__link">
         
   
   
@@ -1607,7 +1828,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/embedded-kb/mcu/05-spi/README.md" class="md-nav__link">
+      <a href="../../mcu/05-spi/README.md" class="md-nav__link">
         
   
   
@@ -1635,7 +1856,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/embedded-kb/mcu/06-i2c/README.md" class="md-nav__link">
+      <a href="../../mcu/06-i2c/README.md" class="md-nav__link">
         
   
   
@@ -1729,7 +1950,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/embedded-kb/mcu/07-freertos/README.md" class="md-nav__link">
+      <a href="../../mcu/07-freertos/README.md" class="md-nav__link">
         
   
   
@@ -1757,7 +1978,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/embedded-kb/mcu/08-rtos-comm/README.md" class="md-nav__link">
+      <a href="../../mcu/08-rtos-comm/README.md" class="md-nav__link">
         
   
   
@@ -1831,7 +2052,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="/embedded-kb/c-language/" class="md-nav__link ">
+            <a href="../../c-language/" class="md-nav__link ">
               
   
   
@@ -1875,7 +2096,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/embedded-kb/c-language/01-pointer-memory/README.md" class="md-nav__link">
+      <a href="../../c-language/01-pointer-memory/README.md" class="md-nav__link">
         
   
   
@@ -1903,7 +2124,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/embedded-kb/c-language/02-state-machine/README.md" class="md-nav__link">
+      <a href="../../c-language/02-state-machine/README.md" class="md-nav__link">
         
   
   
@@ -1931,7 +2152,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/embedded-kb/c-language/03-ring-buffer/README.md" class="md-nav__link">
+      <a href="../../c-language/03-ring-buffer/README.md" class="md-nav__link">
         
   
   
@@ -1959,7 +2180,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/embedded-kb/c-language/04-bit-operations/README.md" class="md-nav__link">
+      <a href="../../c-language/04-bit-operations/README.md" class="md-nav__link">
         
   
   
@@ -2021,7 +2242,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="/embedded-kb/cpp-embedded/" class="md-nav__link ">
+            <a href="../../cpp-embedded/" class="md-nav__link ">
               
   
   
@@ -2065,7 +2286,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/embedded-kb/cpp-embedded/01-hal-template/README.md" class="md-nav__link">
+      <a href="../../cpp-embedded/01-hal-template/README.md" class="md-nav__link">
         
   
   
@@ -2093,7 +2314,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/embedded-kb/cpp-embedded/02-raii/README.md" class="md-nav__link">
+      <a href="../../cpp-embedded/02-raii/README.md" class="md-nav__link">
         
   
   
@@ -2138,6 +2359,172 @@
   
   
   
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#ip-ifconfig-" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ip / ifconfig - 查看网络配置
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="ip / ifconfig - 查看网络配置">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ip" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        手动配置 IP（嵌入式常用）
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ping-" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ping - 测试网络连通性
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="ping - 测试网络连通性">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        嵌入式网络排查步骤
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ssh-" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ssh - 远程登录
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="ssh - 远程登录">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ssh" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        免密登录（SSH 密钥认证）
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#scp-" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        scp - 远程复制文件
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="scp - 远程复制文件">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        嵌入式开发典型流程
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#curl-wget-" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        curl / wget - 下载文件
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#netstat-ss-" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        netstat / ss - 查看网络连接
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        防火墙
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        练习
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
   
 </nav>
                   </div>
@@ -2150,8 +2537,223 @@
               
               <article class="md-content__inner md-typeset">
                 
-  <h1>404 - Not found</h1>
+                  
 
+
+  
+    <a href="https://github.com/223daxiu/embedded-kb/edit/main/docs/linux-basics/06-network/README.md" title="编辑此页" class="md-content__button md-icon" rel="edit">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+    </a>
+  
+  
+
+
+<h1 id="06-">06 - 网络命令<a class="headerlink" href="#06-" title="Permanent link">&para;</a></h1>
+<h2 id="ip-ifconfig-">ip / ifconfig - 查看网络配置<a class="headerlink" href="#ip-ifconfig-" title="Permanent link">&para;</a></h2>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># 现代方式（推荐）</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>ip<span class="w"> </span>addr<span class="w">                          </span><span class="c1"># 查看所有网络接口和 IP</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>ip<span class="w"> </span>addr<span class="w"> </span>show<span class="w"> </span>eth0<span class="w">                </span><span class="c1"># 查看指定接口</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>ip<span class="w"> </span>link<span class="w">                          </span><span class="c1"># 查看接口状态（UP/DOWN）</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>ip<span class="w"> </span>route<span class="w">                         </span><span class="c1"># 查看路由表</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="c1"># 传统方式</span>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>ifconfig<span class="w">                         </span><span class="c1"># 查看网络配置（可能需要安装 net-tools）</span>
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>ifconfig<span class="w"> </span>eth0<span class="w">                    </span><span class="c1"># 查看指定接口</span>
+</span></code></pre></div>
+<h3 id="ip">手动配置 IP（嵌入式常用）<a class="headerlink" href="#ip" title="Permanent link">&para;</a></h3>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1"># 临时设置 IP（重启后失效）</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>sudo<span class="w"> </span>ip<span class="w"> </span>addr<span class="w"> </span>add<span class="w"> </span><span class="m">192</span>.168.1.100/24<span class="w"> </span>dev<span class="w"> </span>eth0
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>sudo<span class="w"> </span>ip<span class="w"> </span>link<span class="w"> </span><span class="nb">set</span><span class="w"> </span>eth0<span class="w"> </span>up
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="c1"># 设置默认网关</span>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>sudo<span class="w"> </span>ip<span class="w"> </span>route<span class="w"> </span>add<span class="w"> </span>default<span class="w"> </span>via<span class="w"> </span><span class="m">192</span>.168.1.1
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="c1"># 设置 DNS</span>
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;nameserver 8.8.8.8&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>sudo<span class="w"> </span>tee<span class="w"> </span>/etc/resolv.conf
+</span></code></pre></div>
+<hr />
+<h2 id="ping-">ping - 测试网络连通性<a class="headerlink" href="#ping-" title="Permanent link">&para;</a></h2>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>ping<span class="w"> </span><span class="m">192</span>.168.1.1<span class="w">                 </span><span class="c1"># ping 网关</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>ping<span class="w"> </span>www.baidu.com<span class="w">               </span><span class="c1"># ping 外网（测试 DNS 和网络）</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>ping<span class="w"> </span>-c<span class="w"> </span><span class="m">4</span><span class="w"> </span><span class="m">192</span>.168.1.1<span class="w">            </span><span class="c1"># 只 ping 4 次</span>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>ping<span class="w"> </span>-i<span class="w"> </span><span class="m">0</span>.2<span class="w"> </span><span class="m">192</span>.168.1.1<span class="w">          </span><span class="c1"># 每 0.2 秒 ping 一次（快速检测）</span>
+</span></code></pre></div>
+<h3 id="_1">嵌入式网络排查步骤<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1"># 1. 先 ping 自己（回环测试）</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>ping<span class="w"> </span><span class="m">127</span>.0.0.1
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="c1"># 2. ping 网关（检查局域网连通性）</span>
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>ping<span class="w"> </span><span class="m">192</span>.168.1.1
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="c1"># 3. ping 外网 IP（检查路由）</span>
+</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>ping<span class="w"> </span><span class="m">8</span>.8.8.8
+</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>
+</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="c1"># 4. ping 域名（检查 DNS）</span>
+</span><span id="__span-3-11"><a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>ping<span class="w"> </span>www.baidu.com
+</span><span id="__span-3-12"><a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a>
+</span><span id="__span-3-13"><a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a><span class="c1"># 如果第 2 步就失败 → 网线/WiFi 问题</span>
+</span><span id="__span-3-14"><a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a><span class="c1"># 如果第 3 步失败 → 网关/路由问题</span>
+</span><span id="__span-3-15"><a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a><span class="c1"># 如果第 4 步失败 → DNS 问题</span>
+</span></code></pre></div>
+<hr />
+<h2 id="ssh-">ssh - 远程登录<a class="headerlink" href="#ssh-" title="Permanent link">&para;</a></h2>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="c1"># 基本连接</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>ssh<span class="w"> </span>pi@192.168.1.100
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="c1"># 指定端口</span>
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>ssh<span class="w"> </span>-p<span class="w"> </span><span class="m">2222</span><span class="w"> </span>pi@192.168.1.100
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>
+</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="c1"># 首次连接会询问是否信任，输入 yes</span>
+</span></code></pre></div>
+<h3 id="ssh">免密登录（SSH 密钥认证）<a class="headerlink" href="#ssh" title="Permanent link">&para;</a></h3>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="c1"># 1. 在你的电脑上生成密钥对（一路回车）</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>ssh-keygen<span class="w"> </span>-t<span class="w"> </span>ed25519
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="c1"># 2. 把公钥复制到目标设备</span>
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>ssh-copy-id<span class="w"> </span>pi@192.168.1.100
+</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>
+</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="c1"># 3. 之后连接就不需要密码了</span>
+</span><span id="__span-5-8"><a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>ssh<span class="w"> </span>pi@192.168.1.100
+</span></code></pre></div>
+<hr />
+<h2 id="scp-">scp - 远程复制文件<a class="headerlink" href="#scp-" title="Permanent link">&para;</a></h2>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="c1"># 从本地复制到远程</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>scp<span class="w"> </span>mydriver.ko<span class="w"> </span>pi@192.168.1.100:/home/pi/
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>scp<span class="w"> </span>-r<span class="w"> </span>myproject/<span class="w"> </span>pi@192.168.1.100:/home/pi/
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="c1"># 从远程复制到本地</span>
+</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>scp<span class="w"> </span>pi@192.168.1.100:/var/log/syslog<span class="w"> </span>./
+</span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a>scp<span class="w"> </span>-r<span class="w"> </span>pi@192.168.1.100:/home/pi/project/<span class="w"> </span>./
+</span><span id="__span-6-8"><a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a>
+</span><span id="__span-6-9"><a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a><span class="c1"># 指定端口</span>
+</span><span id="__span-6-10"><a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a>scp<span class="w"> </span>-P<span class="w"> </span><span class="m">2222</span><span class="w"> </span>file.txt<span class="w"> </span>pi@192.168.1.100:/tmp/
+</span></code></pre></div>
+<h3 id="_2">嵌入式开发典型流程<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="c1"># 在 PC 上交叉编译</span>
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>arm-linux-gnueabihf-gcc<span class="w"> </span>-o<span class="w"> </span>myapp<span class="w"> </span>main.c
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="c1"># 传到开发板</span>
+</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>scp<span class="w"> </span>myapp<span class="w"> </span>pi@192.168.1.100:/home/pi/
+</span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>
+</span><span id="__span-7-7"><a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a><span class="c1"># 登录开发板运行</span>
+</span><span id="__span-7-8"><a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a>ssh<span class="w"> </span>pi@192.168.1.100
+</span><span id="__span-7-9"><a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a>./myapp
+</span></code></pre></div>
+<hr />
+<h2 id="curl-wget-">curl / wget - 下载文件<a class="headerlink" href="#curl-wget-" title="Permanent link">&para;</a></h2>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="c1"># wget：下载文件（最简单）</span>
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>wget<span class="w"> </span>https://example.com/file.tar.gz
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>wget<span class="w"> </span>-O<span class="w"> </span>output.tar.gz<span class="w"> </span>https://example.com/file.tar.gz<span class="w">  </span><span class="c1"># 指定文件名</span>
+</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>
+</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="c1"># curl：更灵活</span>
+</span><span id="__span-8-6"><a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a>curl<span class="w"> </span>-O<span class="w"> </span>https://example.com/file.tar.gz<span class="w">     </span><span class="c1"># 下载文件</span>
+</span><span id="__span-8-7"><a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a>curl<span class="w"> </span>-o<span class="w"> </span>output.tar.gz<span class="w"> </span>https://example.com/file.tar.gz
+</span><span id="__span-8-8"><a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a>curl<span class="w"> </span>https://api.example.com/data<span class="w">           </span><span class="c1"># 访问 API</span>
+</span><span id="__span-8-9"><a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a>curl<span class="w"> </span>-I<span class="w"> </span>https://www.baidu.com<span class="w">               </span><span class="c1"># 只看响应头</span>
+</span></code></pre></div>
+<hr />
+<h2 id="netstat-ss-">netstat / ss - 查看网络连接<a class="headerlink" href="#netstat-ss-" title="Permanent link">&para;</a></h2>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="c1"># 现代方式（推荐）</span>
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>ss<span class="w"> </span>-tlnp<span class="w">                         </span><span class="c1"># 查看所有监听的 TCP 端口</span>
+</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>ss<span class="w"> </span>-ulnp<span class="w">                         </span><span class="c1"># 查看所有监听的 UDP 端口</span>
+</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>
+</span><span id="__span-9-5"><a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="c1"># 传统方式</span>
+</span><span id="__span-9-6"><a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a>netstat<span class="w"> </span>-tlnp<span class="w">                    </span><span class="c1"># 需要安装 net-tools</span>
+</span><span id="__span-9-7"><a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a>
+</span><span id="__span-9-8"><a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a><span class="c1"># 常用组合</span>
+</span><span id="__span-9-9"><a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a>ss<span class="w"> </span>-tlnp<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span><span class="m">8080</span><span class="w">             </span><span class="c1"># 看 8080 端口被谁占用</span>
+</span></code></pre></div>
+<table>
+<thead>
+<tr>
+<th>选项</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>-t</code></td>
+<td>TCP</td>
+</tr>
+<tr>
+<td><code>-u</code></td>
+<td>UDP</td>
+</tr>
+<tr>
+<td><code>-l</code></td>
+<td>只显示监听状态</td>
+</tr>
+<tr>
+<td><code>-n</code></td>
+<td>显示端口号（不解析服务名）</td>
+</tr>
+<tr>
+<td><code>-p</code></td>
+<td>显示进程信息</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="_3">防火墙<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="c1"># Ubuntu/Debian 用 ufw</span>
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>sudo<span class="w"> </span>ufw<span class="w"> </span>status<span class="w">                  </span><span class="c1"># 查看防火墙状态</span>
+</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>sudo<span class="w"> </span>ufw<span class="w"> </span>allow<span class="w"> </span><span class="m">22</span><span class="w">                </span><span class="c1"># 允许 SSH</span>
+</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>sudo<span class="w"> </span>ufw<span class="w"> </span>allow<span class="w"> </span><span class="m">8080</span><span class="w">              </span><span class="c1"># 允许 8080 端口</span>
+</span><span id="__span-10-5"><a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a>sudo<span class="w"> </span>ufw<span class="w"> </span><span class="nb">enable</span><span class="w">                  </span><span class="c1"># 启用防火墙</span>
+</span><span id="__span-10-6"><a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a>
+</span><span id="__span-10-7"><a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a><span class="c1"># CentOS/RHEL 用 firewalld</span>
+</span><span id="__span-10-8"><a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a>sudo<span class="w"> </span>firewall-cmd<span class="w"> </span>--list-all
+</span><span id="__span-10-9"><a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a>sudo<span class="w"> </span>firewall-cmd<span class="w"> </span>--add-port<span class="o">=</span><span class="m">8080</span>/tcp<span class="w"> </span>--permanent
+</span><span id="__span-10-10"><a id="__codelineno-10-10" name="__codelineno-10-10" href="#__codelineno-10-10"></a>sudo<span class="w"> </span>firewall-cmd<span class="w"> </span>--reload
+</span></code></pre></div>
+<hr />
+<h2 id="_4">练习<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<div class="admonition question">
+<p class="admonition-title">动手试试</p>
+<ol>
+<li>用 <code>ip addr</code> 查看你的 IP 地址</li>
+<li>用 <code>ping -c 4 www.baidu.com</code> 测试网络</li>
+<li>用 <code>ssh</code> 连接到你的开发板（如果有的话）</li>
+<li>用 <code>scp</code> 传一个文件到开发板</li>
+<li>用 <code>ss -tlnp</code> 看看你的系统上有哪些端口在监听</li>
+<li>用 <code>curl -I www.baidu.com</code> 查看百度的响应头</li>
+</ol>
+</div>
+
+
+
+
+
+
+
+  
+    
+  
+  
+
+
+  <aside class="md-source-file">
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="最后更新">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
+    </span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026年5月1日 18:25:40 UTC">2026年5月1日</span>
+  </span>
+
+    
+    
+    
+    
+  </aside>
+
+
+
+
+
+                
               </article>
             </div>
           
@@ -2216,10 +2818,10 @@
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "/embedded-kb/", "features": ["navigation.tabs", "navigation.sections", "navigation.top", "navigation.indexes", "search.highlight", "search.suggest", "content.code.copy", "content.code.annotate", "content.action.edit", "content.tabs.link"], "search": "/embedded-kb/assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.sections", "navigation.top", "navigation.indexes", "search.highlight", "search.suggest", "content.code.copy", "content.code.annotate", "content.action.edit", "content.tabs.link"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
     
     
-      <script src="/embedded-kb/assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
       
     
   </body>

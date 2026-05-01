@@ -12,13 +12,13 @@
         <meta name="author" content="Your Name">
       
       
-        <link rel="canonical" href="https://223daxiu.github.io/embedded-kb/mcu/03-systick/">
+        <link rel="canonical" href="https://223daxiu.github.io/embedded-kb/linux-basics/03-file-content/">
       
       
-        <link rel="prev" href="../">
+        <link rel="prev" href="../02-file-directory/">
       
       
-        <link rel="next" href="../../c-language/">
+        <link rel="next" href="../04-user-permission/">
       
       
         
@@ -29,7 +29,7 @@
     
     
       
-        <title>03 - SysTick 定时器 - 嵌入式开发知识库</title>
+        <title>03 - 文件内容查看与编辑 - 嵌入式开发知识库</title>
       
     
     
@@ -80,7 +80,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#03-systick" class="md-skip">
+        <a href="#03-" class="md-skip">
           跳转至
         </a>
       
@@ -114,7 +114,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              03 - SysTick 定时器
+              03 - 文件内容查看与编辑
             
           </span>
         </div>
@@ -244,11 +244,13 @@
   
   
   
+    
+  
   
     
     
-      <li class="md-tabs__item">
-        <a href="../../linux-basics/" class="md-tabs__link">
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../" class="md-tabs__link">
           
   
   
@@ -288,13 +290,11 @@
   
   
   
-    
-  
   
     
     
-      <li class="md-tabs__item md-tabs__item--active">
-        <a href="../" class="md-tabs__link">
+      <li class="md-tabs__item">
+        <a href="../../mcu/" class="md-tabs__link">
           
   
   
@@ -428,6 +428,8 @@
       
   
   
+    
+  
   
   
     
@@ -461,20 +463,23 @@
     
     
       
+        
+        
+      
       
         
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../linux-basics/" class="md-nav__link ">
+            <a href="../" class="md-nav__link ">
               
   
   
@@ -492,13 +497,13 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="0">
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_2">
             <span class="md-nav__icon md-icon"></span>
             
@@ -518,7 +523,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../linux-basics/01-shell-intro/" class="md-nav__link">
+      <a href="../01-shell-intro/" class="md-nav__link">
         
   
   
@@ -546,7 +551,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../linux-basics/02-file-directory/" class="md-nav__link">
+      <a href="../02-file-directory/" class="md-nav__link">
         
   
   
@@ -571,10 +576,37 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../linux-basics/03-file-content/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    03 - 文件内容查看与编辑
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -590,6 +622,214 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#cat-" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        cat - 查看文件全部内容
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#less-more-" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        less / more - 分页查看
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#head-tail-" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        head / tail - 查看开头 / 结尾
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#grep-" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        grep - 文本搜索
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="grep - 文本搜索">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        正则表达式
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        嵌入式常用搜索
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#wc-" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        wc - 统计行数 / 字数
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sort-" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        sort - 排序
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#diff-" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        diff - 比较文件差异
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#nano-" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        nano - 最简单的文本编辑器
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vivim-" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        vi/vim - 专业文本编辑器
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="vi/vim - 专业文本编辑器">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#vi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        vi 的三种模式
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        最小使用流程
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        常用操作速查
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dmesg-" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        dmesg - 查看内核消息
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        练习
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -602,7 +842,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../linux-basics/04-user-permission/" class="md-nav__link">
+      <a href="../04-user-permission/" class="md-nav__link">
         
   
   
@@ -630,7 +870,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../linux-basics/05-process/" class="md-nav__link">
+      <a href="../05-process/" class="md-nav__link">
         
   
   
@@ -658,7 +898,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../linux-basics/06-network/" class="md-nav__link">
+      <a href="../06-network/" class="md-nav__link">
         
   
   
@@ -686,7 +926,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../linux-basics/07-archive/" class="md-nav__link">
+      <a href="../07-archive/" class="md-nav__link">
         
   
   
@@ -714,7 +954,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../linux-basics/08-package/" class="md-nav__link">
+      <a href="../08-package/" class="md-nav__link">
         
   
   
@@ -742,7 +982,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../linux-basics/09-redirect-pipe/" class="md-nav__link">
+      <a href="../09-redirect-pipe/" class="md-nav__link">
         
   
   
@@ -770,7 +1010,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../linux-basics/10-shell-script/" class="md-nav__link">
+      <a href="../10-shell-script/" class="md-nav__link">
         
   
   
@@ -1321,8 +1561,6 @@
       
   
   
-    
-  
   
   
     
@@ -1342,23 +1580,20 @@
     
     
       
-        
-        
-      
       
         
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../" class="md-nav__link ">
+            <a href="../../mcu/" class="md-nav__link ">
               
   
   
@@ -1376,13 +1611,13 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_4" id="__nav_4_label" tabindex="">
+              <label class="md-nav__link " for="__nav_4" id="__nav_4_label" tabindex="0">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_4">
             <span class="md-nav__icon md-icon"></span>
             
@@ -1399,8 +1634,6 @@
                 
   
   
-    
-  
   
   
     
@@ -1420,21 +1653,18 @@
       
       
         
-          
-          
-        
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2" >
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="./" class="md-nav__link md-nav__link--active">
+            <a href="../../mcu/03-systick/" class="md-nav__link ">
               
   
   
@@ -1452,13 +1682,13 @@
             </a>
             
               
-              <label class="md-nav__link md-nav__link--active" for="__nav_4_2" id="__nav_4_2_label" tabindex="">
+              <label class="md-nav__link " for="__nav_4_2" id="__nav_4_2_label" tabindex="0">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_2_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_2_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_4_2">
             <span class="md-nav__icon md-icon"></span>
             
@@ -1476,7 +1706,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../01-startup/README.md" class="md-nav__link">
+      <a href="../../mcu/01-startup/README.md" class="md-nav__link">
         
   
   
@@ -1504,7 +1734,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../02-nvic/README.md" class="md-nav__link">
+      <a href="../../mcu/02-nvic/README.md" class="md-nav__link">
         
   
   
@@ -1556,20 +1786,17 @@
       
       
         
-          
-          
-        
       
     
     
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_3" >
         
           
-          <label class="md-nav__link" for="__nav_4_3" id="__nav_4_3_label" tabindex="">
+          <label class="md-nav__link" for="__nav_4_3" id="__nav_4_3_label" tabindex="0">
             
   
   
@@ -1605,7 +1832,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../04-gpio/README.md" class="md-nav__link">
+      <a href="../../mcu/04-gpio/README.md" class="md-nav__link">
         
   
   
@@ -1633,7 +1860,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../05-spi/README.md" class="md-nav__link">
+      <a href="../../mcu/05-spi/README.md" class="md-nav__link">
         
   
   
@@ -1661,7 +1888,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../06-i2c/README.md" class="md-nav__link">
+      <a href="../../mcu/06-i2c/README.md" class="md-nav__link">
         
   
   
@@ -1709,20 +1936,17 @@
       
       
         
-          
-          
-        
       
     
     
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_4" >
         
           
-          <label class="md-nav__link" for="__nav_4_4" id="__nav_4_4_label" tabindex="">
+          <label class="md-nav__link" for="__nav_4_4" id="__nav_4_4_label" tabindex="0">
             
   
   
@@ -1758,7 +1982,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../07-freertos/README.md" class="md-nav__link">
+      <a href="../../mcu/07-freertos/README.md" class="md-nav__link">
         
   
   
@@ -1786,7 +2010,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../08-rtos-comm/README.md" class="md-nav__link">
+      <a href="../../mcu/08-rtos-comm/README.md" class="md-nav__link">
         
   
   
@@ -2177,22 +2401,138 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
+  <a href="#cat-" class="md-nav__link">
     <span class="md-ellipsis">
       
-        原理概述
+        cat - 查看文件全部内容
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="原理概述">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#less-more-" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        less / more - 分页查看
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#head-tail-" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        head / tail - 查看开头 / 结尾
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#grep-" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        grep - 文本搜索
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="grep - 文本搜索">
       <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        正则表达式
+      
+    </span>
+  </a>
+  
+</li>
         
           <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       
-        寄存器结构
+        嵌入式常用搜索
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#wc-" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        wc - 统计行数 / 字数
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sort-" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        sort - 排序
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#diff-" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        diff - 比较文件差异
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#nano-" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        nano - 最简单的文本编辑器
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vivim-" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        vi/vim - 专业文本编辑器
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="vi/vim - 专业文本编辑器">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#vi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        vi 的三种模式
       
     </span>
   </a>
@@ -2203,7 +2543,18 @@
   <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
       
-        工作原理
+        最小使用流程
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        常用操作速查
       
     </span>
   </a>
@@ -2216,10 +2567,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
+  <a href="#dmesg-" class="md-nav__link">
     <span class="md-ellipsis">
       
-        硬件说明
+        dmesg - 查看内核消息
       
     </span>
   </a>
@@ -2230,57 +2581,7 @@
   <a href="#_5" class="md-nav__link">
     <span class="md-ellipsis">
       
-        驱动代码
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="驱动代码">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#systickh" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        systick.h
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#systickc" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        systick.c
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        测试例程
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        常见问题
+        练习
       
     </span>
   </a>
@@ -2304,7 +2605,7 @@
 
 
   
-    <a href="https://github.com/223daxiu/embedded-kb/edit/main/docs/mcu/03-systick/README.md" title="编辑此页" class="md-content__button md-icon" rel="edit">
+    <a href="https://github.com/223daxiu/embedded-kb/edit/main/docs/linux-basics/03-file-content/README.md" title="编辑此页" class="md-content__button md-icon" rel="edit">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
     </a>
@@ -2312,178 +2613,339 @@
   
 
 
-<h1 id="03-systick">03 - SysTick 定时器<a class="headerlink" href="#03-systick" title="Permanent link">&para;</a></h1>
-<h2 id="_1">原理概述<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
-<p>SysTick 是 Cortex-M 内核内置的 <strong>24位递减计数器</strong>，独立于厂商外设，所有 Cortex-M MCU 均支持。</p>
-<h3 id="_2">寄存器结构<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
+<h1 id="03-">03 - 文件内容查看与编辑<a class="headerlink" href="#03-" title="Permanent link">&para;</a></h1>
+<h2 id="cat-">cat - 查看文件全部内容<a class="headerlink" href="#cat-" title="Permanent link">&para;</a></h2>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>cat<span class="w"> </span>file.txt<span class="w">                    </span><span class="c1"># 显示文件内容</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>cat<span class="w"> </span>-n<span class="w"> </span>file.txt<span class="w">                 </span><span class="c1"># 显示行号</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>cat<span class="w"> </span>file1.txt<span class="w"> </span>file2.txt<span class="w">         </span><span class="c1"># 拼接显示多个文件</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>cat<span class="w"> </span>file1.txt<span class="w"> </span>file2.txt<span class="w"> </span>&gt;<span class="w"> </span>all.txt<span class="w">  </span><span class="c1"># 合并多个文件</span>
+</span></code></pre></div>
+<div class="admonition warning">
+<p class="admonition-title">文件太大怎么办？</p>
+<p><code>cat</code> 会一次性输出所有内容。文件太大时屏幕会刷屏，建议用 <code>less</code> 代替。</p>
+</div>
+<hr />
+<h2 id="less-more-">less / more - 分页查看<a class="headerlink" href="#less-more-" title="Permanent link">&para;</a></h2>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>less<span class="w"> </span>bigfile.log<span class="w">               </span><span class="c1"># 分页查看（推荐用 less）</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>more<span class="w"> </span>bigfile.log<span class="w">               </span><span class="c1"># 较老的分页工具</span>
+</span></code></pre></div>
+<p><strong>less 常用操作：</strong></p>
 <table>
 <thead>
 <tr>
-<th>寄存器</th>
-<th>地址</th>
-<th>说明</th>
+<th>按键</th>
+<th>作用</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><code>SYST_CSR</code></td>
-<td>0xE000E010</td>
-<td>控制和状态</td>
+<td><code>空格</code> / <code>f</code></td>
+<td>下一页</td>
 </tr>
 <tr>
-<td><code>SYST_RVR</code></td>
-<td>0xE000E014</td>
-<td>重载值（定义周期）</td>
+<td><code>b</code></td>
+<td>上一页</td>
 </tr>
 <tr>
-<td><code>SYST_CVR</code></td>
-<td>0xE000E018</td>
-<td>当前值</td>
+<td><code>↑</code> / <code>↓</code></td>
+<td>上/下一行</td>
+</tr>
+<tr>
+<td><code>g</code></td>
+<td>跳到文件开头</td>
+</tr>
+<tr>
+<td><code>G</code></td>
+<td>跳到文件末尾</td>
+</tr>
+<tr>
+<td><code>/关键词</code></td>
+<td>向下搜索</td>
+</tr>
+<tr>
+<td><code>?关键词</code></td>
+<td>向上搜索</td>
+</tr>
+<tr>
+<td><code>n</code></td>
+<td>下一个匹配项</td>
+</tr>
+<tr>
+<td><code>N</code></td>
+<td>上一个匹配项</td>
+</tr>
+<tr>
+<td><code>q</code></td>
+<td>退出</td>
 </tr>
 </tbody>
 </table>
-<h3 id="_3">工作原理<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
-<pre class="mermaid"><code>sequenceDiagram
-    participant CPU
-    participant SysTick
-
-    CPU-&gt;&gt;SysTick: 写入 RVR（重载值）
-    CPU-&gt;&gt;SysTick: 使能 TICKINT + ENABLE
-    loop 每个 SysTick 周期
-        SysTick-&gt;&gt;SysTick: CVR 从 RVR 递减到 0
-        SysTick-&gt;&gt;CPU: 触发 SysTick_Handler 中断
-        Note over CPU: HAL_IncTick() / FreeRTOS Tick++
-    end</code></pre>
-<p><strong>1ms 定时配置：</strong></p>
-<p>$$\text{RVR} = \frac{f_{sys}}{1000} - 1$$</p>
-<p>例如 168MHz 系统时钟：RVR = 168000 - 1 = 167999</p>
-<hr />
-<h2 id="_4">硬件说明<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
-<p>SysTick 为内核内置，无需外部硬件连接。</p>
-<div class="admonition info">
-<p class="admonition-title">时钟源</p>
-<ul>
-<li><strong>内部时钟（推荐）</strong>：<code>SYST_CSR.CLKSOURCE = 1</code>，使用处理器时钟</li>
-<li><strong>外部时钟</strong>：<code>SYST_CSR.CLKSOURCE = 0</code>，使用参考时钟（通常为处理器时钟 ÷ 8）</li>
-</ul>
-</div>
-<hr />
-<h2 id="_5">驱动代码<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
-<h3 id="systickh">systick.h<a class="headerlink" href="#systickh" title="Permanent link">&para;</a></h3>
-<div class="language-c highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="cp">#ifndef SYSTICK_H</span>
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="cp">#define SYSTICK_H</span>
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdint.h&gt;</span>
-</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>
-</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="cm">/**</span>
-</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="cm"> * @brief 初始化 SysTick，产生 1ms 中断</span>
-</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="cm"> * @param sysclk_hz 系统时钟频率（Hz）</span>
-</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="cm"> * @return 0 成功，-1 失败（重载值超出 24bit 范围）</span>
-</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="cm"> */</span>
-</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="kt">int</span><span class="w"> </span><span class="nf">systick_init</span><span class="p">(</span><span class="kt">uint32_t</span><span class="w"> </span><span class="n">sysclk_hz</span><span class="p">);</span>
-</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>
-</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="cm">/**</span>
-</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="cm"> * @brief 获取当前 tick 计数（毫秒）</span>
-</span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="cm"> */</span>
-</span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a><span class="kt">uint32_t</span><span class="w"> </span><span class="nf">systick_get_ms</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span>
-</span><span id="__span-0-17"><a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a>
-</span><span id="__span-0-18"><a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a><span class="cm">/**</span>
-</span><span id="__span-0-19"><a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a><span class="cm"> * @brief 毫秒阻塞延时</span>
-</span><span id="__span-0-20"><a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a><span class="cm"> */</span>
-</span><span id="__span-0-21"><a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a><span class="kt">void</span><span class="w"> </span><span class="nf">delay_ms</span><span class="p">(</span><span class="kt">uint32_t</span><span class="w"> </span><span class="n">ms</span><span class="p">);</span>
-</span><span id="__span-0-22"><a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a>
-</span><span id="__span-0-23"><a id="__codelineno-0-23" name="__codelineno-0-23" href="#__codelineno-0-23"></a><span class="cm">/**</span>
-</span><span id="__span-0-24"><a id="__codelineno-0-24" name="__codelineno-0-24" href="#__codelineno-0-24"></a><span class="cm"> * @brief 微秒忙等待延时（基于 DWT 计数器，需提前使能）</span>
-</span><span id="__span-0-25"><a id="__codelineno-0-25" name="__codelineno-0-25" href="#__codelineno-0-25"></a><span class="cm"> */</span>
-</span><span id="__span-0-26"><a id="__codelineno-0-26" name="__codelineno-0-26" href="#__codelineno-0-26"></a><span class="kt">void</span><span class="w"> </span><span class="nf">delay_us</span><span class="p">(</span><span class="kt">uint32_t</span><span class="w"> </span><span class="n">us</span><span class="p">);</span>
-</span><span id="__span-0-27"><a id="__codelineno-0-27" name="__codelineno-0-27" href="#__codelineno-0-27"></a>
-</span><span id="__span-0-28"><a id="__codelineno-0-28" name="__codelineno-0-28" href="#__codelineno-0-28"></a><span class="cp">#endif </span><span class="cm">/* SYSTICK_H */</span>
-</span></code></pre></div>
-<h3 id="systickc">systick.c<a class="headerlink" href="#systickc" title="Permanent link">&para;</a></h3>
-<div class="language-c highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;systick.h&quot;</span>
-</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;stm32f4xx.h&quot;</span><span class="c1">   /* 替换为你的 MCU 头文件 */</span>
-</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>
-</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="k">static</span><span class="w"> </span><span class="k">volatile</span><span class="w"> </span><span class="kt">uint32_t</span><span class="w"> </span><span class="n">s_tick_ms</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
-</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>
-</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="kt">int</span><span class="w"> </span><span class="nf">systick_init</span><span class="p">(</span><span class="kt">uint32_t</span><span class="w"> </span><span class="n">sysclk_hz</span><span class="p">)</span>
-</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="p">{</span>
-</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="w">    </span><span class="kt">uint32_t</span><span class="w"> </span><span class="n">reload</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sysclk_hz</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">1000U</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1U</span><span class="p">;</span>
-</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>
-</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="w">    </span><span class="cm">/* 24bit 计数器最大值为 0xFFFFFF */</span>
-</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">reload</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">SysTick_LOAD_RELOAD_Msk</span><span class="p">)</span>
-</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="mi">-1</span><span class="p">;</span>
-</span><span id="__span-1-13"><a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a>
-</span><span id="__span-1-14"><a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a><span class="w">    </span><span class="n">SysTick</span><span class="o">-&gt;</span><span class="n">LOAD</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">reload</span><span class="p">;</span>
-</span><span id="__span-1-15"><a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a><span class="w">    </span><span class="n">SysTick</span><span class="o">-&gt;</span><span class="n">VAL</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w">                            </span><span class="cm">/* 清零当前值 */</span>
-</span><span id="__span-1-16"><a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a><span class="w">    </span><span class="n">SysTick</span><span class="o">-&gt;</span><span class="n">CTRL</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">SysTick_CTRL_CLKSOURCE_Msk</span><span class="w">   </span><span class="cm">/* 使用处理器时钟 */</span>
-</span><span id="__span-1-17"><a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a><span class="w">                  </span><span class="o">|</span><span class="w"> </span><span class="n">SysTick_CTRL_TICKINT_Msk</span><span class="w">      </span><span class="cm">/* 使能中断 */</span>
-</span><span id="__span-1-18"><a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a><span class="w">                  </span><span class="o">|</span><span class="w"> </span><span class="n">SysTick_CTRL_ENABLE_Msk</span><span class="p">;</span><span class="w">      </span><span class="cm">/* 启动计数 */</span>
-</span><span id="__span-1-19"><a id="__codelineno-1-19" name="__codelineno-1-19" href="#__codelineno-1-19"></a>
-</span><span id="__span-1-20"><a id="__codelineno-1-20" name="__codelineno-1-20" href="#__codelineno-1-20"></a><span class="w">    </span><span class="cm">/* 使能 DWT 计数器（用于微秒延时）*/</span>
-</span><span id="__span-1-21"><a id="__codelineno-1-21" name="__codelineno-1-21" href="#__codelineno-1-21"></a><span class="w">    </span><span class="n">CoreDebug</span><span class="o">-&gt;</span><span class="n">DEMCR</span><span class="w"> </span><span class="o">|=</span><span class="w"> </span><span class="n">CoreDebug_DEMCR_TRCENA_Msk</span><span class="p">;</span>
-</span><span id="__span-1-22"><a id="__codelineno-1-22" name="__codelineno-1-22" href="#__codelineno-1-22"></a><span class="w">    </span><span class="n">DWT</span><span class="o">-&gt;</span><span class="n">CYCCNT</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
-</span><span id="__span-1-23"><a id="__codelineno-1-23" name="__codelineno-1-23" href="#__codelineno-1-23"></a><span class="w">    </span><span class="n">DWT</span><span class="o">-&gt;</span><span class="n">CTRL</span><span class="w">  </span><span class="o">|=</span><span class="w"> </span><span class="n">DWT_CTRL_CYCCNTENA_Msk</span><span class="p">;</span>
-</span><span id="__span-1-24"><a id="__codelineno-1-24" name="__codelineno-1-24" href="#__codelineno-1-24"></a>
-</span><span id="__span-1-25"><a id="__codelineno-1-25" name="__codelineno-1-25" href="#__codelineno-1-25"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
-</span><span id="__span-1-26"><a id="__codelineno-1-26" name="__codelineno-1-26" href="#__codelineno-1-26"></a><span class="p">}</span>
-</span><span id="__span-1-27"><a id="__codelineno-1-27" name="__codelineno-1-27" href="#__codelineno-1-27"></a>
-</span><span id="__span-1-28"><a id="__codelineno-1-28" name="__codelineno-1-28" href="#__codelineno-1-28"></a><span class="cm">/* SysTick 中断服务程序 */</span>
-</span><span id="__span-1-29"><a id="__codelineno-1-29" name="__codelineno-1-29" href="#__codelineno-1-29"></a><span class="kt">void</span><span class="w"> </span><span class="nf">SysTick_Handler</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
-</span><span id="__span-1-30"><a id="__codelineno-1-30" name="__codelineno-1-30" href="#__codelineno-1-30"></a><span class="p">{</span>
-</span><span id="__span-1-31"><a id="__codelineno-1-31" name="__codelineno-1-31" href="#__codelineno-1-31"></a><span class="w">    </span><span class="n">s_tick_ms</span><span class="o">++</span><span class="p">;</span>
-</span><span id="__span-1-32"><a id="__codelineno-1-32" name="__codelineno-1-32" href="#__codelineno-1-32"></a><span class="w">    </span><span class="cm">/* 如果使用 FreeRTOS，在此调用 xPortSysTickHandler() */</span>
-</span><span id="__span-1-33"><a id="__codelineno-1-33" name="__codelineno-1-33" href="#__codelineno-1-33"></a><span class="p">}</span>
-</span><span id="__span-1-34"><a id="__codelineno-1-34" name="__codelineno-1-34" href="#__codelineno-1-34"></a>
-</span><span id="__span-1-35"><a id="__codelineno-1-35" name="__codelineno-1-35" href="#__codelineno-1-35"></a><span class="kt">uint32_t</span><span class="w"> </span><span class="nf">systick_get_ms</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
-</span><span id="__span-1-36"><a id="__codelineno-1-36" name="__codelineno-1-36" href="#__codelineno-1-36"></a><span class="p">{</span>
-</span><span id="__span-1-37"><a id="__codelineno-1-37" name="__codelineno-1-37" href="#__codelineno-1-37"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">s_tick_ms</span><span class="p">;</span>
-</span><span id="__span-1-38"><a id="__codelineno-1-38" name="__codelineno-1-38" href="#__codelineno-1-38"></a><span class="p">}</span>
-</span><span id="__span-1-39"><a id="__codelineno-1-39" name="__codelineno-1-39" href="#__codelineno-1-39"></a>
-</span><span id="__span-1-40"><a id="__codelineno-1-40" name="__codelineno-1-40" href="#__codelineno-1-40"></a><span class="kt">void</span><span class="w"> </span><span class="nf">delay_ms</span><span class="p">(</span><span class="kt">uint32_t</span><span class="w"> </span><span class="n">ms</span><span class="p">)</span>
-</span><span id="__span-1-41"><a id="__codelineno-1-41" name="__codelineno-1-41" href="#__codelineno-1-41"></a><span class="p">{</span>
-</span><span id="__span-1-42"><a id="__codelineno-1-42" name="__codelineno-1-42" href="#__codelineno-1-42"></a><span class="w">    </span><span class="kt">uint32_t</span><span class="w"> </span><span class="n">start</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">s_tick_ms</span><span class="p">;</span>
-</span><span id="__span-1-43"><a id="__codelineno-1-43" name="__codelineno-1-43" href="#__codelineno-1-43"></a><span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">((</span><span class="n">s_tick_ms</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">start</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">ms</span><span class="p">)</span>
-</span><span id="__span-1-44"><a id="__codelineno-1-44" name="__codelineno-1-44" href="#__codelineno-1-44"></a><span class="w">        </span><span class="n">__NOP</span><span class="p">();</span>
-</span><span id="__span-1-45"><a id="__codelineno-1-45" name="__codelineno-1-45" href="#__codelineno-1-45"></a><span class="p">}</span>
-</span><span id="__span-1-46"><a id="__codelineno-1-46" name="__codelineno-1-46" href="#__codelineno-1-46"></a>
-</span><span id="__span-1-47"><a id="__codelineno-1-47" name="__codelineno-1-47" href="#__codelineno-1-47"></a><span class="kt">void</span><span class="w"> </span><span class="nf">delay_us</span><span class="p">(</span><span class="kt">uint32_t</span><span class="w"> </span><span class="n">us</span><span class="p">)</span>
-</span><span id="__span-1-48"><a id="__codelineno-1-48" name="__codelineno-1-48" href="#__codelineno-1-48"></a><span class="p">{</span>
-</span><span id="__span-1-49"><a id="__codelineno-1-49" name="__codelineno-1-49" href="#__codelineno-1-49"></a><span class="w">    </span><span class="kt">uint32_t</span><span class="w"> </span><span class="n">start</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">DWT</span><span class="o">-&gt;</span><span class="n">CYCCNT</span><span class="p">;</span>
-</span><span id="__span-1-50"><a id="__codelineno-1-50" name="__codelineno-1-50" href="#__codelineno-1-50"></a><span class="w">    </span><span class="kt">uint32_t</span><span class="w"> </span><span class="n">cycles</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">us</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="n">SystemCoreClock</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">1000000U</span><span class="p">);</span>
-</span><span id="__span-1-51"><a id="__codelineno-1-51" name="__codelineno-1-51" href="#__codelineno-1-51"></a><span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">((</span><span class="n">DWT</span><span class="o">-&gt;</span><span class="n">CYCCNT</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">start</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">cycles</span><span class="p">)</span>
-</span><span id="__span-1-52"><a id="__codelineno-1-52" name="__codelineno-1-52" href="#__codelineno-1-52"></a><span class="w">        </span><span class="n">__NOP</span><span class="p">();</span>
-</span><span id="__span-1-53"><a id="__codelineno-1-53" name="__codelineno-1-53" href="#__codelineno-1-53"></a><span class="p">}</span>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1"># 实际场景：查看内核日志</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>less<span class="w"> </span>/var/log/syslog
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="c1"># 输入 /error 搜索错误信息</span>
 </span></code></pre></div>
 <hr />
-<h2 id="_6">测试例程<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
-<div class="language-c highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;systick.h&quot;</span>
-</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;gpio.h&quot;</span><span class="c1">   /* 你的 GPIO 驱动 */</span>
-</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>
-</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
-</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="p">{</span>
-</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="w">    </span><span class="cm">/* 初始化系统时钟（假设 168MHz）*/</span>
-</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="w">    </span><span class="n">SystemInit</span><span class="p">();</span>
-</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="w">    </span><span class="n">systick_init</span><span class="p">(</span><span class="mi">168000000U</span><span class="p">);</span>
-</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>
-</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="w">    </span><span class="cm">/* LED GPIO 初始化 */</span>
-</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="w">    </span><span class="n">led_init</span><span class="p">();</span>
-</span><span id="__span-2-12"><a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a>
-</span><span id="__span-2-13"><a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a><span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-2-14"><a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a><span class="w">        </span><span class="n">led_toggle</span><span class="p">();</span>
-</span><span id="__span-2-15"><a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a><span class="w">        </span><span class="n">delay_ms</span><span class="p">(</span><span class="mi">500</span><span class="p">);</span><span class="w">   </span><span class="cm">/* 500ms 闪烁 */</span>
-</span><span id="__span-2-16"><a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a><span class="w">    </span><span class="p">}</span>
-</span><span id="__span-2-17"><a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a><span class="p">}</span>
+<h2 id="head-tail-">head / tail - 查看开头 / 结尾<a class="headerlink" href="#head-tail-" title="Permanent link">&para;</a></h2>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1"># head - 查看文件开头</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>head<span class="w"> </span>file.txt<span class="w">                   </span><span class="c1"># 默认显示前 10 行</span>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>head<span class="w"> </span>-n<span class="w"> </span><span class="m">20</span><span class="w"> </span>file.txt<span class="w">             </span><span class="c1"># 显示前 20 行</span>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>head<span class="w"> </span>-c<span class="w"> </span><span class="m">100</span><span class="w"> </span>file.txt<span class="w">            </span><span class="c1"># 显示前 100 个字节</span>
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="c1"># tail - 查看文件结尾</span>
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>tail<span class="w"> </span>file.txt<span class="w">                   </span><span class="c1"># 默认显示后 10 行</span>
+</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>tail<span class="w"> </span>-n<span class="w"> </span><span class="m">20</span><span class="w"> </span>file.txt<span class="w">             </span><span class="c1"># 显示后 20 行</span>
+</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>
+</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="c1"># ⭐ tail -f：实时跟踪文件变化（调试神器）</span>
+</span><span id="__span-3-11"><a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>tail<span class="w"> </span>-f<span class="w"> </span>/var/log/syslog<span class="w">         </span><span class="c1"># 实时查看系统日志</span>
+</span><span id="__span-3-12"><a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a>tail<span class="w"> </span>-f<span class="w"> </span>/var/log/kern.log<span class="w">       </span><span class="c1"># 实时查看内核日志（驱动调试必用）</span>
+</span><span id="__span-3-13"><a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a><span class="c1"># 按 Ctrl+C 停止跟踪</span>
 </span></code></pre></div>
-<hr />
-<h2 id="_7">常见问题<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h2>
-<div class="admonition warning">
-<p class="admonition-title">FreeRTOS 冲突</p>
-<p>当使用 FreeRTOS 时，SysTick 由 RTOS 接管，不要重复初始化。
-在 <code>FreeRTOSConfig.h</code> 中配置 <code>configSYSTICK_CLOCK_HZ</code>。</p>
-</div>
 <div class="admonition tip">
-<p class="admonition-title">更高精度延时</p>
-<p><code>delay_us()</code> 基于 DWT 硬件计数器，比软件循环更准确，但需要确保 DWT 已使能（部分 MCU 需要解锁调试访问权限）。</p>
+<p class="admonition-title">嵌入式调试必会</p>
+<p><code>tail -f</code> + <code>dmesg</code> 是调试内核驱动的标配：
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="c1"># 终端1：实时查看内核消息</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>tail<span class="w"> </span>-f<span class="w"> </span>/var/log/kern.log
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="c1"># 终端2：加载你的驱动</span>
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>sudo<span class="w"> </span>insmod<span class="w"> </span>mydriver.ko
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="c1"># 此时终端1会实时显示驱动的 printk 输出</span>
+</span></code></pre></div></p>
+</div>
+<hr />
+<h2 id="grep-">grep - 文本搜索<a class="headerlink" href="#grep-" title="Permanent link">&para;</a></h2>
+<p><code>grep</code> 是 Linux 中最常用的搜索工具，<strong>必须熟练掌握</strong>。</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="c1"># 基本用法</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>grep<span class="w"> </span><span class="s2">&quot;error&quot;</span><span class="w"> </span>logfile.txt<span class="w">         </span><span class="c1"># 在文件中搜索包含 error 的行</span>
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>grep<span class="w"> </span><span class="s2">&quot;main&quot;</span><span class="w"> </span>*.c<span class="w">                  </span><span class="c1"># 在所有 .c 文件中搜索 main</span>
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="c1"># 常用选项</span>
+</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>grep<span class="w"> </span>-i<span class="w"> </span><span class="s2">&quot;error&quot;</span><span class="w"> </span>log.txt<span class="w">          </span><span class="c1"># 忽略大小写</span>
+</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>grep<span class="w"> </span>-n<span class="w"> </span><span class="s2">&quot;error&quot;</span><span class="w"> </span>log.txt<span class="w">          </span><span class="c1"># 显示匹配的行号</span>
+</span><span id="__span-5-8"><a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>grep<span class="w"> </span>-r<span class="w"> </span><span class="s2">&quot;TODO&quot;</span><span class="w"> </span>.<span class="w">                 </span><span class="c1"># 递归搜索当前目录及子目录</span>
+</span><span id="__span-5-9"><a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a>grep<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;error&quot;</span><span class="w"> </span>log.txt<span class="w">          </span><span class="c1"># 只显示匹配的行数</span>
+</span><span id="__span-5-10"><a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a>grep<span class="w"> </span>-v<span class="w"> </span><span class="s2">&quot;debug&quot;</span><span class="w"> </span>log.txt<span class="w">          </span><span class="c1"># 反向匹配（排除包含 debug 的行）</span>
+</span><span id="__span-5-11"><a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a>grep<span class="w"> </span>-l<span class="w"> </span><span class="s2">&quot;main&quot;</span><span class="w"> </span>*.c<span class="w">               </span><span class="c1"># 只显示包含匹配的文件名</span>
+</span><span id="__span-5-12"><a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a>grep<span class="w"> </span>-w<span class="w"> </span><span class="s2">&quot;int&quot;</span><span class="w"> </span>main.c<span class="w">             </span><span class="c1"># 全词匹配（不会匹配 printf 中的 int）</span>
+</span><span id="__span-5-13"><a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a>grep<span class="w"> </span>-A<span class="w"> </span><span class="m">3</span><span class="w"> </span><span class="s2">&quot;error&quot;</span><span class="w"> </span>log.txt<span class="w">        </span><span class="c1"># 显示匹配行及后面 3 行</span>
+</span><span id="__span-5-14"><a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a>grep<span class="w"> </span>-B<span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="s2">&quot;error&quot;</span><span class="w"> </span>log.txt<span class="w">        </span><span class="c1"># 显示匹配行及前面 2 行</span>
+</span><span id="__span-5-15"><a id="__codelineno-5-15" name="__codelineno-5-15" href="#__codelineno-5-15"></a>grep<span class="w"> </span>-C<span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="s2">&quot;error&quot;</span><span class="w"> </span>log.txt<span class="w">        </span><span class="c1"># 显示匹配行及前后各 2 行</span>
+</span></code></pre></div>
+<h3 id="_1">正则表达式<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>grep<span class="w"> </span><span class="s2">&quot;^#include&quot;</span><span class="w"> </span>main.c<span class="w">          </span><span class="c1"># 以 #include 开头的行</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>grep<span class="w"> </span><span class="s2">&quot;};</span>$<span class="s2">&quot;</span><span class="w"> </span>main.c<span class="w">                </span><span class="c1"># 以 }; 结尾的行</span>
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>grep<span class="w"> </span><span class="s2">&quot;err[0-9]&quot;</span><span class="w"> </span>log.txt<span class="w">          </span><span class="c1"># err 后跟数字</span>
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>grep<span class="w"> </span>-E<span class="w"> </span><span class="s2">&quot;error|warning&quot;</span><span class="w"> </span>log.txt<span class="w">  </span><span class="c1"># 匹配 error 或 warning</span>
+</span></code></pre></div>
+<h3 id="_2">嵌入式常用搜索<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="c1"># 在内核源码中查找函数定义</span>
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>grep<span class="w"> </span>-rn<span class="w"> </span><span class="s2">&quot;gpio_request&quot;</span><span class="w"> </span>/usr/src/linux/drivers/
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="c1"># 查看设备树中的节点</span>
+</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>grep<span class="w"> </span>-r<span class="w"> </span><span class="s2">&quot;compatible&quot;</span><span class="w"> </span>/boot/dtbs/
+</span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>
+</span><span id="__span-7-7"><a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a><span class="c1"># 在 dmesg 中筛选特定驱动信息</span>
+</span><span id="__span-7-8"><a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a>dmesg<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span><span class="s2">&quot;mydriver&quot;</span>
+</span><span id="__span-7-9"><a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a>dmesg<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>-i<span class="w"> </span><span class="s2">&quot;usb&quot;</span>
+</span></code></pre></div>
+<hr />
+<h2 id="wc-">wc - 统计行数 / 字数<a class="headerlink" href="#wc-" title="Permanent link">&para;</a></h2>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>wc<span class="w"> </span>file.txt<span class="w">           </span><span class="c1"># 行数 单词数 字节数</span>
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>wc<span class="w"> </span>-l<span class="w"> </span>file.txt<span class="w">        </span><span class="c1"># 只显示行数</span>
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>wc<span class="w"> </span>-w<span class="w"> </span>file.txt<span class="w">        </span><span class="c1"># 只显示单词数</span>
+</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>wc<span class="w"> </span>-c<span class="w"> </span>file.txt<span class="w">        </span><span class="c1"># 只显示字节数</span>
+</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>
+</span><span id="__span-8-6"><a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a><span class="c1"># 实用场景</span>
+</span><span id="__span-8-7"><a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a>find<span class="w"> </span>.<span class="w"> </span>-name<span class="w"> </span><span class="s2">&quot;*.c&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>wc<span class="w"> </span>-l<span class="w">       </span><span class="c1"># 统计有多少个 .c 文件</span>
+</span><span id="__span-8-8"><a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a>cat<span class="w"> </span>main.c<span class="w"> </span><span class="p">|</span><span class="w"> </span>wc<span class="w"> </span>-l<span class="w">               </span><span class="c1"># 看代码有多少行</span>
+</span></code></pre></div>
+<hr />
+<h2 id="sort-">sort - 排序<a class="headerlink" href="#sort-" title="Permanent link">&para;</a></h2>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>sort<span class="w"> </span>file.txt<span class="w">                    </span><span class="c1"># 按字母排序</span>
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>sort<span class="w"> </span>-n<span class="w"> </span>file.txt<span class="w">                 </span><span class="c1"># 按数字排序</span>
+</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>sort<span class="w"> </span>-r<span class="w"> </span>file.txt<span class="w">                 </span><span class="c1"># 逆序排序</span>
+</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>sort<span class="w"> </span>-u<span class="w"> </span>file.txt<span class="w">                 </span><span class="c1"># 排序并去重</span>
+</span><span id="__span-9-5"><a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a>sort<span class="w"> </span>-t:<span class="w"> </span>-k3<span class="w"> </span>-n<span class="w"> </span>/etc/passwd<span class="w">     </span><span class="c1"># 按第3列（UID）数字排序</span>
+</span></code></pre></div>
+<hr />
+<h2 id="diff-">diff - 比较文件差异<a class="headerlink" href="#diff-" title="Permanent link">&para;</a></h2>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>diff<span class="w"> </span>file1.c<span class="w"> </span>file2.c<span class="w">             </span><span class="c1"># 比较两个文件</span>
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>diff<span class="w"> </span>-u<span class="w"> </span>file1.c<span class="w"> </span>file2.c<span class="w">          </span><span class="c1"># 统一格式输出（更易读）</span>
+</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>diff<span class="w"> </span>-r<span class="w"> </span>dir1/<span class="w"> </span>dir2/<span class="w">              </span><span class="c1"># 比较两个目录</span>
+</span></code></pre></div>
+<hr />
+<h2 id="nano-">nano - 最简单的文本编辑器<a class="headerlink" href="#nano-" title="Permanent link">&para;</a></h2>
+<p>如果你是新手，先用 <code>nano</code>，足够日常编辑使用。</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>nano<span class="w"> </span>file.txt<span class="w">                    </span><span class="c1"># 打开/创建文件</span>
+</span></code></pre></div>
+<p><strong>nano 常用操作（底部有提示，^ 表示 Ctrl）：</strong></p>
+<table>
+<thead>
+<tr>
+<th>快捷键</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Ctrl + O</code></td>
+<td>保存文件</td>
+</tr>
+<tr>
+<td><code>Ctrl + X</code></td>
+<td>退出</td>
+</tr>
+<tr>
+<td><code>Ctrl + K</code></td>
+<td>剪切一行</td>
+</tr>
+<tr>
+<td><code>Ctrl + U</code></td>
+<td>粘贴</td>
+</tr>
+<tr>
+<td><code>Ctrl + W</code></td>
+<td>搜索</td>
+</tr>
+<tr>
+<td><code>Ctrl + G</code></td>
+<td>帮助</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="vivim-">vi/vim - 专业文本编辑器<a class="headerlink" href="#vivim-" title="Permanent link">&para;</a></h2>
+<p><code>vi</code> 是 Linux 自带的编辑器，所有 Linux 系统都有。虽然学习曲线陡峭，但嵌入式开发中<strong>必须会用</strong>（因为很多嵌入式系统只有 vi）。</p>
+<h3 id="vi">vi 的三种模式<a class="headerlink" href="#vi" title="Permanent link">&para;</a></h3>
+<pre class="mermaid"><code>graph LR
+    Normal["普通模式&lt;br&gt;（移动光标、删除）"] --&gt;|按 i/a/o| Insert["插入模式&lt;br&gt;（输入文字）"]
+    Insert --&gt;|按 Esc| Normal
+    Normal --&gt;|按 :| Command["命令模式&lt;br&gt;（保存、退出）"]
+    Command --&gt;|按 Esc 或回车| Normal</code></pre>
+<h3 id="_3">最小使用流程<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="c1"># 1. 打开文件</span>
+</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>vi<span class="w"> </span>file.txt
+</span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a>
+</span><span id="__span-12-4"><a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a><span class="c1"># 2. 按 i 进入插入模式（左下角显示 -- INSERT --）</span>
+</span><span id="__span-12-5"><a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a><span class="c1">#    现在可以正常打字了</span>
+</span><span id="__span-12-6"><a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a>
+</span><span id="__span-12-7"><a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a><span class="c1"># 3. 编辑完成后按 Esc 回到普通模式</span>
+</span><span id="__span-12-8"><a id="__codelineno-12-8" name="__codelineno-12-8" href="#__codelineno-12-8"></a>
+</span><span id="__span-12-9"><a id="__codelineno-12-9" name="__codelineno-12-9" href="#__codelineno-12-9"></a><span class="c1"># 4. 输入 :wq 回车（保存并退出）</span>
+</span><span id="__span-12-10"><a id="__codelineno-12-10" name="__codelineno-12-10" href="#__codelineno-12-10"></a><span class="c1">#    或 :q!（不保存退出）</span>
+</span></code></pre></div>
+<h3 id="_4">常用操作速查<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>模式</th>
+<th>按键</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>普通</td>
+<td><code>i</code></td>
+<td>在光标前插入</td>
+</tr>
+<tr>
+<td>普通</td>
+<td><code>a</code></td>
+<td>在光标后插入</td>
+</tr>
+<tr>
+<td>普通</td>
+<td><code>o</code></td>
+<td>在下方新建一行并插入</td>
+</tr>
+<tr>
+<td>普通</td>
+<td><code>dd</code></td>
+<td>删除一行</td>
+</tr>
+<tr>
+<td>普通</td>
+<td><code>yy</code></td>
+<td>复制一行</td>
+</tr>
+<tr>
+<td>普通</td>
+<td><code>p</code></td>
+<td>粘贴</td>
+</tr>
+<tr>
+<td>普通</td>
+<td><code>u</code></td>
+<td>撤销</td>
+</tr>
+<tr>
+<td>普通</td>
+<td><code>/keyword</code></td>
+<td>搜索</td>
+</tr>
+<tr>
+<td>普通</td>
+<td><code>gg</code></td>
+<td>跳到文件开头</td>
+</tr>
+<tr>
+<td>普通</td>
+<td><code>G</code></td>
+<td>跳到文件末尾</td>
+</tr>
+<tr>
+<td>命令</td>
+<td><code>:w</code></td>
+<td>保存</td>
+</tr>
+<tr>
+<td>命令</td>
+<td><code>:q</code></td>
+<td>退出</td>
+</tr>
+<tr>
+<td>命令</td>
+<td><code>:wq</code></td>
+<td>保存并退出</td>
+</tr>
+<tr>
+<td>命令</td>
+<td><code>:q!</code></td>
+<td>强制退出（不保存）</td>
+</tr>
+<tr>
+<td>命令</td>
+<td><code>:set number</code></td>
+<td>显示行号</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition tip">
+<p class="admonition-title">不会用 vi 怎么退出？</p>
+<p>如果你不小心进了 vi 不知道怎么退出：按 <code>Esc</code>，然后输入 <code>:q!</code> 回车。</p>
+</div>
+<hr />
+<h2 id="dmesg-">dmesg - 查看内核消息<a class="headerlink" href="#dmesg-" title="Permanent link">&para;</a></h2>
+<p>这是嵌入式开发的<strong>核心调试工具</strong>。</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>dmesg<span class="w">                            </span><span class="c1"># 显示所有内核消息</span>
+</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>dmesg<span class="w"> </span><span class="p">|</span><span class="w"> </span>tail<span class="w"> </span>-20<span class="w">                 </span><span class="c1"># 显示最后 20 条</span>
+</span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a>dmesg<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span><span class="s2">&quot;error&quot;</span><span class="w">             </span><span class="c1"># 搜索错误信息</span>
+</span><span id="__span-13-4"><a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a>dmesg<span class="w"> </span>-w<span class="w">                         </span><span class="c1"># 实时显示新内核消息（类似 tail -f）</span>
+</span><span id="__span-13-5"><a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a>dmesg<span class="w"> </span>-c<span class="w">                         </span><span class="c1"># 显示并清空缓冲区（需要 sudo）</span>
+</span><span id="__span-13-6"><a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a>dmesg<span class="w"> </span>-T<span class="w">                         </span><span class="c1"># 显示人类可读的时间戳</span>
+</span></code></pre></div>
+<hr />
+<h2 id="_5">练习<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
+<div class="admonition question">
+<p class="admonition-title">动手试试</p>
+<ol>
+<li>用 <code>cat -n /etc/passwd</code> 查看系统用户文件（带行号）</li>
+<li>用 <code>less /etc/services</code> 浏览系统服务文件，用 <code>/http</code> 搜索 http</li>
+<li>用 <code>grep -rn "root" /etc/passwd</code> 找到 root 用户信息</li>
+<li>用 <code>nano</code> 创建一个 <code>hello.c</code> 文件，写入 Hello World 程序</li>
+<li>用 <code>wc -l hello.c</code> 看看写了几行</li>
+<li>用 <code>dmesg | tail -10</code> 查看最近的内核消息</li>
+</ol>
 </div>
 
 
@@ -2505,7 +2967,7 @@
     <span class="md-icon" title="最后更新">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026年5月1日 17:36:20 UTC">2026年5月1日</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026年5月1日 18:25:40 UTC">2026年5月1日</span>
   </span>
 
     

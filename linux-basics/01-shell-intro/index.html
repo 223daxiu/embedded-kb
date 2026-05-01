@@ -12,25 +12,31 @@
         <meta name="author" content="Your Name">
       
       
+        <link rel="canonical" href="https://223daxiu.github.io/embedded-kb/linux-basics/01-shell-intro/">
       
+      
+        <link rel="prev" href="../">
+      
+      
+        <link rel="next" href="../02-file-directory/">
       
       
         
       
       
-      <link rel="icon" href="/embedded-kb/assets/images/favicon.png">
+      <link rel="icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
     
     
       
-        <title>嵌入式开发知识库</title>
+        <title>01 - Shell 入门 - 嵌入式开发知识库</title>
       
     
     
-      <link rel="stylesheet" href="/embedded-kb/assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
       
         
-        <link rel="stylesheet" href="/embedded-kb/assets/stylesheets/palette.ab4e12ef.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
       
       
 
@@ -49,7 +55,7 @@
       
     
     
-    <script>__md_scope=new URL("/embedded-kb/",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -73,6 +79,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#01-shell" class="md-skip">
+          跳转至
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -83,7 +94,7 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="页眉">
-    <a href="/embedded-kb/." title="嵌入式开发知识库" class="md-header__button md-logo" aria-label="嵌入式开发知识库" data-md-component="logo">
+    <a href="../.." title="嵌入式开发知识库" class="md-header__button md-logo" aria-label="嵌入式开发知识库" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -103,7 +114,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              
+              01 - Shell 入门
             
           </span>
         </div>
@@ -216,7 +227,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="/embedded-kb/." class="md-tabs__link">
+      <a href="../.." class="md-tabs__link">
         
   
   
@@ -233,11 +244,13 @@
   
   
   
+    
+  
   
     
     
-      <li class="md-tabs__item">
-        <a href="/embedded-kb/linux-basics/" class="md-tabs__link">
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../" class="md-tabs__link">
           
   
   
@@ -259,7 +272,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="/embedded-kb/linux-driver/" class="md-tabs__link">
+        <a href="../../linux-driver/" class="md-tabs__link">
           
   
   
@@ -281,7 +294,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="/embedded-kb/mcu/" class="md-tabs__link">
+        <a href="../../mcu/" class="md-tabs__link">
           
   
   
@@ -303,7 +316,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="/embedded-kb/c-language/" class="md-tabs__link">
+        <a href="../../c-language/" class="md-tabs__link">
           
   
   
@@ -325,7 +338,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="/embedded-kb/cpp-embedded/" class="md-tabs__link">
+        <a href="../../cpp-embedded/" class="md-tabs__link">
           
   
   
@@ -361,7 +374,7 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="/embedded-kb/." title="嵌入式开发知识库" class="md-nav__button md-logo" aria-label="嵌入式开发知识库" data-md-component="logo">
+    <a href="../.." title="嵌入式开发知识库" class="md-nav__button md-logo" aria-label="嵌入式开发知识库" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -391,7 +404,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/embedded-kb/." class="md-nav__link">
+      <a href="../.." class="md-nav__link">
         
   
   
@@ -415,6 +428,8 @@
       
   
   
+    
+  
   
   
     
@@ -448,20 +463,23 @@
     
     
       
+        
+        
+      
       
         
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="/embedded-kb/linux-basics/" class="md-nav__link ">
+            <a href="../" class="md-nav__link ">
               
   
   
@@ -479,13 +497,13 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="0">
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_2">
             <span class="md-nav__icon md-icon"></span>
             
@@ -502,10 +520,37 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="/embedded-kb/linux-basics/01-shell-intro/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    01 - Shell 入门
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -521,6 +566,220 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#shell" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        什么是终端和 Shell？
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="什么是终端和 Shell？">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        三个概念
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#shell_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        常见的 Shell
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        打开终端
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="打开终端">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ubuntudebian" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        在 Ubuntu/Debian 桌面环境
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ssh" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        通过 SSH 远程连接
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#windows" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Windows 用户
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        命令提示符
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        你的第一个命令
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        必学技巧
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="必学技巧">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-tab" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Tab 自动补全
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. 历史命令
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. 快捷键
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. 获取帮助
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        命令的基本格式
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        练习
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -533,7 +792,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/embedded-kb/linux-basics/02-file-directory/" class="md-nav__link">
+      <a href="../02-file-directory/" class="md-nav__link">
         
   
   
@@ -561,7 +820,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/embedded-kb/linux-basics/03-file-content/" class="md-nav__link">
+      <a href="../03-file-content/" class="md-nav__link">
         
   
   
@@ -589,7 +848,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/embedded-kb/linux-basics/04-user-permission/" class="md-nav__link">
+      <a href="../04-user-permission/" class="md-nav__link">
         
   
   
@@ -617,7 +876,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/embedded-kb/linux-basics/05-process/" class="md-nav__link">
+      <a href="../05-process/" class="md-nav__link">
         
   
   
@@ -645,7 +904,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/embedded-kb/linux-basics/06-network/" class="md-nav__link">
+      <a href="../06-network/" class="md-nav__link">
         
   
   
@@ -673,7 +932,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/embedded-kb/linux-basics/07-archive/" class="md-nav__link">
+      <a href="../07-archive/" class="md-nav__link">
         
   
   
@@ -701,7 +960,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/embedded-kb/linux-basics/08-package/" class="md-nav__link">
+      <a href="../08-package/" class="md-nav__link">
         
   
   
@@ -729,7 +988,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/embedded-kb/linux-basics/09-redirect-pipe/" class="md-nav__link">
+      <a href="../09-redirect-pipe/" class="md-nav__link">
         
   
   
@@ -757,7 +1016,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/embedded-kb/linux-basics/10-shell-script/" class="md-nav__link">
+      <a href="../10-shell-script/" class="md-nav__link">
         
   
   
@@ -821,7 +1080,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="/embedded-kb/linux-driver/" class="md-nav__link ">
+            <a href="../../linux-driver/" class="md-nav__link ">
               
   
   
@@ -892,7 +1151,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="/embedded-kb/linux-driver/01-char-device/" class="md-nav__link ">
+            <a href="../../linux-driver/01-char-device/" class="md-nav__link ">
               
   
   
@@ -936,7 +1195,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/embedded-kb/linux-driver/02-platform-driver/README.md" class="md-nav__link">
+      <a href="../../linux-driver/02-platform-driver/README.md" class="md-nav__link">
         
   
   
@@ -964,7 +1223,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/embedded-kb/linux-driver/03-device-tree/README.md" class="md-nav__link">
+      <a href="../../linux-driver/03-device-tree/README.md" class="md-nav__link">
         
   
   
@@ -1062,7 +1321,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/embedded-kb/linux-driver/04-gpio-driver/README.md" class="md-nav__link">
+      <a href="../../linux-driver/04-gpio-driver/README.md" class="md-nav__link">
         
   
   
@@ -1090,7 +1349,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/embedded-kb/linux-driver/05-i2c-driver/README.md" class="md-nav__link">
+      <a href="../../linux-driver/05-i2c-driver/README.md" class="md-nav__link">
         
   
   
@@ -1118,7 +1377,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/embedded-kb/linux-driver/06-spi-driver/README.md" class="md-nav__link">
+      <a href="../../linux-driver/06-spi-driver/README.md" class="md-nav__link">
         
   
   
@@ -1146,7 +1405,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/embedded-kb/linux-driver/07-uart-driver/README.md" class="md-nav__link">
+      <a href="../../linux-driver/07-uart-driver/README.md" class="md-nav__link">
         
   
   
@@ -1240,7 +1499,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/embedded-kb/linux-driver/08-dma/README.md" class="md-nav__link">
+      <a href="../../linux-driver/08-dma/README.md" class="md-nav__link">
         
   
   
@@ -1268,7 +1527,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/embedded-kb/linux-driver/09-interrupt/README.md" class="md-nav__link">
+      <a href="../../linux-driver/09-interrupt/README.md" class="md-nav__link">
         
   
   
@@ -1340,7 +1599,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="/embedded-kb/mcu/" class="md-nav__link ">
+            <a href="../../mcu/" class="md-nav__link ">
               
   
   
@@ -1411,7 +1670,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="/embedded-kb/mcu/03-systick/" class="md-nav__link ">
+            <a href="../../mcu/03-systick/" class="md-nav__link ">
               
   
   
@@ -1453,7 +1712,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/embedded-kb/mcu/01-startup/README.md" class="md-nav__link">
+      <a href="../../mcu/01-startup/README.md" class="md-nav__link">
         
   
   
@@ -1481,7 +1740,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/embedded-kb/mcu/02-nvic/README.md" class="md-nav__link">
+      <a href="../../mcu/02-nvic/README.md" class="md-nav__link">
         
   
   
@@ -1579,7 +1838,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/embedded-kb/mcu/04-gpio/README.md" class="md-nav__link">
+      <a href="../../mcu/04-gpio/README.md" class="md-nav__link">
         
   
   
@@ -1607,7 +1866,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/embedded-kb/mcu/05-spi/README.md" class="md-nav__link">
+      <a href="../../mcu/05-spi/README.md" class="md-nav__link">
         
   
   
@@ -1635,7 +1894,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/embedded-kb/mcu/06-i2c/README.md" class="md-nav__link">
+      <a href="../../mcu/06-i2c/README.md" class="md-nav__link">
         
   
   
@@ -1729,7 +1988,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/embedded-kb/mcu/07-freertos/README.md" class="md-nav__link">
+      <a href="../../mcu/07-freertos/README.md" class="md-nav__link">
         
   
   
@@ -1757,7 +2016,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/embedded-kb/mcu/08-rtos-comm/README.md" class="md-nav__link">
+      <a href="../../mcu/08-rtos-comm/README.md" class="md-nav__link">
         
   
   
@@ -1831,7 +2090,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="/embedded-kb/c-language/" class="md-nav__link ">
+            <a href="../../c-language/" class="md-nav__link ">
               
   
   
@@ -1875,7 +2134,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/embedded-kb/c-language/01-pointer-memory/README.md" class="md-nav__link">
+      <a href="../../c-language/01-pointer-memory/README.md" class="md-nav__link">
         
   
   
@@ -1903,7 +2162,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/embedded-kb/c-language/02-state-machine/README.md" class="md-nav__link">
+      <a href="../../c-language/02-state-machine/README.md" class="md-nav__link">
         
   
   
@@ -1931,7 +2190,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/embedded-kb/c-language/03-ring-buffer/README.md" class="md-nav__link">
+      <a href="../../c-language/03-ring-buffer/README.md" class="md-nav__link">
         
   
   
@@ -1959,7 +2218,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/embedded-kb/c-language/04-bit-operations/README.md" class="md-nav__link">
+      <a href="../../c-language/04-bit-operations/README.md" class="md-nav__link">
         
   
   
@@ -2021,7 +2280,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="/embedded-kb/cpp-embedded/" class="md-nav__link ">
+            <a href="../../cpp-embedded/" class="md-nav__link ">
               
   
   
@@ -2065,7 +2324,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/embedded-kb/cpp-embedded/01-hal-template/README.md" class="md-nav__link">
+      <a href="../../cpp-embedded/01-hal-template/README.md" class="md-nav__link">
         
   
   
@@ -2093,7 +2352,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/embedded-kb/cpp-embedded/02-raii/README.md" class="md-nav__link">
+      <a href="../../cpp-embedded/02-raii/README.md" class="md-nav__link">
         
   
   
@@ -2138,6 +2397,210 @@
   
   
   
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#shell" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        什么是终端和 Shell？
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="什么是终端和 Shell？">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        三个概念
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#shell_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        常见的 Shell
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        打开终端
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="打开终端">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ubuntudebian" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        在 Ubuntu/Debian 桌面环境
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ssh" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        通过 SSH 远程连接
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#windows" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Windows 用户
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        命令提示符
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        你的第一个命令
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        必学技巧
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="必学技巧">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-tab" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Tab 自动补全
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. 历史命令
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. 快捷键
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. 获取帮助
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        命令的基本格式
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        练习
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
   
 </nav>
                   </div>
@@ -2150,8 +2613,342 @@
               
               <article class="md-content__inner md-typeset">
                 
-  <h1>404 - Not found</h1>
+                  
 
+
+  
+    <a href="https://github.com/223daxiu/embedded-kb/edit/main/docs/linux-basics/01-shell-intro/README.md" title="编辑此页" class="md-content__button md-icon" rel="edit">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+    </a>
+  
+  
+
+
+<h1 id="01-shell">01 - Shell 是什么<a class="headerlink" href="#01-shell" title="Permanent link">&para;</a></h1>
+<h2 id="shell">什么是终端和 Shell？<a class="headerlink" href="#shell" title="Permanent link">&para;</a></h2>
+<p>你可能习惯了用鼠标点击图标来操作电脑。但在 Linux 的世界里，大部分工作是通过<strong>输入文字命令</strong>来完成的。</p>
+<h3 id="_1">三个概念<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>概念</th>
+<th>通俗解释</th>
+<th>类比</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>终端（Terminal）</strong></td>
+<td>你输入命令的那个黑色窗口</td>
+<td>就像微信的聊天窗口</td>
+</tr>
+<tr>
+<td><strong>Shell</strong></td>
+<td>理解你命令的"翻译官"程序</td>
+<td>就像微信的输入法</td>
+</tr>
+<tr>
+<td><strong>命令（Command）</strong></td>
+<td>你输入的具体指令</td>
+<td>就像你发的每条消息</td>
+</tr>
+</tbody>
+</table>
+<pre class="mermaid"><code>graph LR
+    你 --&gt;|输入命令| Terminal["终端窗口"]
+    Terminal --&gt;|传给| Shell["Shell 程序&lt;br&gt;(bash/zsh)"]
+    Shell --&gt;|执行| Kernel["Linux 内核"]
+    Kernel --&gt;|返回结果| Shell
+    Shell --&gt;|显示结果| Terminal
+    Terminal --&gt;|你看到输出| 你</code></pre>
+<h3 id="shell_1">常见的 Shell<a class="headerlink" href="#shell_1" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Shell</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>bash</strong></td>
+<td>最常用的 Shell（大多数 Linux 默认）</td>
+</tr>
+<tr>
+<td><strong>zsh</strong></td>
+<td>功能更强（macOS 默认）</td>
+</tr>
+<tr>
+<td><strong>sh</strong></td>
+<td>最原始的 Shell</td>
+</tr>
+</tbody>
+</table>
+<p>查看你当前使用的 Shell：</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nb">echo</span><span class="w"> </span><span class="nv">$SHELL</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="c1"># 输出示例：/bin/bash</span>
+</span></code></pre></div>
+<hr />
+<h2 id="_2">打开终端<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<h3 id="ubuntudebian">在 Ubuntu/Debian 桌面环境<a class="headerlink" href="#ubuntudebian" title="Permanent link">&para;</a></h3>
+<ul>
+<li>按 <code>Ctrl + Alt + T</code> 打开终端</li>
+</ul>
+<h3 id="ssh">通过 SSH 远程连接<a class="headerlink" href="#ssh" title="Permanent link">&para;</a></h3>
+<p>如果你的 Linux 在开发板或云服务器上：</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>ssh<span class="w"> </span>用户名@IP地址
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="c1"># 例如</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>ssh<span class="w"> </span>root@192.168.1.100
+</span></code></pre></div>
+<h3 id="windows">Windows 用户<a class="headerlink" href="#windows" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>推荐</strong>：安装 <a href="https://mobaxterm.mobatek.net/">MobaXterm</a> 或 <a href="https://putty.org/">PuTTY</a></li>
+<li>或者使用 WSL（Windows 子系统 Linux）</li>
+</ul>
+<hr />
+<h2 id="_3">命令提示符<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<p>打开终端后你会看到类似这样的提示符：</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>username@hostname:~$
+</span></code></pre></div>
+<p>各部分含义：</p>
+<table>
+<thead>
+<tr>
+<th>部分</th>
+<th>含义</th>
+<th>示例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>username</code></td>
+<td>当前登录的用户名</td>
+<td><code>pi</code></td>
+</tr>
+<tr>
+<td><code>hostname</code></td>
+<td>电脑的名字</td>
+<td><code>raspberrypi</code></td>
+</tr>
+<tr>
+<td><code>~</code></td>
+<td>当前所在的目录（<code>~</code> 表示家目录）</td>
+<td><code>~</code> = <code>/home/pi</code></td>
+</tr>
+<tr>
+<td><code>$</code></td>
+<td>普通用户提示符（root 用户是 <code>#</code>）</td>
+<td><code>$</code></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition warning">
+<p class="admonition-title">看到 <code>#</code> 提示符？</p>
+<p><code>#</code> 表示你是 <strong>root 用户</strong>（超级管理员）。root 下操作要格外小心，一个错误命令可能损坏整个系统。</p>
+</div>
+<hr />
+<h2 id="_4">你的第一个命令<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<p>试试输入以下命令（输入后按回车）：</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1"># 显示当前日期和时间</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>date
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="c1"># 显示当前登录的用户名</span>
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>whoami
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="c1"># 显示当前所在的目录</span>
+</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="nb">pwd</span>
+</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>
+</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="c1"># 查看系统运行了多久</span>
+</span><span id="__span-3-11"><a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>uptime
+</span></code></pre></div>
+<p>输出示例：</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>$ date
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>2026年 05月 02日 星期六 14:30:00 CST
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>$ whoami
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>pi
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>
+</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>$ pwd
+</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>/home/pi
+</span><span id="__span-4-9"><a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>
+</span><span id="__span-4-10"><a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a>$ uptime
+</span><span id="__span-4-11"><a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a> 14:30:00 up 3 days, 2:15, 1 user, load average: 0.15, 0.10, 0.08
+</span></code></pre></div>
+<hr />
+<h2 id="_5">必学技巧<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
+<h3 id="1-tab">1. Tab 自动补全<a class="headerlink" href="#1-tab" title="Permanent link">&para;</a></h3>
+<p>这是 Linux 命令行最重要的技巧，<strong>没有之一</strong>。</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="c1"># 输入 &quot;cd /ho&quot; 然后按 Tab 键</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="nb">cd</span><span class="w"> </span>/ho&lt;Tab&gt;
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="c1"># 自动补全为：cd /home/</span>
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="c1"># 输入 &quot;ls /etc/net&quot; 然后按 Tab 键</span>
+</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>ls<span class="w"> </span>/etc/net&lt;Tab&gt;
+</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="c1"># 自动补全为：ls /etc/network/</span>
+</span></code></pre></div>
+<div class="admonition tip">
+<p class="admonition-title">双击 Tab</p>
+<p>如果有多个匹配项，按两次 Tab 会列出所有可能的选项。</p>
+</div>
+<h3 id="2">2. 历史命令<a class="headerlink" href="#2" title="Permanent link">&para;</a></h3>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="c1"># 按 ↑ 方向键：调出上一条命令</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="c1"># 按 ↓ 方向键：调出下一条命令</span>
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="c1"># 搜索历史命令</span>
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="nb">history</span><span class="w">          </span><span class="c1"># 显示所有历史命令</span>
+</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="nb">history</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>ssh<span class="w">  </span><span class="c1"># 搜索包含 ssh 的历史命令</span>
+</span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a>
+</span><span id="__span-6-8"><a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a><span class="c1"># 快捷搜索：按 Ctrl+R，然后输入关键词</span>
+</span></code></pre></div>
+<h3 id="3">3. 快捷键<a class="headerlink" href="#3" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>快捷键</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Ctrl + C</code></td>
+<td><strong>强制终止</strong>当前运行的命令</td>
+</tr>
+<tr>
+<td><code>Ctrl + D</code></td>
+<td>退出终端（等同于 <code>exit</code>）</td>
+</tr>
+<tr>
+<td><code>Ctrl + L</code></td>
+<td>清屏（等同于 <code>clear</code>）</td>
+</tr>
+<tr>
+<td><code>Ctrl + A</code></td>
+<td>光标跳到行首</td>
+</tr>
+<tr>
+<td><code>Ctrl + E</code></td>
+<td>光标跳到行尾</td>
+</tr>
+<tr>
+<td><code>Ctrl + U</code></td>
+<td>删除光标前的所有内容</td>
+</tr>
+<tr>
+<td><code>Ctrl + K</code></td>
+<td>删除光标后的所有内容</td>
+</tr>
+<tr>
+<td><code>Ctrl + W</code></td>
+<td>删除光标前的一个单词</td>
+</tr>
+</tbody>
+</table>
+<h3 id="4">4. 获取帮助<a class="headerlink" href="#4" title="Permanent link">&para;</a></h3>
+<p>不知道一个命令怎么用？有三种方法：</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="c1"># 方法1：man 手册（最详细，按 q 退出）</span>
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>man<span class="w"> </span>ls
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="c1"># 方法2：--help 参数（简洁版）</span>
+</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>ls<span class="w"> </span>--help
+</span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>
+</span><span id="__span-7-7"><a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a><span class="c1"># 方法3：tldr（太长不看版，需要安装）</span>
+</span><span id="__span-7-8"><a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a><span class="c1"># sudo apt install tldr</span>
+</span><span id="__span-7-9"><a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a>tldr<span class="w"> </span>ls
+</span></code></pre></div>
+<hr />
+<h2 id="_6">命令的基本格式<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
+<p>几乎所有 Linux 命令都遵循这个格式：</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>命令名 [选项] [参数]
+</span></code></pre></div>
+<table>
+<thead>
+<tr>
+<th>部分</th>
+<th>说明</th>
+<th>示例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>命令名</td>
+<td>要执行什么操作</td>
+<td><code>ls</code></td>
+</tr>
+<tr>
+<td>选项</td>
+<td>怎么执行（通常以 <code>-</code> 开头）</td>
+<td><code>-l</code>、<code>-a</code>、<code>--all</code></td>
+</tr>
+<tr>
+<td>参数</td>
+<td>对谁执行</td>
+<td><code>/home</code>、<code>file.txt</code></td>
+</tr>
+</tbody>
+</table>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="c1"># 示例</span>
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>ls<span class="w"> </span>-la<span class="w"> </span>/home
+</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="c1"># │  ││ └── 参数：对 /home 目录操作</span>
+</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="c1"># │  │└─── 选项 -a：显示隐藏文件</span>
+</span><span id="__span-9-5"><a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="c1"># │  └──── 选项 -l：以列表格式显示</span>
+</span><span id="__span-9-6"><a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a><span class="c1"># └─────── 命令：列出目录内容</span>
+</span></code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">短选项 vs 长选项</p>
+<ul>
+<li>短选项：<code>-l</code>、<code>-a</code>，可以合并写成 <code>-la</code></li>
+<li>长选项：<code>--all</code>、<code>--human-readable</code>，不能合并</li>
+<li>两种写法效果一样：<code>ls -a</code> = <code>ls --all</code></li>
+</ul>
+</div>
+<hr />
+<h2 id="_7">练习<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h2>
+<div class="admonition question">
+<p class="admonition-title">动手试试</p>
+<ol>
+<li>打开终端，输入 <code>date</code> 查看当前时间</li>
+<li>输入 <code>whoami</code> 看看你是谁</li>
+<li>输入 <code>ls /</code> 看看根目录下有什么</li>
+<li>练习用 Tab 补全：输入 <code>ls /e</code> 然后按 Tab</li>
+<li>按 <code>↑</code> 键调出历史命令，再按回车重新执行</li>
+<li>用 <code>man ls</code> 查看 ls 的手册，按 <code>q</code> 退出</li>
+</ol>
+</div>
+
+
+
+
+
+
+
+  
+    
+  
+  
+
+
+  <aside class="md-source-file">
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="最后更新">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
+    </span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026年5月1日 18:25:40 UTC">2026年5月1日</span>
+  </span>
+
+    
+    
+    
+    
+  </aside>
+
+
+
+
+
+                
               </article>
             </div>
           
@@ -2216,10 +3013,10 @@
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "/embedded-kb/", "features": ["navigation.tabs", "navigation.sections", "navigation.top", "navigation.indexes", "search.highlight", "search.suggest", "content.code.copy", "content.code.annotate", "content.action.edit", "content.tabs.link"], "search": "/embedded-kb/assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.sections", "navigation.top", "navigation.indexes", "search.highlight", "search.suggest", "content.code.copy", "content.code.annotate", "content.action.edit", "content.tabs.link"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
     
     
-      <script src="/embedded-kb/assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
       
     
   </body>

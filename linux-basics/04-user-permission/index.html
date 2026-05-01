@@ -12,25 +12,31 @@
         <meta name="author" content="Your Name">
       
       
+        <link rel="canonical" href="https://223daxiu.github.io/embedded-kb/linux-basics/04-user-permission/">
       
+      
+        <link rel="prev" href="../03-file-content/">
+      
+      
+        <link rel="next" href="../05-process/">
       
       
         
       
       
-      <link rel="icon" href="/embedded-kb/assets/images/favicon.png">
+      <link rel="icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
     
     
       
-        <title>嵌入式开发知识库</title>
+        <title>04 - 用户与权限管理 - 嵌入式开发知识库</title>
       
     
     
-      <link rel="stylesheet" href="/embedded-kb/assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
       
         
-        <link rel="stylesheet" href="/embedded-kb/assets/stylesheets/palette.ab4e12ef.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
       
       
 
@@ -49,7 +55,7 @@
       
     
     
-    <script>__md_scope=new URL("/embedded-kb/",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -73,6 +79,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#04-" class="md-skip">
+          跳转至
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -83,7 +94,7 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="页眉">
-    <a href="/embedded-kb/." title="嵌入式开发知识库" class="md-header__button md-logo" aria-label="嵌入式开发知识库" data-md-component="logo">
+    <a href="../.." title="嵌入式开发知识库" class="md-header__button md-logo" aria-label="嵌入式开发知识库" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -103,7 +114,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              
+              04 - 用户与权限管理
             
           </span>
         </div>
@@ -216,7 +227,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="/embedded-kb/." class="md-tabs__link">
+      <a href="../.." class="md-tabs__link">
         
   
   
@@ -233,11 +244,13 @@
   
   
   
+    
+  
   
     
     
-      <li class="md-tabs__item">
-        <a href="/embedded-kb/linux-basics/" class="md-tabs__link">
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../" class="md-tabs__link">
           
   
   
@@ -259,7 +272,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="/embedded-kb/linux-driver/" class="md-tabs__link">
+        <a href="../../linux-driver/" class="md-tabs__link">
           
   
   
@@ -281,7 +294,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="/embedded-kb/mcu/" class="md-tabs__link">
+        <a href="../../mcu/" class="md-tabs__link">
           
   
   
@@ -303,7 +316,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="/embedded-kb/c-language/" class="md-tabs__link">
+        <a href="../../c-language/" class="md-tabs__link">
           
   
   
@@ -325,7 +338,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="/embedded-kb/cpp-embedded/" class="md-tabs__link">
+        <a href="../../cpp-embedded/" class="md-tabs__link">
           
   
   
@@ -361,7 +374,7 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="/embedded-kb/." title="嵌入式开发知识库" class="md-nav__button md-logo" aria-label="嵌入式开发知识库" data-md-component="logo">
+    <a href="../.." title="嵌入式开发知识库" class="md-nav__button md-logo" aria-label="嵌入式开发知识库" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -391,7 +404,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/embedded-kb/." class="md-nav__link">
+      <a href="../.." class="md-nav__link">
         
   
   
@@ -415,6 +428,8 @@
       
   
   
+    
+  
   
   
     
@@ -448,20 +463,23 @@
     
     
       
+        
+        
+      
       
         
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="/embedded-kb/linux-basics/" class="md-nav__link ">
+            <a href="../" class="md-nav__link ">
               
   
   
@@ -479,13 +497,13 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="0">
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_2">
             <span class="md-nav__icon md-icon"></span>
             
@@ -505,7 +523,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/embedded-kb/linux-basics/01-shell-intro/" class="md-nav__link">
+      <a href="../01-shell-intro/" class="md-nav__link">
         
   
   
@@ -533,7 +551,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/embedded-kb/linux-basics/02-file-directory/" class="md-nav__link">
+      <a href="../02-file-directory/" class="md-nav__link">
         
   
   
@@ -561,7 +579,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/embedded-kb/linux-basics/03-file-content/" class="md-nav__link">
+      <a href="../03-file-content/" class="md-nav__link">
         
   
   
@@ -586,10 +604,37 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="/embedded-kb/linux-basics/04-user-permission/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    04 - 用户与权限管理
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -605,6 +650,176 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#linux" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Linux 权限模型
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Linux 权限模型">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        权限含义
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        数字表示法
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#chmod-" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        chmod - 修改文件权限
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="chmod - 修改文件权限">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        嵌入式常用权限场景
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#chown-" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        chown - 修改文件所有者
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sudo-" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        sudo - 以管理员身份执行
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        用户管理
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        特殊权限
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="特殊权限">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#setuid-setgid" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        setuid / setgid
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sticky-bit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        sticky bit
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        练习
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -617,7 +832,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/embedded-kb/linux-basics/05-process/" class="md-nav__link">
+      <a href="../05-process/" class="md-nav__link">
         
   
   
@@ -645,7 +860,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/embedded-kb/linux-basics/06-network/" class="md-nav__link">
+      <a href="../06-network/" class="md-nav__link">
         
   
   
@@ -673,7 +888,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/embedded-kb/linux-basics/07-archive/" class="md-nav__link">
+      <a href="../07-archive/" class="md-nav__link">
         
   
   
@@ -701,7 +916,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/embedded-kb/linux-basics/08-package/" class="md-nav__link">
+      <a href="../08-package/" class="md-nav__link">
         
   
   
@@ -729,7 +944,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/embedded-kb/linux-basics/09-redirect-pipe/" class="md-nav__link">
+      <a href="../09-redirect-pipe/" class="md-nav__link">
         
   
   
@@ -757,7 +972,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/embedded-kb/linux-basics/10-shell-script/" class="md-nav__link">
+      <a href="../10-shell-script/" class="md-nav__link">
         
   
   
@@ -821,7 +1036,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="/embedded-kb/linux-driver/" class="md-nav__link ">
+            <a href="../../linux-driver/" class="md-nav__link ">
               
   
   
@@ -892,7 +1107,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="/embedded-kb/linux-driver/01-char-device/" class="md-nav__link ">
+            <a href="../../linux-driver/01-char-device/" class="md-nav__link ">
               
   
   
@@ -936,7 +1151,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/embedded-kb/linux-driver/02-platform-driver/README.md" class="md-nav__link">
+      <a href="../../linux-driver/02-platform-driver/README.md" class="md-nav__link">
         
   
   
@@ -964,7 +1179,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/embedded-kb/linux-driver/03-device-tree/README.md" class="md-nav__link">
+      <a href="../../linux-driver/03-device-tree/README.md" class="md-nav__link">
         
   
   
@@ -1062,7 +1277,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/embedded-kb/linux-driver/04-gpio-driver/README.md" class="md-nav__link">
+      <a href="../../linux-driver/04-gpio-driver/README.md" class="md-nav__link">
         
   
   
@@ -1090,7 +1305,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/embedded-kb/linux-driver/05-i2c-driver/README.md" class="md-nav__link">
+      <a href="../../linux-driver/05-i2c-driver/README.md" class="md-nav__link">
         
   
   
@@ -1118,7 +1333,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/embedded-kb/linux-driver/06-spi-driver/README.md" class="md-nav__link">
+      <a href="../../linux-driver/06-spi-driver/README.md" class="md-nav__link">
         
   
   
@@ -1146,7 +1361,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/embedded-kb/linux-driver/07-uart-driver/README.md" class="md-nav__link">
+      <a href="../../linux-driver/07-uart-driver/README.md" class="md-nav__link">
         
   
   
@@ -1240,7 +1455,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/embedded-kb/linux-driver/08-dma/README.md" class="md-nav__link">
+      <a href="../../linux-driver/08-dma/README.md" class="md-nav__link">
         
   
   
@@ -1268,7 +1483,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/embedded-kb/linux-driver/09-interrupt/README.md" class="md-nav__link">
+      <a href="../../linux-driver/09-interrupt/README.md" class="md-nav__link">
         
   
   
@@ -1340,7 +1555,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="/embedded-kb/mcu/" class="md-nav__link ">
+            <a href="../../mcu/" class="md-nav__link ">
               
   
   
@@ -1411,7 +1626,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="/embedded-kb/mcu/03-systick/" class="md-nav__link ">
+            <a href="../../mcu/03-systick/" class="md-nav__link ">
               
   
   
@@ -1453,7 +1668,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/embedded-kb/mcu/01-startup/README.md" class="md-nav__link">
+      <a href="../../mcu/01-startup/README.md" class="md-nav__link">
         
   
   
@@ -1481,7 +1696,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/embedded-kb/mcu/02-nvic/README.md" class="md-nav__link">
+      <a href="../../mcu/02-nvic/README.md" class="md-nav__link">
         
   
   
@@ -1579,7 +1794,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/embedded-kb/mcu/04-gpio/README.md" class="md-nav__link">
+      <a href="../../mcu/04-gpio/README.md" class="md-nav__link">
         
   
   
@@ -1607,7 +1822,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/embedded-kb/mcu/05-spi/README.md" class="md-nav__link">
+      <a href="../../mcu/05-spi/README.md" class="md-nav__link">
         
   
   
@@ -1635,7 +1850,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/embedded-kb/mcu/06-i2c/README.md" class="md-nav__link">
+      <a href="../../mcu/06-i2c/README.md" class="md-nav__link">
         
   
   
@@ -1729,7 +1944,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/embedded-kb/mcu/07-freertos/README.md" class="md-nav__link">
+      <a href="../../mcu/07-freertos/README.md" class="md-nav__link">
         
   
   
@@ -1757,7 +1972,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/embedded-kb/mcu/08-rtos-comm/README.md" class="md-nav__link">
+      <a href="../../mcu/08-rtos-comm/README.md" class="md-nav__link">
         
   
   
@@ -1831,7 +2046,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="/embedded-kb/c-language/" class="md-nav__link ">
+            <a href="../../c-language/" class="md-nav__link ">
               
   
   
@@ -1875,7 +2090,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/embedded-kb/c-language/01-pointer-memory/README.md" class="md-nav__link">
+      <a href="../../c-language/01-pointer-memory/README.md" class="md-nav__link">
         
   
   
@@ -1903,7 +2118,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/embedded-kb/c-language/02-state-machine/README.md" class="md-nav__link">
+      <a href="../../c-language/02-state-machine/README.md" class="md-nav__link">
         
   
   
@@ -1931,7 +2146,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/embedded-kb/c-language/03-ring-buffer/README.md" class="md-nav__link">
+      <a href="../../c-language/03-ring-buffer/README.md" class="md-nav__link">
         
   
   
@@ -1959,7 +2174,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/embedded-kb/c-language/04-bit-operations/README.md" class="md-nav__link">
+      <a href="../../c-language/04-bit-operations/README.md" class="md-nav__link">
         
   
   
@@ -2021,7 +2236,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="/embedded-kb/cpp-embedded/" class="md-nav__link ">
+            <a href="../../cpp-embedded/" class="md-nav__link ">
               
   
   
@@ -2065,7 +2280,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/embedded-kb/cpp-embedded/01-hal-template/README.md" class="md-nav__link">
+      <a href="../../cpp-embedded/01-hal-template/README.md" class="md-nav__link">
         
   
   
@@ -2093,7 +2308,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/embedded-kb/cpp-embedded/02-raii/README.md" class="md-nav__link">
+      <a href="../../cpp-embedded/02-raii/README.md" class="md-nav__link">
         
   
   
@@ -2138,6 +2353,166 @@
   
   
   
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#linux" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Linux 权限模型
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Linux 权限模型">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        权限含义
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        数字表示法
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#chmod-" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        chmod - 修改文件权限
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="chmod - 修改文件权限">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        嵌入式常用权限场景
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#chown-" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        chown - 修改文件所有者
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sudo-" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        sudo - 以管理员身份执行
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        用户管理
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        特殊权限
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="特殊权限">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#setuid-setgid" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        setuid / setgid
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sticky-bit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        sticky bit
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        练习
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
   
 </nav>
                   </div>
@@ -2150,8 +2525,262 @@
               
               <article class="md-content__inner md-typeset">
                 
-  <h1>404 - Not found</h1>
+                  
 
+
+  
+    <a href="https://github.com/223daxiu/embedded-kb/edit/main/docs/linux-basics/04-user-permission/README.md" title="编辑此页" class="md-content__button md-icon" rel="edit">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+    </a>
+  
+  
+
+
+<h1 id="04-">04 - 用户与权限管理<a class="headerlink" href="#04-" title="Permanent link">&para;</a></h1>
+<h2 id="linux">Linux 权限模型<a class="headerlink" href="#linux" title="Permanent link">&para;</a></h2>
+<p>Linux 是多用户系统，每个文件都有三层权限控制：</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>-rwxr-xr-- 1 pi developers 4096 May 1 10:00 script.sh
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a> ^^^         ^  ^^^^^^^^^^^
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a> |||         |  |
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a> |||         |  └── 所有者:所属组
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a> |||         └── 硬链接数
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a> |||
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a> │├┤├┤├┤
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a> │ │ │ └── 其他用户 (Others): r-- (只读)
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a> │ │ └──── 所属组 (Group): r-x (读+执行)
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a> │ └────── 所有者 (Owner): rwx (读+写+执行)
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a> └──────── 文件类型: - (普通文件)
+</span></code></pre></div>
+<h3 id="_1">权限含义<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>权限</th>
+<th>字母</th>
+<th>数字</th>
+<th>对文件</th>
+<th>对目录</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>读</td>
+<td><code>r</code></td>
+<td>4</td>
+<td>查看内容</td>
+<td>列出目录内容 (<code>ls</code>)</td>
+</tr>
+<tr>
+<td>写</td>
+<td><code>w</code></td>
+<td>2</td>
+<td>修改内容</td>
+<td>创建/删除文件</td>
+</tr>
+<tr>
+<td>执行</td>
+<td><code>x</code></td>
+<td>1</td>
+<td>运行程序</td>
+<td>进入目录 (<code>cd</code>)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_2">数字表示法<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
+<p>权限可以用三位数字表示（r=4, w=2, x=1 相加）：</p>
+<table>
+<thead>
+<tr>
+<th>数字</th>
+<th>权限</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>7</code></td>
+<td>rwx</td>
+<td>读+写+执行</td>
+</tr>
+<tr>
+<td><code>6</code></td>
+<td>rw-</td>
+<td>读+写</td>
+</tr>
+<tr>
+<td><code>5</code></td>
+<td>r-x</td>
+<td>读+执行</td>
+</tr>
+<tr>
+<td><code>4</code></td>
+<td>r--</td>
+<td>只读</td>
+</tr>
+<tr>
+<td><code>0</code></td>
+<td>---</td>
+<td>无权限</td>
+</tr>
+</tbody>
+</table>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1"># 755 = rwxr-xr-x = 所有者全部权限，其他人只读+执行</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="c1"># 644 = rw-r--r-- = 所有者读写，其他人只读</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="c1"># 777 = rwxrwxrwx = 所有人全部权限（不安全！）</span>
+</span></code></pre></div>
+<hr />
+<h2 id="chmod-">chmod - 修改文件权限<a class="headerlink" href="#chmod-" title="Permanent link">&para;</a></h2>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1"># 数字方式（最常用）</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>chmod<span class="w"> </span><span class="m">755</span><span class="w"> </span>script.sh<span class="w">              </span><span class="c1"># 所有者可执行，其他人只读+执行</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>chmod<span class="w"> </span><span class="m">644</span><span class="w"> </span>config.txt<span class="w">             </span><span class="c1"># 所有者读写，其他人只读</span>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>chmod<span class="w"> </span><span class="m">600</span><span class="w"> </span>secret.key<span class="w">             </span><span class="c1"># 只有所有者能读写</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="c1"># 字母方式</span>
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>chmod<span class="w"> </span>+x<span class="w"> </span>script.sh<span class="w">               </span><span class="c1"># 给所有人添加执行权限</span>
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>chmod<span class="w"> </span>u+x<span class="w"> </span>script.sh<span class="w">              </span><span class="c1"># 只给所有者添加执行权限</span>
+</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>chmod<span class="w"> </span>g+w<span class="w"> </span>file.txt<span class="w">               </span><span class="c1"># 给组添加写权限</span>
+</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>chmod<span class="w"> </span>o-r<span class="w"> </span>file.txt<span class="w">               </span><span class="c1"># 去掉其他人的读权限</span>
+</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a>chmod<span class="w"> </span><span class="nv">u</span><span class="o">=</span>rwx,g<span class="o">=</span>rx,o<span class="o">=</span>r<span class="w"> </span>file.txt<span class="w">    </span><span class="c1"># 精确设置</span>
+</span><span id="__span-2-12"><a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a>
+</span><span id="__span-2-13"><a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a><span class="c1"># 递归修改（整个目录）</span>
+</span><span id="__span-2-14"><a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a>chmod<span class="w"> </span>-R<span class="w"> </span><span class="m">755</span><span class="w"> </span>myproject/
+</span></code></pre></div>
+<h3 id="_3">嵌入式常用权限场景<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1"># 让脚本可执行</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>chmod<span class="w"> </span>+x<span class="w"> </span>startup.sh
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="c1"># 设备节点权限（让普通用户也能访问串口）</span>
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>sudo<span class="w"> </span>chmod<span class="w"> </span><span class="m">666</span><span class="w"> </span>/dev/ttyUSB0
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="c1"># 驱动模块文件</span>
+</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>chmod<span class="w"> </span><span class="m">644</span><span class="w"> </span>mydriver.ko
+</span></code></pre></div>
+<hr />
+<h2 id="chown-">chown - 修改文件所有者<a class="headerlink" href="#chown-" title="Permanent link">&para;</a></h2>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="c1"># 改所有者</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>sudo<span class="w"> </span>chown<span class="w"> </span>root<span class="w"> </span>file.txt
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="c1"># 改所有者和组</span>
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>sudo<span class="w"> </span>chown<span class="w"> </span>pi:gpio<span class="w"> </span>/dev/gpiochip0
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>
+</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="c1"># 递归修改</span>
+</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>sudo<span class="w"> </span>chown<span class="w"> </span>-R<span class="w"> </span>pi:pi<span class="w"> </span>/home/pi/project/
+</span></code></pre></div>
+<hr />
+<h2 id="sudo-">sudo - 以管理员身份执行<a class="headerlink" href="#sudo-" title="Permanent link">&para;</a></h2>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="c1"># 用 sudo 执行单条命令</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>sudo<span class="w"> </span>apt<span class="w"> </span>update
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>sudo<span class="w"> </span>insmod<span class="w"> </span>mydriver.ko
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="c1"># 切换到 root 用户（不推荐长期使用）</span>
+</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>sudo<span class="w"> </span>su
+</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="c1"># 或</span>
+</span><span id="__span-5-8"><a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>sudo<span class="w"> </span>-i
+</span><span id="__span-5-9"><a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a>
+</span><span id="__span-5-10"><a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a><span class="c1"># 用 root 身份编辑文件</span>
+</span><span id="__span-5-11"><a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a>sudo<span class="w"> </span>nano<span class="w"> </span>/etc/fstab
+</span></code></pre></div>
+<div class="admonition warning">
+<p class="admonition-title">sudo 注意事项</p>
+<ul>
+<li>不要习惯性地在每个命令前加 <code>sudo</code></li>
+<li>只有真正需要管理员权限时才用</li>
+<li>编译代码 <strong>不需要</strong> sudo（<code>make</code> 不需要 sudo）</li>
+<li>安装驱动 <strong>需要</strong> sudo（<code>sudo insmod xxx.ko</code>）</li>
+</ul>
+</div>
+<hr />
+<h2 id="_4">用户管理<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="c1"># 查看当前用户</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>whoami
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="c1"># 查看用户信息</span>
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>id<span class="w">                               </span><span class="c1"># 当前用户的 UID、GID</span>
+</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>id<span class="w"> </span>pi<span class="w">                            </span><span class="c1"># 指定用户的信息</span>
+</span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a>
+</span><span id="__span-6-8"><a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a><span class="c1"># 添加用户</span>
+</span><span id="__span-6-9"><a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a>sudo<span class="w"> </span>adduser<span class="w"> </span>newuser<span class="w">             </span><span class="c1"># 交互式创建用户（推荐）</span>
+</span><span id="__span-6-10"><a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a>sudo<span class="w"> </span>useradd<span class="w"> </span>-m<span class="w"> </span>newuser<span class="w">          </span><span class="c1"># 非交互式创建</span>
+</span><span id="__span-6-11"><a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a>
+</span><span id="__span-6-12"><a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a><span class="c1"># 修改密码</span>
+</span><span id="__span-6-13"><a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a>passwd<span class="w">                           </span><span class="c1"># 修改自己的密码</span>
+</span><span id="__span-6-14"><a id="__codelineno-6-14" name="__codelineno-6-14" href="#__codelineno-6-14"></a>sudo<span class="w"> </span>passwd<span class="w"> </span>newuser<span class="w">              </span><span class="c1"># 修改其他用户的密码</span>
+</span><span id="__span-6-15"><a id="__codelineno-6-15" name="__codelineno-6-15" href="#__codelineno-6-15"></a>
+</span><span id="__span-6-16"><a id="__codelineno-6-16" name="__codelineno-6-16" href="#__codelineno-6-16"></a><span class="c1"># 删除用户</span>
+</span><span id="__span-6-17"><a id="__codelineno-6-17" name="__codelineno-6-17" href="#__codelineno-6-17"></a>sudo<span class="w"> </span>deluser<span class="w"> </span>newuser<span class="w">             </span><span class="c1"># 删除用户</span>
+</span><span id="__span-6-18"><a id="__codelineno-6-18" name="__codelineno-6-18" href="#__codelineno-6-18"></a>sudo<span class="w"> </span>deluser<span class="w"> </span>--remove-home<span class="w"> </span>newuser<span class="w">  </span><span class="c1"># 删除用户并删除家目录</span>
+</span><span id="__span-6-19"><a id="__codelineno-6-19" name="__codelineno-6-19" href="#__codelineno-6-19"></a>
+</span><span id="__span-6-20"><a id="__codelineno-6-20" name="__codelineno-6-20" href="#__codelineno-6-20"></a><span class="c1"># 将用户加入组（嵌入式常用：加入 dialout 组以访问串口）</span>
+</span><span id="__span-6-21"><a id="__codelineno-6-21" name="__codelineno-6-21" href="#__codelineno-6-21"></a>sudo<span class="w"> </span>usermod<span class="w"> </span>-aG<span class="w"> </span>dialout<span class="w"> </span>pi
+</span><span id="__span-6-22"><a id="__codelineno-6-22" name="__codelineno-6-22" href="#__codelineno-6-22"></a>sudo<span class="w"> </span>usermod<span class="w"> </span>-aG<span class="w"> </span>gpio<span class="w"> </span>pi
+</span><span id="__span-6-23"><a id="__codelineno-6-23" name="__codelineno-6-23" href="#__codelineno-6-23"></a><span class="c1"># 修改后需要重新登录才生效</span>
+</span></code></pre></div>
+<hr />
+<h2 id="_5">特殊权限<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
+<h3 id="setuid-setgid">setuid / setgid<a class="headerlink" href="#setuid-setgid" title="Permanent link">&para;</a></h3>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="c1"># 查看 setuid 文件（如 sudo、passwd）</span>
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>ls<span class="w"> </span>-l<span class="w"> </span>/usr/bin/sudo
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="c1"># -rwsr-xr-x  ← 注意 s 表示 setuid</span>
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>
+</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="c1"># setuid 让程序以文件所有者身份运行</span>
+</span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a><span class="c1"># passwd 命令能修改 /etc/shadow 就是因为有 setuid</span>
+</span></code></pre></div>
+<h3 id="sticky-bit">sticky bit<a class="headerlink" href="#sticky-bit" title="Permanent link">&para;</a></h3>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="c1"># /tmp 目录有 sticky bit</span>
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>ls<span class="w"> </span>-ld<span class="w"> </span>/tmp
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="c1"># drwxrwxrwt  ← 注意最后的 t</span>
+</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>
+</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="c1"># sticky bit 让目录中的文件只能被所有者删除</span>
+</span><span id="__span-8-6"><a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a><span class="c1"># 即使其他人有目录的写权限</span>
+</span></code></pre></div>
+<hr />
+<h2 id="_6">练习<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
+<div class="admonition question">
+<p class="admonition-title">动手试试</p>
+<ol>
+<li>创建一个脚本文件 <code>test.sh</code>，内容为 <code>echo "Hello"</code></li>
+<li>用 <code>ls -l</code> 查看它的权限</li>
+<li>用 <code>chmod +x test.sh</code> 添加执行权限</li>
+<li>用 <code>./test.sh</code> 运行脚本</li>
+<li>用 <code>id</code> 查看你的用户和组信息</li>
+<li>用 <code>sudo usermod -aG dialout $USER</code> 把自己加入 dialout 组（访问串口用）</li>
+</ol>
+</div>
+
+
+
+
+
+
+
+  
+    
+  
+  
+
+
+  <aside class="md-source-file">
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="最后更新">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
+    </span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026年5月1日 18:25:40 UTC">2026年5月1日</span>
+  </span>
+
+    
+    
+    
+    
+  </aside>
+
+
+
+
+
+                
               </article>
             </div>
           
@@ -2216,10 +2845,10 @@
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "/embedded-kb/", "features": ["navigation.tabs", "navigation.sections", "navigation.top", "navigation.indexes", "search.highlight", "search.suggest", "content.code.copy", "content.code.annotate", "content.action.edit", "content.tabs.link"], "search": "/embedded-kb/assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.sections", "navigation.top", "navigation.indexes", "search.highlight", "search.suggest", "content.code.copy", "content.code.annotate", "content.action.edit", "content.tabs.link"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
     
     
-      <script src="/embedded-kb/assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
       
     
   </body>

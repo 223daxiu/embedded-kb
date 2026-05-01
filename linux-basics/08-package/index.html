@@ -12,25 +12,31 @@
         <meta name="author" content="Your Name">
       
       
+        <link rel="canonical" href="https://223daxiu.github.io/embedded-kb/linux-basics/08-package/">
       
+      
+        <link rel="prev" href="../07-archive/">
+      
+      
+        <link rel="next" href="../09-redirect-pipe/">
       
       
         
       
       
-      <link rel="icon" href="/embedded-kb/assets/images/favicon.png">
+      <link rel="icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
     
     
       
-        <title>嵌入式开发知识库</title>
+        <title>08 - 软件包管理 - 嵌入式开发知识库</title>
       
     
     
-      <link rel="stylesheet" href="/embedded-kb/assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
       
         
-        <link rel="stylesheet" href="/embedded-kb/assets/stylesheets/palette.ab4e12ef.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
       
       
 
@@ -49,7 +55,7 @@
       
     
     
-    <script>__md_scope=new URL("/embedded-kb/",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -73,6 +79,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#08-" class="md-skip">
+          跳转至
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -83,7 +94,7 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="页眉">
-    <a href="/embedded-kb/." title="嵌入式开发知识库" class="md-header__button md-logo" aria-label="嵌入式开发知识库" data-md-component="logo">
+    <a href="../.." title="嵌入式开发知识库" class="md-header__button md-logo" aria-label="嵌入式开发知识库" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -103,7 +114,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              
+              08 - 软件包管理
             
           </span>
         </div>
@@ -216,7 +227,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="/embedded-kb/." class="md-tabs__link">
+      <a href="../.." class="md-tabs__link">
         
   
   
@@ -233,11 +244,13 @@
   
   
   
+    
+  
   
     
     
-      <li class="md-tabs__item">
-        <a href="/embedded-kb/linux-basics/" class="md-tabs__link">
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../" class="md-tabs__link">
           
   
   
@@ -259,7 +272,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="/embedded-kb/linux-driver/" class="md-tabs__link">
+        <a href="../../linux-driver/" class="md-tabs__link">
           
   
   
@@ -281,7 +294,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="/embedded-kb/mcu/" class="md-tabs__link">
+        <a href="../../mcu/" class="md-tabs__link">
           
   
   
@@ -303,7 +316,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="/embedded-kb/c-language/" class="md-tabs__link">
+        <a href="../../c-language/" class="md-tabs__link">
           
   
   
@@ -325,7 +338,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="/embedded-kb/cpp-embedded/" class="md-tabs__link">
+        <a href="../../cpp-embedded/" class="md-tabs__link">
           
   
   
@@ -361,7 +374,7 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="/embedded-kb/." title="嵌入式开发知识库" class="md-nav__button md-logo" aria-label="嵌入式开发知识库" data-md-component="logo">
+    <a href="../.." title="嵌入式开发知识库" class="md-nav__button md-logo" aria-label="嵌入式开发知识库" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -391,7 +404,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/embedded-kb/." class="md-nav__link">
+      <a href="../.." class="md-nav__link">
         
   
   
@@ -415,6 +428,8 @@
       
   
   
+    
+  
   
   
     
@@ -448,20 +463,23 @@
     
     
       
+        
+        
+      
       
         
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="/embedded-kb/linux-basics/" class="md-nav__link ">
+            <a href="../" class="md-nav__link ">
               
   
   
@@ -479,13 +497,13 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="0">
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_2">
             <span class="md-nav__icon md-icon"></span>
             
@@ -505,7 +523,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/embedded-kb/linux-basics/01-shell-intro/" class="md-nav__link">
+      <a href="../01-shell-intro/" class="md-nav__link">
         
   
   
@@ -533,7 +551,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/embedded-kb/linux-basics/02-file-directory/" class="md-nav__link">
+      <a href="../02-file-directory/" class="md-nav__link">
         
   
   
@@ -561,7 +579,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/embedded-kb/linux-basics/03-file-content/" class="md-nav__link">
+      <a href="../03-file-content/" class="md-nav__link">
         
   
   
@@ -589,7 +607,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/embedded-kb/linux-basics/04-user-permission/" class="md-nav__link">
+      <a href="../04-user-permission/" class="md-nav__link">
         
   
   
@@ -617,7 +635,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/embedded-kb/linux-basics/05-process/" class="md-nav__link">
+      <a href="../05-process/" class="md-nav__link">
         
   
   
@@ -645,7 +663,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/embedded-kb/linux-basics/06-network/" class="md-nav__link">
+      <a href="../06-network/" class="md-nav__link">
         
   
   
@@ -673,7 +691,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/embedded-kb/linux-basics/07-archive/" class="md-nav__link">
+      <a href="../07-archive/" class="md-nav__link">
         
   
   
@@ -698,10 +716,37 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="/embedded-kb/linux-basics/08-package/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    08 - 软件包管理
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -717,6 +762,159 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        包管理器对比
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#apt-debianubuntu" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        apt - Debian/Ubuntu 系
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="apt - Debian/Ubuntu 系">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        最常用命令
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        嵌入式开发常装的包
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#yum-dnf-centosrhel" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        yum / dnf - CentOS/RHEL 系
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dpkg-deb" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        dpkg - 安装本地 .deb 包
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        换源（使用国内镜像）
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="换源（使用国内镜像）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ubuntu" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ubuntu 换源
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#raspberry-pi-os" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Raspberry Pi OS 换源
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        从源码编译安装
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        练习
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -729,7 +927,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/embedded-kb/linux-basics/09-redirect-pipe/" class="md-nav__link">
+      <a href="../09-redirect-pipe/" class="md-nav__link">
         
   
   
@@ -757,7 +955,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/embedded-kb/linux-basics/10-shell-script/" class="md-nav__link">
+      <a href="../10-shell-script/" class="md-nav__link">
         
   
   
@@ -821,7 +1019,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="/embedded-kb/linux-driver/" class="md-nav__link ">
+            <a href="../../linux-driver/" class="md-nav__link ">
               
   
   
@@ -892,7 +1090,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="/embedded-kb/linux-driver/01-char-device/" class="md-nav__link ">
+            <a href="../../linux-driver/01-char-device/" class="md-nav__link ">
               
   
   
@@ -936,7 +1134,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/embedded-kb/linux-driver/02-platform-driver/README.md" class="md-nav__link">
+      <a href="../../linux-driver/02-platform-driver/README.md" class="md-nav__link">
         
   
   
@@ -964,7 +1162,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/embedded-kb/linux-driver/03-device-tree/README.md" class="md-nav__link">
+      <a href="../../linux-driver/03-device-tree/README.md" class="md-nav__link">
         
   
   
@@ -1062,7 +1260,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/embedded-kb/linux-driver/04-gpio-driver/README.md" class="md-nav__link">
+      <a href="../../linux-driver/04-gpio-driver/README.md" class="md-nav__link">
         
   
   
@@ -1090,7 +1288,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/embedded-kb/linux-driver/05-i2c-driver/README.md" class="md-nav__link">
+      <a href="../../linux-driver/05-i2c-driver/README.md" class="md-nav__link">
         
   
   
@@ -1118,7 +1316,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/embedded-kb/linux-driver/06-spi-driver/README.md" class="md-nav__link">
+      <a href="../../linux-driver/06-spi-driver/README.md" class="md-nav__link">
         
   
   
@@ -1146,7 +1344,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/embedded-kb/linux-driver/07-uart-driver/README.md" class="md-nav__link">
+      <a href="../../linux-driver/07-uart-driver/README.md" class="md-nav__link">
         
   
   
@@ -1240,7 +1438,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/embedded-kb/linux-driver/08-dma/README.md" class="md-nav__link">
+      <a href="../../linux-driver/08-dma/README.md" class="md-nav__link">
         
   
   
@@ -1268,7 +1466,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/embedded-kb/linux-driver/09-interrupt/README.md" class="md-nav__link">
+      <a href="../../linux-driver/09-interrupt/README.md" class="md-nav__link">
         
   
   
@@ -1340,7 +1538,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="/embedded-kb/mcu/" class="md-nav__link ">
+            <a href="../../mcu/" class="md-nav__link ">
               
   
   
@@ -1411,7 +1609,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="/embedded-kb/mcu/03-systick/" class="md-nav__link ">
+            <a href="../../mcu/03-systick/" class="md-nav__link ">
               
   
   
@@ -1453,7 +1651,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/embedded-kb/mcu/01-startup/README.md" class="md-nav__link">
+      <a href="../../mcu/01-startup/README.md" class="md-nav__link">
         
   
   
@@ -1481,7 +1679,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/embedded-kb/mcu/02-nvic/README.md" class="md-nav__link">
+      <a href="../../mcu/02-nvic/README.md" class="md-nav__link">
         
   
   
@@ -1579,7 +1777,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/embedded-kb/mcu/04-gpio/README.md" class="md-nav__link">
+      <a href="../../mcu/04-gpio/README.md" class="md-nav__link">
         
   
   
@@ -1607,7 +1805,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/embedded-kb/mcu/05-spi/README.md" class="md-nav__link">
+      <a href="../../mcu/05-spi/README.md" class="md-nav__link">
         
   
   
@@ -1635,7 +1833,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/embedded-kb/mcu/06-i2c/README.md" class="md-nav__link">
+      <a href="../../mcu/06-i2c/README.md" class="md-nav__link">
         
   
   
@@ -1729,7 +1927,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/embedded-kb/mcu/07-freertos/README.md" class="md-nav__link">
+      <a href="../../mcu/07-freertos/README.md" class="md-nav__link">
         
   
   
@@ -1757,7 +1955,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/embedded-kb/mcu/08-rtos-comm/README.md" class="md-nav__link">
+      <a href="../../mcu/08-rtos-comm/README.md" class="md-nav__link">
         
   
   
@@ -1831,7 +2029,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="/embedded-kb/c-language/" class="md-nav__link ">
+            <a href="../../c-language/" class="md-nav__link ">
               
   
   
@@ -1875,7 +2073,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/embedded-kb/c-language/01-pointer-memory/README.md" class="md-nav__link">
+      <a href="../../c-language/01-pointer-memory/README.md" class="md-nav__link">
         
   
   
@@ -1903,7 +2101,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/embedded-kb/c-language/02-state-machine/README.md" class="md-nav__link">
+      <a href="../../c-language/02-state-machine/README.md" class="md-nav__link">
         
   
   
@@ -1931,7 +2129,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/embedded-kb/c-language/03-ring-buffer/README.md" class="md-nav__link">
+      <a href="../../c-language/03-ring-buffer/README.md" class="md-nav__link">
         
   
   
@@ -1959,7 +2157,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/embedded-kb/c-language/04-bit-operations/README.md" class="md-nav__link">
+      <a href="../../c-language/04-bit-operations/README.md" class="md-nav__link">
         
   
   
@@ -2021,7 +2219,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="/embedded-kb/cpp-embedded/" class="md-nav__link ">
+            <a href="../../cpp-embedded/" class="md-nav__link ">
               
   
   
@@ -2065,7 +2263,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/embedded-kb/cpp-embedded/01-hal-template/README.md" class="md-nav__link">
+      <a href="../../cpp-embedded/01-hal-template/README.md" class="md-nav__link">
         
   
   
@@ -2093,7 +2291,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/embedded-kb/cpp-embedded/02-raii/README.md" class="md-nav__link">
+      <a href="../../cpp-embedded/02-raii/README.md" class="md-nav__link">
         
   
   
@@ -2138,6 +2336,149 @@
   
   
   
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        包管理器对比
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#apt-debianubuntu" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        apt - Debian/Ubuntu 系
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="apt - Debian/Ubuntu 系">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        最常用命令
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        嵌入式开发常装的包
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#yum-dnf-centosrhel" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        yum / dnf - CentOS/RHEL 系
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dpkg-deb" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        dpkg - 安装本地 .deb 包
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        换源（使用国内镜像）
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="换源（使用国内镜像）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ubuntu" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ubuntu 换源
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#raspberry-pi-os" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Raspberry Pi OS 换源
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        从源码编译安装
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        练习
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
   
 </nav>
                   </div>
@@ -2150,8 +2491,221 @@
               
               <article class="md-content__inner md-typeset">
                 
-  <h1>404 - Not found</h1>
+                  
 
+
+  
+    <a href="https://github.com/223daxiu/embedded-kb/edit/main/docs/linux-basics/08-package/README.md" title="编辑此页" class="md-content__button md-icon" rel="edit">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+    </a>
+  
+  
+
+
+<h1 id="08-">08 - 软件包管理<a class="headerlink" href="#08-" title="Permanent link">&para;</a></h1>
+<h2 id="_1">包管理器对比<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<p>不同 Linux 发行版用不同的包管理器：</p>
+<table>
+<thead>
+<tr>
+<th>发行版</th>
+<th>包管理器</th>
+<th>包格式</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Ubuntu / Debian / Raspberry Pi OS</td>
+<td><code>apt</code></td>
+<td><code>.deb</code></td>
+</tr>
+<tr>
+<td>CentOS / RHEL / Fedora</td>
+<td><code>yum</code> 或 <code>dnf</code></td>
+<td><code>.rpm</code></td>
+</tr>
+<tr>
+<td>Arch Linux</td>
+<td><code>pacman</code></td>
+<td><code>.pkg.tar.zst</code></td>
+</tr>
+<tr>
+<td>Alpine（嵌入式常用）</td>
+<td><code>apk</code></td>
+<td><code>.apk</code></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition info">
+<p class="admonition-title">嵌入式开发最常见的是 Ubuntu/Debian 系和 Buildroot/Yocto 自定义系统</p>
+</div>
+<hr />
+<h2 id="apt-debianubuntu">apt - Debian/Ubuntu 系<a class="headerlink" href="#apt-debianubuntu" title="Permanent link">&para;</a></h2>
+<h3 id="_2">最常用命令<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># 更新软件源列表（每次安装前先执行）</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>sudo<span class="w"> </span>apt<span class="w"> </span>update
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="c1"># 升级所有已安装的包</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>sudo<span class="w"> </span>apt<span class="w"> </span>upgrade
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="c1"># 安装软件</span>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>vim
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>gcc<span class="w"> </span>g++<span class="w"> </span>make<span class="w">     </span><span class="c1"># 一次安装多个</span>
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>cmake<span class="w">         </span><span class="c1"># -y 自动确认</span>
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>
+</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="c1"># 卸载软件</span>
+</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>sudo<span class="w"> </span>apt<span class="w"> </span>remove<span class="w"> </span>vim<span class="w">               </span><span class="c1"># 卸载（保留配置）</span>
+</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>sudo<span class="w"> </span>apt<span class="w"> </span>purge<span class="w"> </span>vim<span class="w">                </span><span class="c1"># 彻底卸载（删除配置）</span>
+</span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>sudo<span class="w"> </span>apt<span class="w"> </span>autoremove<span class="w">               </span><span class="c1"># 清理不需要的依赖</span>
+</span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a>
+</span><span id="__span-0-17"><a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a><span class="c1"># 搜索软件</span>
+</span><span id="__span-0-18"><a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a>apt<span class="w"> </span>search<span class="w"> </span>opencv
+</span><span id="__span-0-19"><a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a>apt<span class="w"> </span>list<span class="w"> </span>--installed<span class="w">              </span><span class="c1"># 列出已安装的包</span>
+</span><span id="__span-0-20"><a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a>apt<span class="w"> </span>show<span class="w"> </span>vim<span class="w">                      </span><span class="c1"># 查看包信息</span>
+</span></code></pre></div>
+<h3 id="_3">嵌入式开发常装的包<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1"># 基础开发工具</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>build-essential<span class="w">   </span><span class="c1"># gcc, g++, make</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>cmake
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>git
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="c1"># 交叉编译</span>
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>gcc-arm-linux-gnueabihf
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>g++-arm-linux-gnueabihf
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>
+</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="c1"># 内核开发</span>
+</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>linux-headers-<span class="k">$(</span>uname<span class="w"> </span>-r<span class="k">)</span>
+</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>device-tree-compiler<span class="w">  </span><span class="c1"># 设备树编译器</span>
+</span><span id="__span-1-13"><a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a>
+</span><span id="__span-1-14"><a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a><span class="c1"># 调试工具</span>
+</span><span id="__span-1-15"><a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>gdb<span class="w"> </span>gdb-multiarch
+</span><span id="__span-1-16"><a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>strace
+</span><span id="__span-1-17"><a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>minicom<span class="w">              </span><span class="c1"># 串口终端</span>
+</span><span id="__span-1-18"><a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a>
+</span><span id="__span-1-19"><a id="__codelineno-1-19" name="__codelineno-1-19" href="#__codelineno-1-19"></a><span class="c1"># 库开发</span>
+</span><span id="__span-1-20"><a id="__codelineno-1-20" name="__codelineno-1-20" href="#__codelineno-1-20"></a>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>libgpiod-dev<span class="w">         </span><span class="c1"># GPIO 库</span>
+</span><span id="__span-1-21"><a id="__codelineno-1-21" name="__codelineno-1-21" href="#__codelineno-1-21"></a>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>libi2c-dev<span class="w">           </span><span class="c1"># I2C 库</span>
+</span></code></pre></div>
+<hr />
+<h2 id="yum-dnf-centosrhel">yum / dnf - CentOS/RHEL 系<a class="headerlink" href="#yum-dnf-centosrhel" title="Permanent link">&para;</a></h2>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1"># yum（CentOS 7 及以下）</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>sudo<span class="w"> </span>yum<span class="w"> </span>update
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>sudo<span class="w"> </span>yum<span class="w"> </span>install<span class="w"> </span>gcc
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>sudo<span class="w"> </span>yum<span class="w"> </span>remove<span class="w"> </span>gcc
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>sudo<span class="w"> </span>yum<span class="w"> </span>search<span class="w"> </span>opencv
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="c1"># dnf（CentOS 8+、Fedora）</span>
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>sudo<span class="w"> </span>dnf<span class="w"> </span>update
+</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>sudo<span class="w"> </span>dnf<span class="w"> </span>install<span class="w"> </span>gcc
+</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>sudo<span class="w"> </span>dnf<span class="w"> </span>remove<span class="w"> </span>gcc
+</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a>sudo<span class="w"> </span>dnf<span class="w"> </span>search<span class="w"> </span>opencv
+</span></code></pre></div>
+<hr />
+<h2 id="dpkg-deb">dpkg - 安装本地 .deb 包<a class="headerlink" href="#dpkg-deb" title="Permanent link">&para;</a></h2>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1"># 安装</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>sudo<span class="w"> </span>dpkg<span class="w"> </span>-i<span class="w"> </span>package.deb
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="c1"># 如果有依赖问题，用 apt 修复</span>
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>-f
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="c1"># 查看已安装的包</span>
+</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>dpkg<span class="w"> </span>-l<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>vim
+</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>
+</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="c1"># 查看包安装了哪些文件</span>
+</span><span id="__span-3-11"><a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>dpkg<span class="w"> </span>-L<span class="w"> </span>vim
+</span><span id="__span-3-12"><a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a>
+</span><span id="__span-3-13"><a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a><span class="c1"># 查看某个文件属于哪个包</span>
+</span><span id="__span-3-14"><a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a>dpkg<span class="w"> </span>-S<span class="w"> </span>/usr/bin/vim
+</span></code></pre></div>
+<hr />
+<h2 id="_4">换源（使用国内镜像）<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<p>国内访问官方源很慢，建议换成国内镜像。</p>
+<h3 id="ubuntu">Ubuntu 换源<a class="headerlink" href="#ubuntu" title="Permanent link">&para;</a></h3>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="c1"># 备份原文件</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>sudo<span class="w"> </span>cp<span class="w"> </span>/etc/apt/sources.list<span class="w"> </span>/etc/apt/sources.list.bak
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="c1"># 编辑</span>
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>sudo<span class="w"> </span>nano<span class="w"> </span>/etc/apt/sources.list
+</span></code></pre></div>
+<p>替换为（以阿里云为例，Ubuntu 22.04）：</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>deb http://mirrors.aliyun.com/ubuntu/ jammy main restricted universe multiverse
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>deb http://mirrors.aliyun.com/ubuntu/ jammy-updates main restricted universe multiverse
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>deb http://mirrors.aliyun.com/ubuntu/ jammy-security main restricted universe multiverse
+</span></code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="c1"># 更新缓存</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>sudo<span class="w"> </span>apt<span class="w"> </span>update
+</span></code></pre></div>
+<h3 id="raspberry-pi-os">Raspberry Pi OS 换源<a class="headerlink" href="#raspberry-pi-os" title="Permanent link">&para;</a></h3>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="c1"># 编辑软件源</span>
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>sudo<span class="w"> </span>nano<span class="w"> </span>/etc/apt/sources.list
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="c1"># 将 http://raspbian.raspberrypi.org/raspbian/ 替换为</span>
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="c1"># http://mirrors.tuna.tsinghua.edu.cn/raspbian/raspbian/</span>
+</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>
+</span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>sudo<span class="w"> </span>apt<span class="w"> </span>update
+</span></code></pre></div>
+<hr />
+<h2 id="_5">从源码编译安装<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
+<p>有时候软件源里没有你需要的软件或版本，需要自己编译：</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="c1"># 典型的源码安装三步走</span>
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>./configure<span class="w">                      </span><span class="c1"># 检测系统环境，生成 Makefile</span>
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>make<span class="w">                             </span><span class="c1"># 编译</span>
+</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>sudo<span class="w"> </span>make<span class="w"> </span>install<span class="w">                </span><span class="c1"># 安装到系统</span>
+</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>
+</span><span id="__span-8-6"><a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a><span class="c1"># 完整示例：编译安装 htop</span>
+</span><span id="__span-8-7"><a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a>wget<span class="w"> </span>https://github.com/htop-dev/htop/releases/download/3.3.0/htop-3.3.0.tar.xz
+</span><span id="__span-8-8"><a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a>tar<span class="w"> </span>-xJf<span class="w"> </span>htop-3.3.0.tar.xz
+</span><span id="__span-8-9"><a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a><span class="nb">cd</span><span class="w"> </span>htop-3.3.0
+</span><span id="__span-8-10"><a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a>./configure
+</span><span id="__span-8-11"><a id="__codelineno-8-11" name="__codelineno-8-11" href="#__codelineno-8-11"></a>make
+</span><span id="__span-8-12"><a id="__codelineno-8-12" name="__codelineno-8-12" href="#__codelineno-8-12"></a>sudo<span class="w"> </span>make<span class="w"> </span>install
+</span></code></pre></div>
+<hr />
+<h2 id="_6">练习<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
+<div class="admonition question">
+<p class="admonition-title">动手试试</p>
+<ol>
+<li>运行 <code>sudo apt update</code> 更新软件源</li>
+<li>用 <code>apt search tree</code> 搜索 tree 包</li>
+<li>用 <code>sudo apt install tree</code> 安装 tree</li>
+<li>用 <code>dpkg -L tree</code> 查看 tree 安装了哪些文件</li>
+<li>用 <code>tree --version</code> 确认安装成功</li>
+</ol>
+</div>
+
+
+
+
+
+
+
+  
+    
+  
+  
+
+
+  <aside class="md-source-file">
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="最后更新">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
+    </span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026年5月1日 18:25:40 UTC">2026年5月1日</span>
+  </span>
+
+    
+    
+    
+    
+  </aside>
+
+
+
+
+
+                
               </article>
             </div>
           
@@ -2216,10 +2770,10 @@
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "/embedded-kb/", "features": ["navigation.tabs", "navigation.sections", "navigation.top", "navigation.indexes", "search.highlight", "search.suggest", "content.code.copy", "content.code.annotate", "content.action.edit", "content.tabs.link"], "search": "/embedded-kb/assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.sections", "navigation.top", "navigation.indexes", "search.highlight", "search.suggest", "content.code.copy", "content.code.annotate", "content.action.edit", "content.tabs.link"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
     
     
-      <script src="/embedded-kb/assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
       
     
   </body>
