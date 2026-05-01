@@ -1,10 +1,10 @@
 site_name: 嵌入式开发知识库
 site_description: 涵盖 C/C++、MCU、Linux 驱动开发的系统性知识库
 site_author: Your Name
-site_url: https://yourusername.github.io/embedded-kb/
+site_url: https://223daxiu.github.io/embedded-kb/
 
-repo_name: yourusername/embedded-kb
-repo_url: https://github.com/yourusername/embedded-kb
+repo_name: 223daxiu/embedded-kb
+repo_url: https://github.com/223daxiu/embedded-kb
 edit_uri: edit/main/docs/
 
 theme:
@@ -112,6 +112,6 @@ nav:
 extra:
   social:
     - icon: fontawesome/brands/github
-      link: https://github.com/yourusername
+      link: https://github.com/223daxiu
 
-copyright: Copyright &copy; 2026 Your Name
+copyright: Copyright &copy; 2026 223daxiu
