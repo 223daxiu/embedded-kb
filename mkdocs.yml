@@ -1,0 +1,117 @@
+site_name: 嵌入式开发知识库
+site_description: 涵盖 C/C++、MCU、Linux 驱动开发的系统性知识库
+site_author: Your Name
+site_url: https://yourusername.github.io/embedded-kb/
+
+repo_name: yourusername/embedded-kb
+repo_url: https://github.com/yourusername/embedded-kb
+edit_uri: edit/main/docs/
+
+theme:
+  name: material
+  language: zh
+  palette:
+    # 亮色模式
+    - scheme: default
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-7
+        name: 切换到暗色模式
+    # 暗色模式
+    - scheme: slate
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-4
+        name: 切换到亮色模式
+  features:
+    - navigation.tabs          # 顶部标签导航
+    - navigation.sections      # 左侧折叠分组
+    - navigation.top           # 返回顶部按钮
+    - navigation.indexes       # 章节首页
+    - search.highlight         # 搜索高亮
+    - search.suggest           # 搜索建议
+    - content.code.copy        # 代码复制按钮
+    - content.code.annotate    # 代码注解
+    - content.action.edit      # 在线编辑按钮
+    - content.tabs.link        # 内容标签页
+  icon:
+    repo: fontawesome/brands/github
+
+plugins:
+  - search:
+      lang: zh
+  - git-revision-date-localized:   # 显示最后修改时间
+      type: date
+
+markdown_extensions:
+  - admonition              # 警告框（!!! note/warning/tip）
+  - pymdownx.details        # 可折叠块
+  - pymdownx.superfences:   # 代码块增强（支持 Mermaid）
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.highlight:     # 代码高亮
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite   # 行内代码高亮
+  - pymdownx.tabbed:        # 内容标签页
+      alternate_style: true
+  - pymdownx.emoji:         # emoji 支持
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - attr_list               # 图片对齐等属性
+  - md_in_html              # HTML 中嵌入 Markdown
+  - tables                  # 表格
+  - toc:                    # 目录
+      permalink: true
+
+nav:
+  - 首页: index.md
+  - Linux 驱动开发:
+    - linux-driver/index.md
+    - 基础框架:
+      - 01 - 字符设备驱动: linux-driver/01-char-device/README.md
+      - 02 - 平台驱动框架: linux-driver/02-platform-driver/README.md
+      - 03 - 设备树基础: linux-driver/03-device-tree/README.md
+    - 外设驱动:
+      - 04 - GPIO 驱动: linux-driver/04-gpio-driver/README.md
+      - 05 - I2C 驱动: linux-driver/05-i2c-driver/README.md
+      - 06 - SPI 驱动: linux-driver/06-spi-driver/README.md
+      - 07 - UART 驱动: linux-driver/07-uart-driver/README.md
+    - 高级主题:
+      - 08 - DMA 控制器: linux-driver/08-dma/README.md
+      - 09 - 中断管理: linux-driver/09-interrupt/README.md
+  - MCU 裸机开发:
+    - mcu/index.md
+    - Cortex-M 内核:
+      - 01 - 启动流程: mcu/01-startup/README.md
+      - 02 - 中断向量表: mcu/02-nvic/README.md
+      - 03 - SysTick 定时器: mcu/03-systick/README.md
+    - 外设驱动:
+      - 04 - GPIO 控制: mcu/04-gpio/README.md
+      - 05 - SPI 通信: mcu/05-spi/README.md
+      - 06 - I2C 通信: mcu/06-i2c/README.md
+    - RTOS:
+      - 07 - FreeRTOS 基础: mcu/07-freertos/README.md
+      - 08 - 任务间通信: mcu/08-rtos-comm/README.md
+  - C 语言进阶:
+    - c-language/index.md
+    - 01 - 指针与内存: c-language/01-pointer-memory/README.md
+    - 02 - 状态机设计: c-language/02-state-machine/README.md
+    - 03 - 环形缓冲区: c-language/03-ring-buffer/README.md
+    - 04 - 位操作技巧: c-language/04-bit-operations/README.md
+  - C++ 嵌入式:
+    - cpp-embedded/index.md
+    - 01 - HAL 模板类: cpp-embedded/01-hal-template/README.md
+    - 02 - RAII 在嵌入式: cpp-embedded/02-raii/README.md
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/yourusername
+
+copyright: Copyright &copy; 2026 Your Name
