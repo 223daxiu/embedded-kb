@@ -17,6 +17,7 @@
 
 | 模块 | 内容 | 状态 |
 |------|------|------|
+| [Linux 基础命令](linux-basics/index.md) | Shell 入门、文件操作、权限、进程、网络、脚本 | ✅ 已完成 |
 | [Linux 驱动开发](linux-driver/index.md) | 字符设备、平台驱动、设备树、GPIO/I2C/SPI/UART | 🚧 构建中 |
 | [MCU 裸机开发](mcu/index.md) | Cortex-M 内核、外设驱动、FreeRTOS | 🚧 构建中 |
 | [C 语言进阶](c-language/index.md) | 指针、状态机、环形缓冲区、位操作 | 🚧 构建中 |
@@ -24,7 +25,7 @@
 
 ## 🔧 阅读建议
 
-- **初学者**：先从 [MCU 裸机开发](mcu/index.md) 开始，再进阶到 Linux 驱动
+- **初学者**：先从 [Linux 基础命令](linux-basics/index.md) 入手，再到 [MCU 裸机开发](mcu/index.md)，最后进阶 Linux 驱动
 - **有 MCU 基础**：可直接从 [Linux 驱动开发](linux-driver/index.md) 的基础框架入手
 - **每个课程**都包含硬件连接说明、原理讲解和可运行的代码
 

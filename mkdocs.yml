@@ -71,6 +71,18 @@ markdown_extensions:
 
 nav:
   - 首页: index.md
+  - Linux 基础命令:
+    - linux-basics/index.md
+    - 01 - Shell 入门: linux-basics/01-shell-intro/README.md
+    - 02 - 文件与目录操作: linux-basics/02-file-directory/README.md
+    - 03 - 文件内容查看与编辑: linux-basics/03-file-content/README.md
+    - 04 - 用户与权限管理: linux-basics/04-user-permission/README.md
+    - 05 - 进程管理: linux-basics/05-process/README.md
+    - 06 - 网络命令: linux-basics/06-network/README.md
+    - 07 - 压缩与解压: linux-basics/07-archive/README.md
+    - 08 - 软件包管理: linux-basics/08-package/README.md
+    - 09 - I/O 重定向与管道: linux-basics/09-redirect-pipe/README.md
+    - 10 - Shell 脚本入门: linux-basics/10-shell-script/README.md
   - Linux 驱动开发:
     - linux-driver/index.md
     - 基础框架:
