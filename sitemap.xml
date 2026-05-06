@@ -2,74 +2,198 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://223daxiu.github.io/embedded-kb/</loc>
-         <lastmod>2026-05-01</lastmod>
+         <lastmod>2026-05-06</lastmod>
     </url>
     <url>
          <loc>https://223daxiu.github.io/embedded-kb/c-language/</loc>
-         <lastmod>2026-05-01</lastmod>
+         <lastmod>2026-05-06</lastmod>
+    </url>
+    <url>
+         <loc>https://223daxiu.github.io/embedded-kb/c-language/01-intro/</loc>
+         <lastmod>2026-05-06</lastmod>
+    </url>
+    <url>
+         <loc>https://223daxiu.github.io/embedded-kb/c-language/02-hello-world/</loc>
+         <lastmod>2026-05-06</lastmod>
+    </url>
+    <url>
+         <loc>https://223daxiu.github.io/embedded-kb/c-language/03-data-types/</loc>
+         <lastmod>2026-05-06</lastmod>
+    </url>
+    <url>
+         <loc>https://223daxiu.github.io/embedded-kb/c-language/04-operators/</loc>
+         <lastmod>2026-05-06</lastmod>
+    </url>
+    <url>
+         <loc>https://223daxiu.github.io/embedded-kb/c-language/05-io/</loc>
+         <lastmod>2026-05-06</lastmod>
+    </url>
+    <url>
+         <loc>https://223daxiu.github.io/embedded-kb/c-language/06-condition/</loc>
+         <lastmod>2026-05-06</lastmod>
+    </url>
+    <url>
+         <loc>https://223daxiu.github.io/embedded-kb/c-language/07-loop/</loc>
+         <lastmod>2026-05-06</lastmod>
+    </url>
+    <url>
+         <loc>https://223daxiu.github.io/embedded-kb/c-language/08-function-basic/</loc>
+         <lastmod>2026-05-06</lastmod>
+    </url>
+    <url>
+         <loc>https://223daxiu.github.io/embedded-kb/c-language/09-function-advanced/</loc>
+         <lastmod>2026-05-06</lastmod>
+    </url>
+    <url>
+         <loc>https://223daxiu.github.io/embedded-kb/c-language/10-array/</loc>
+         <lastmod>2026-05-06</lastmod>
+    </url>
+    <url>
+         <loc>https://223daxiu.github.io/embedded-kb/c-language/11-pointer-basic/</loc>
+         <lastmod>2026-05-06</lastmod>
+    </url>
+    <url>
+         <loc>https://223daxiu.github.io/embedded-kb/c-language/12-pointer-array/</loc>
+         <lastmod>2026-05-06</lastmod>
+    </url>
+    <url>
+         <loc>https://223daxiu.github.io/embedded-kb/c-language/13-pointer-function/</loc>
+         <lastmod>2026-05-06</lastmod>
+    </url>
+    <url>
+         <loc>https://223daxiu.github.io/embedded-kb/c-language/14-function-pointer/</loc>
+         <lastmod>2026-05-06</lastmod>
+    </url>
+    <url>
+         <loc>https://223daxiu.github.io/embedded-kb/c-language/15-string-basic/</loc>
+         <lastmod>2026-05-06</lastmod>
+    </url>
+    <url>
+         <loc>https://223daxiu.github.io/embedded-kb/c-language/16-string-functions/</loc>
+         <lastmod>2026-05-06</lastmod>
+    </url>
+    <url>
+         <loc>https://223daxiu.github.io/embedded-kb/c-language/17-struct/</loc>
+         <lastmod>2026-05-06</lastmod>
+    </url>
+    <url>
+         <loc>https://223daxiu.github.io/embedded-kb/c-language/18-struct-pointer/</loc>
+         <lastmod>2026-05-06</lastmod>
+    </url>
+    <url>
+         <loc>https://223daxiu.github.io/embedded-kb/c-language/19-union-enum/</loc>
+         <lastmod>2026-05-06</lastmod>
+    </url>
+    <url>
+         <loc>https://223daxiu.github.io/embedded-kb/c-language/20-memory-layout/</loc>
+         <lastmod>2026-05-06</lastmod>
+    </url>
+    <url>
+         <loc>https://223daxiu.github.io/embedded-kb/c-language/21-dynamic-memory/</loc>
+         <lastmod>2026-05-06</lastmod>
+    </url>
+    <url>
+         <loc>https://223daxiu.github.io/embedded-kb/c-language/22-file-io/</loc>
+         <lastmod>2026-05-06</lastmod>
+    </url>
+    <url>
+         <loc>https://223daxiu.github.io/embedded-kb/c-language/23-preprocessor/</loc>
+         <lastmod>2026-05-06</lastmod>
+    </url>
+    <url>
+         <loc>https://223daxiu.github.io/embedded-kb/c-language/24-multi-file/</loc>
+         <lastmod>2026-05-06</lastmod>
+    </url>
+    <url>
+         <loc>https://223daxiu.github.io/embedded-kb/c-language/25-advanced-pointer/</loc>
+         <lastmod>2026-05-06</lastmod>
+    </url>
+    <url>
+         <loc>https://223daxiu.github.io/embedded-kb/c-language/26-data-structure-intro/</loc>
+         <lastmod>2026-05-06</lastmod>
+    </url>
+    <url>
+         <loc>https://223daxiu.github.io/embedded-kb/c-language/27-sort-search/</loc>
+         <lastmod>2026-05-06</lastmod>
+    </url>
+    <url>
+         <loc>https://223daxiu.github.io/embedded-kb/c-language/28-linked-list/</loc>
+         <lastmod>2026-05-06</lastmod>
+    </url>
+    <url>
+         <loc>https://223daxiu.github.io/embedded-kb/c-language/29-hash-table/</loc>
+         <lastmod>2026-05-06</lastmod>
+    </url>
+    <url>
+         <loc>https://223daxiu.github.io/embedded-kb/c-language/30-binary-tree/</loc>
+         <lastmod>2026-05-06</lastmod>
+    </url>
+    <url>
+         <loc>https://223daxiu.github.io/embedded-kb/c-language/31-final-project/</loc>
+         <lastmod>2026-05-06</lastmod>
     </url>
     <url>
          <loc>https://223daxiu.github.io/embedded-kb/cpp-embedded/</loc>
-         <lastmod>2026-05-01</lastmod>
+         <lastmod>2026-05-06</lastmod>
     </url>
     <url>
          <loc>https://223daxiu.github.io/embedded-kb/linux-basics/</loc>
-         <lastmod>2026-05-01</lastmod>
+         <lastmod>2026-05-06</lastmod>
     </url>
     <url>
          <loc>https://223daxiu.github.io/embedded-kb/linux-basics/01-shell-intro/</loc>
-         <lastmod>2026-05-01</lastmod>
+         <lastmod>2026-05-06</lastmod>
     </url>
     <url>
          <loc>https://223daxiu.github.io/embedded-kb/linux-basics/02-file-directory/</loc>
-         <lastmod>2026-05-01</lastmod>
+         <lastmod>2026-05-06</lastmod>
     </url>
     <url>
          <loc>https://223daxiu.github.io/embedded-kb/linux-basics/03-file-content/</loc>
-         <lastmod>2026-05-01</lastmod>
+         <lastmod>2026-05-06</lastmod>
     </url>
     <url>
          <loc>https://223daxiu.github.io/embedded-kb/linux-basics/04-user-permission/</loc>
-         <lastmod>2026-05-01</lastmod>
+         <lastmod>2026-05-06</lastmod>
     </url>
     <url>
          <loc>https://223daxiu.github.io/embedded-kb/linux-basics/05-process/</loc>
-         <lastmod>2026-05-01</lastmod>
+         <lastmod>2026-05-06</lastmod>
     </url>
     <url>
          <loc>https://223daxiu.github.io/embedded-kb/linux-basics/06-network/</loc>
-         <lastmod>2026-05-01</lastmod>
+         <lastmod>2026-05-06</lastmod>
     </url>
     <url>
          <loc>https://223daxiu.github.io/embedded-kb/linux-basics/07-archive/</loc>
-         <lastmod>2026-05-01</lastmod>
+         <lastmod>2026-05-06</lastmod>
     </url>
     <url>
          <loc>https://223daxiu.github.io/embedded-kb/linux-basics/08-package/</loc>
-         <lastmod>2026-05-01</lastmod>
+         <lastmod>2026-05-06</lastmod>
     </url>
     <url>
          <loc>https://223daxiu.github.io/embedded-kb/linux-basics/09-redirect-pipe/</loc>
-         <lastmod>2026-05-01</lastmod>
+         <lastmod>2026-05-06</lastmod>
     </url>
     <url>
          <loc>https://223daxiu.github.io/embedded-kb/linux-basics/10-shell-script/</loc>
-         <lastmod>2026-05-01</lastmod>
+         <lastmod>2026-05-06</lastmod>
     </url>
     <url>
          <loc>https://223daxiu.github.io/embedded-kb/linux-driver/</loc>
-         <lastmod>2026-05-01</lastmod>
+         <lastmod>2026-05-06</lastmod>
     </url>
     <url>
          <loc>https://223daxiu.github.io/embedded-kb/linux-driver/01-char-device/</loc>
-         <lastmod>2026-05-01</lastmod>
+         <lastmod>2026-05-06</lastmod>
     </url>
     <url>
          <loc>https://223daxiu.github.io/embedded-kb/mcu/</loc>
-         <lastmod>2026-05-01</lastmod>
+         <lastmod>2026-05-06</lastmod>
     </url>
     <url>
          <loc>https://223daxiu.github.io/embedded-kb/mcu/03-systick/</loc>
-         <lastmod>2026-05-01</lastmod>
+         <lastmod>2026-05-06</lastmod>
     </url>
 </urlset>
