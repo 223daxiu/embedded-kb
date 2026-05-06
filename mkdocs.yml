@@ -156,6 +156,8 @@ nav:
       - 31 - 综合项目：学生管理系统: c-language/31-final-project/README.md
   - C++（零基础到高薪）:
     - cpp-embedded/index.md
+    - 第零部分 · 环境搭建:
+      - 00 - 开发环境搭建（VS/VSCode/MinGW）: cpp-embedded/00-environment/README.md
     - 第一部分 · 基础语法:
       - 01 - 从C到C++: cpp-embedded/01-c-to-cpp/README.md
       - 02 - 命名空间与输入输出: cpp-embedded/02-namespace-io/README.md
