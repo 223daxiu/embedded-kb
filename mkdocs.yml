@@ -145,15 +145,15 @@ nav:
       - 23 - 预处理器与宏: c-language/23-preprocessor/README.md
       - 24 - 多文件编程与Makefile: c-language/24-multi-file/README.md
     - 第九部分 · 高级主题:
-      - 25 - 存储类与类型限定符: c-language/25-storage-class/README.md
-      - 26 - 位运算技巧: c-language/26-bit-operations/README.md
-      - 27 - 错误处理与调试: c-language/27-error-debug/README.md
+      - 25 - 指针高级应用: c-language/25-advanced-pointer/README.md
+      - 26 - 栈与队列: c-language/26-data-structure-intro/README.md
+      - 27 - 排序与查找算法: c-language/27-sort-search/README.md
     - 第十部分 · 数据结构实战:
-      - 28 - 链表: c-language/28-linked-list/README.md
-      - 29 - 栈与队列: c-language/29-stack-queue/README.md
-      - 30 - 排序与查找: c-language/30-sort-search/README.md
+      - 28 - 链表进阶: c-language/28-linked-list/README.md
+      - 29 - 哈希表: c-language/29-hash-table/README.md
+      - 30 - 二叉树基础: c-language/30-binary-tree/README.md
     - 第十一部分 · 综合项目:
-      - 31 - 综合项目：学生管理系统: c-language/31-project/README.md
+      - 31 - 综合项目：学生管理系统: c-language/31-final-project/README.md
   - C++ 嵌入式:
     - cpp-embedded/index.md
     - 01 - HAL 模板类: cpp-embedded/01-hal-template/README.md
