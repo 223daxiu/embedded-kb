@@ -110,12 +110,50 @@ nav:
     - RTOS:
       - 07 - FreeRTOS 基础: mcu/07-freertos/README.md
       - 08 - 任务间通信: mcu/08-rtos-comm/README.md
-  - C 语言进阶:
+  - C 语言（零基础到精通）:
     - c-language/index.md
-    - 01 - 指针与内存: c-language/01-pointer-memory/README.md
-    - 02 - 状态机设计: c-language/02-state-machine/README.md
-    - 03 - 环形缓冲区: c-language/03-ring-buffer/README.md
-    - 04 - 位操作技巧: c-language/04-bit-operations/README.md
+    - 第一部分 · 入门基础:
+      - 01 - C语言简介与环境搭建: c-language/01-intro/README.md
+      - 02 - 第一个C程序: c-language/02-hello-world/README.md
+      - 03 - 数据类型与变量: c-language/03-data-types/README.md
+      - 04 - 运算符与表达式: c-language/04-operators/README.md
+      - 05 - 格式化输入输出: c-language/05-io/README.md
+      - 06 - 条件判断: c-language/06-condition/README.md
+      - 07 - 循环结构: c-language/07-loop/README.md
+    - 第二部分 · 函数与数组:
+      - 08 - 函数基础: c-language/08-function-basic/README.md
+      - 09 - 函数进阶: c-language/09-function-advanced/README.md
+      - 10 - 数组: c-language/10-array/README.md
+    - 第三部分 · 指针:
+      - 11 - 指针基础: c-language/11-pointer-basic/README.md
+      - 12 - 指针与数组: c-language/12-pointer-array/README.md
+      - 13 - 指针与函数: c-language/13-pointer-function/README.md
+      - 14 - 多级指针与函数指针: c-language/14-function-pointer/README.md
+    - 第四部分 · 字符串:
+      - 15 - 字符与字符串: c-language/15-string-basic/README.md
+      - 16 - 字符串处理函数: c-language/16-string-functions/README.md
+    - 第五部分 · 复合数据类型:
+      - 17 - 结构体: c-language/17-struct/README.md
+      - 18 - 结构体与指针: c-language/18-struct-pointer/README.md
+      - 19 - 联合体与枚举: c-language/19-union-enum/README.md
+    - 第六部分 · 内存管理:
+      - 20 - 程序内存布局: c-language/20-memory-layout/README.md
+      - 21 - 动态内存分配: c-language/21-dynamic-memory/README.md
+    - 第七部分 · 文件操作:
+      - 22 - 文件操作: c-language/22-file-io/README.md
+    - 第八部分 · 预处理与编译:
+      - 23 - 预处理器与宏: c-language/23-preprocessor/README.md
+      - 24 - 多文件编程与Makefile: c-language/24-multi-file/README.md
+    - 第九部分 · 高级主题:
+      - 25 - 存储类与类型限定符: c-language/25-storage-class/README.md
+      - 26 - 位运算技巧: c-language/26-bit-operations/README.md
+      - 27 - 错误处理与调试: c-language/27-error-debug/README.md
+    - 第十部分 · 数据结构实战:
+      - 28 - 链表: c-language/28-linked-list/README.md
+      - 29 - 栈与队列: c-language/29-stack-queue/README.md
+      - 30 - 排序与查找: c-language/30-sort-search/README.md
+    - 第十一部分 · 综合项目:
+      - 31 - 综合项目：学生管理系统: c-language/31-project/README.md
   - C++ 嵌入式:
     - cpp-embedded/index.md
     - 01 - HAL 模板类: cpp-embedded/01-hal-template/README.md
