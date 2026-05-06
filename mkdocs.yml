@@ -154,10 +154,50 @@ nav:
       - 30 - 二叉树基础: c-language/30-binary-tree/README.md
     - 第十一部分 · 综合项目:
       - 31 - 综合项目：学生管理系统: c-language/31-final-project/README.md
-  - C++ 嵌入式:
+  - C++（零基础到高薪）:
     - cpp-embedded/index.md
-    - 01 - HAL 模板类: cpp-embedded/01-hal-template/README.md
-    - 02 - RAII 在嵌入式: cpp-embedded/02-raii/README.md
+    - 第一部分 · 基础语法:
+      - 01 - 从C到C++: cpp-embedded/01-c-to-cpp/README.md
+      - 02 - 命名空间与输入输出: cpp-embedded/02-namespace-io/README.md
+      - 03 - 引用与const: cpp-embedded/03-reference-const/README.md
+      - 04 - 函数增强: cpp-embedded/04-function-enhanced/README.md
+      - 05 - 类与对象入门: cpp-embedded/05-class-intro/README.md
+      - 06 - new/delete与内存管理: cpp-embedded/06-new-delete/README.md
+      - 07 - string字符串类: cpp-embedded/07-string-class/README.md
+      - 08 - IO流与文件操作: cpp-embedded/08-iostream/README.md
+    - 第二部分 · 面向对象:
+      - 09 - 构造函数与析构函数: cpp-embedded/09-constructor-destructor/README.md
+      - 10 - 拷贝控制: cpp-embedded/10-copy-control/README.md
+      - 11 - 运算符重载: cpp-embedded/11-operator-overload/README.md
+      - 12 - 继承: cpp-embedded/12-inheritance/README.md
+      - 13 - 多态与虚函数: cpp-embedded/13-polymorphism/README.md
+      - 14 - 抽象类与接口: cpp-embedded/14-abstract-interface/README.md
+    - 第三部分 · 高级特性:
+      - 15 - 模板基础: cpp-embedded/15-template-basic/README.md
+      - 16 - 模板进阶: cpp-embedded/16-template-advanced/README.md
+      - 17 - 异常处理: cpp-embedded/17-exception/README.md
+      - 18 - 智能指针: cpp-embedded/18-smart-pointer/README.md
+      - 19 - 类型转换: cpp-embedded/19-type-cast/README.md
+      - 20 - RAII与资源管理: cpp-embedded/20-raii/README.md
+    - 第四部分 · STL标准库:
+      - 21 - STL概述与容器: cpp-embedded/21-stl-containers/README.md
+      - 22 - 迭代器与算法: cpp-embedded/22-iterators-algorithms/README.md
+      - 23 - 关联容器与哈希: cpp-embedded/23-associative-containers/README.md
+      - 24 - Lambda与函数对象: cpp-embedded/24-lambda-functor/README.md
+      - 25 - 现代C++（11/14）: cpp-embedded/25-modern-cpp-11-14/README.md
+      - 26 - 现代C++（17/20）: cpp-embedded/26-modern-cpp-17-20/README.md
+    - 第五部分 · 深入进阶:
+      - 27 - 移动语义与完美转发: cpp-embedded/27-move-semantics/README.md
+      - 28 - 多线程编程: cpp-embedded/28-multithreading/README.md
+      - 29 - 设计模式: cpp-embedded/29-design-patterns/README.md
+      - 30 - 模板元编程: cpp-embedded/30-metaprogramming/README.md
+      - 31 - 内存模型与性能优化: cpp-embedded/31-memory-performance/README.md
+      - 32 - C++在嵌入式中的应用: cpp-embedded/32-embedded-cpp/README.md
+    - 第六部分 · 行业实战项目:
+      - 33 - 项目：网络通信库: cpp-embedded/33-project-network/README.md
+      - 34 - 项目：嵌入式驱动框架: cpp-embedded/34-project-driver-framework/README.md
+      - 35 - 项目：JSON解析器: cpp-embedded/35-project-json-parser/README.md
+      - 36 - C++面试高频题精讲: cpp-embedded/36-interview/README.md
 
 extra:
   social:
