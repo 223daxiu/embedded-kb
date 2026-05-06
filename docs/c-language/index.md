@@ -88,23 +88,23 @@ graph LR
 
 | 课号 | 标题 | 关键知识点 | 难度 |
 |------|------|----------|------|
-| 25 | [存储类与类型限定符](25-storage-class/README.md) | auto、static、extern、const、volatile | ⭐⭐⭐ |
-| 26 | [位运算技巧](26-bit-operations/README.md) | 位操作、掩码、寄存器操作 | ⭐⭐⭐ |
-| 27 | [错误处理与调试](27-error-debug/README.md) | errno、perror、assert、GDB | ⭐⭐ |
+| 25 | [指针高级应用](25-advanced-pointer/README.md) | void*、多级指针、volatile、const | ⭐⭐⭐ |
+| 26 | [栈与队列](26-data-structure-intro/README.md) | 栈、队列、括号匹配、串口缓冲 | ⭐⭐⭐ |
+| 27 | [排序与查找算法](27-sort-search/README.md) | 冒泡、快排、二分查找、qsort | ⭐⭐⭐ |
 
 ### 第十部分 · 数据结构实战
 
 | 课号 | 标题 | 关键知识点 | 难度 |
 |------|------|----------|------|
-| 28 | [链表](28-linked-list/README.md) | 单链表、双向链表、增删查改 | ⭐⭐⭐ |
-| 29 | [栈与队列](29-stack-queue/README.md) | 数组/链表实现、应用场景 | ⭐⭐⭐ |
-| 30 | [排序与查找](30-sort-search/README.md) | 冒泡、快排、二分查找 | ⭐⭐⭐ |
+| 28 | [链表进阶](28-linked-list/README.md) | 完整单链表、双向链表、快慢指针 | ⭐⭐⭐ |
+| 29 | [哈希表](29-hash-table/README.md) | 哈希函数、链地址法、单词统计 | ⭐⭐⭐ |
+| 30 | [二叉树基础](30-binary-tree/README.md) | BST、插入查找、三种遍历 | ⭐⭐⭐ |
 
 ### 第十一部分 · 综合项目
 
 | 课号 | 标题 | 关键知识点 | 难度 |
 |------|------|----------|------|
-| 31 | [综合项目：学生管理系统](31-project/README.md) | 链表+文件+结构体，完整CRUD | ⭐⭐⭐ |
+| 31 | [综合项目：学生管理系统](31-final-project/README.md) | 结构体+文件+排序，完整CRUD | ⭐⭐⭐ |
 
 ## C 语言速查表
 
