@@ -154,6 +154,8 @@ nav:
       - 30 - 二叉树基础: c-language/30-binary-tree/README.md
     - 第十一部分 · 综合项目:
       - 31 - 综合项目：学生管理系统: c-language/31-final-project/README.md
+    - 第十二部分 · 面试备战:
+      - 32 - C语言面试高频考点: c-language/32-interview/README.md
   - C++（零基础到高薪）:
     - cpp-embedded/index.md
     - 第零部分 · 环境搭建:
