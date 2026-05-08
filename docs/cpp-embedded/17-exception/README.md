@@ -93,13 +93,126 @@ MyClass(MyClass &&other) noexcept { /* ... */ }
 
 ## 练习题
 
-### 练习 1
+### 练习 1：安全除法
 
-为银行账户类的取款方法添加异常处理（余额不足时抛异常）。
+**要求**：
 
-### 练习 2
+- 实现 `double safe_divide(double a, double b)` 函数
+- 当 `b == 0` 时抛出 `std::invalid_argument` 异常
+- 在 `main` 中用 `try/catch` 捕获并处理
+- 测试正常和异常两种情况
 
-自定义 `NetworkError` 异常类，包含错误码和错误信息。
+??? note "参考答案"
+
+    ```cpp title="exercise01.cpp"
+    #include <iostream>
+    #include <stdexcept>
+
+    double safe_divide(double a, double b) {
+        if (b == 0) {
+            throw std::invalid_argument("除数不能为零");
+        }
+        return a / b;
+    }
+
+    int main()
+    {
+        // 正常情况
+        try {
+            double result = safe_divide(10, 3);
+            std::cout << "10 / 3 = " << result << std::endl;
+        } catch (const std::exception &e) {
+            std::cerr << "错误: " << e.what() << std::endl;
+        }
+
+        // 异常情况
+        try {
+            double result = safe_divide(10, 0);
+            std::cout << "10 / 0 = " << result << std::endl;
+        } catch (const std::invalid_argument &e) {
+            std::cerr << "捕获异常: " << e.what() << std::endl;
+        }
+
+        std::cout << "程序继续运行..." << std::endl;
+        return 0;
+    }
+    ```
+
+    **预期输出**：
+    ```
+    10 / 3 = 3.33333
+    捕获异常: 除数不能为零
+    程序继续运行...
+    ```
+
+### 练习 2：自定义异常类
+
+**要求**：
+
+- 定义 `InsufficientFundsException` 继承 `std::runtime_error`
+- 包含 `balance`（当前余额）和 `amount`（请求金额）信息
+- 在取款函数中使用，余额不足时抛出
+- 捕获后打印详细错误信息
+
+??? note "参考答案"
+
+    ```cpp title="exercise02.cpp"
+    #include <iostream>
+    #include <stdexcept>
+    #include <string>
+
+    class InsufficientFundsException : public std::runtime_error {
+        double balance_;
+        double amount_;
+    public:
+        InsufficientFundsException(double balance, double amount)
+            : std::runtime_error("余额不足"),
+              balance_(balance), amount_(amount) {}
+
+        double balance() const { return balance_; }
+        double amount() const { return amount_; }
+    };
+
+    class Account {
+        double balance_ = 0;
+    public:
+        Account(double b) : balance_(b) {}
+
+        void withdraw(double amount) {
+            if (amount > balance_) {
+                throw InsufficientFundsException(balance_, amount);
+            }
+            balance_ -= amount;
+            std::cout << "取款 " << amount << " 成功，余额: " << balance_ << std::endl;
+        }
+    };
+
+    int main()
+    {
+        Account acc(1000);
+
+        try {
+            acc.withdraw(300);   // 成功
+            acc.withdraw(500);   // 成功
+            acc.withdraw(400);   // 余额不足
+        } catch (const InsufficientFundsException &e) {
+            std::cerr << "异常: " << e.what() << std::endl;
+            std::cerr << "  当前余额: " << e.balance() << std::endl;
+            std::cerr << "  请求金额: " << e.amount() << std::endl;
+        }
+
+        return 0;
+    }
+    ```
+
+    **预期输出**：
+    ```
+    取款 300 成功，余额: 700
+    取款 500 成功，余额: 200
+    异常: 余额不足
+      当前余额: 200
+      请求金额: 400
+    ```
 
 ---
 

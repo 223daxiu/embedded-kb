@@ -87,13 +87,130 @@ std::cout << typeid(*bp).name() << std::endl;  // Derived 的类型名
 
 ## 练习题
 
-### 练习 1
+### 练习 1：dynamic_cast 安全类型检查
 
-用 `dynamic_cast` 实现安全的多态类型检查。
+**要求**：
 
-### 练习 2
+- 定义基类 `Shape`（含 `virtual` 方法）和派生类 `Circle`、`Rectangle`
+- 写函数接受 `Shape*` 参数，用 `dynamic_cast` 判断实际类型
+- 转换成功时调用子类专有方法，失败时提示类型不匹配
 
-用 `reinterpret_cast` 查看一个 float 的二进制位表示。
+??? note "参考答案"
+
+    ```cpp title="exercise01.cpp"
+    #include <iostream>
+    #include <vector>
+    #include <memory>
+
+    class Shape {
+    public:
+        virtual void draw() const = 0;
+        virtual ~Shape() = default;
+    };
+
+    class Circle : public Shape {
+        double r;
+    public:
+        Circle(double radius) : r(radius) {}
+        void draw() const override { std::cout << "画圆" << std::endl; }
+        double radius() const { return r; }
+    };
+
+    class Rectangle : public Shape {
+        double w, h;
+    public:
+        Rectangle(double w, double h) : w(w), h(h) {}
+        void draw() const override { std::cout << "画矩形" << std::endl; }
+        double width() const { return w; }
+        double height() const { return h; }
+    };
+
+    void identify(Shape *s) {
+        if (auto *c = dynamic_cast<Circle*>(s)) {
+            std::cout << "这是圆形，半径 = " << c->radius() << std::endl;
+        } else if (auto *r = dynamic_cast<Rectangle*>(s)) {
+            std::cout << "这是矩形，" << r->width() << "x" << r->height() << std::endl;
+        } else {
+            std::cout << "未知形状" << std::endl;
+        }
+    }
+
+    int main()
+    {
+        std::vector<std::unique_ptr<Shape>> shapes;
+        shapes.push_back(std::make_unique<Circle>(5.0));
+        shapes.push_back(std::make_unique<Rectangle>(3, 4));
+        shapes.push_back(std::make_unique<Circle>(2.5));
+
+        for (auto &s : shapes) {
+            s->draw();
+            identify(s.get());
+            std::cout << std::endl;
+        }
+
+        return 0;
+    }
+    ```
+
+    **预期输出**：
+    ```
+    画圆
+    这是圆形，半径 = 5
+
+    画矩形
+    这是矩形，3x4
+
+    画圆
+    这是圆形，半径 = 2.5
+    ```
+
+### 练习 2：reinterpret_cast 查看内存表示
+
+**要求**：
+
+- 用 `reinterpret_cast` 把 `float` 的地址转为 `unsigned char*`
+- 逐字节打印 float 的二进制/十六进制内存表示
+- 测试 `0.0f`、`1.0f`、`-1.0f` 三个值
+
+??? note "参考答案"
+
+    ```cpp title="exercise02.cpp"
+    #include <iostream>
+    #include <iomanip>
+    #include <bitset>
+
+    void print_float_bytes(float f) {
+        auto *bytes = reinterpret_cast<unsigned char*>(&f);
+        std::cout << f << " 的内存表示: ";
+        for (int i = sizeof(float) - 1; i >= 0; i--) {
+            std::cout << std::hex << std::setw(2) << std::setfill('0')
+                      << static_cast<int>(bytes[i]) << " ";
+        }
+        std::cout << " → 二进制: ";
+        for (int i = sizeof(float) - 1; i >= 0; i--) {
+            std::cout << std::bitset<8>(bytes[i]) << " ";
+        }
+        std::cout << std::dec << std::endl;
+    }
+
+    int main()
+    {
+        print_float_bytes(0.0f);
+        print_float_bytes(1.0f);
+        print_float_bytes(-1.0f);
+        print_float_bytes(3.14f);
+
+        return 0;
+    }
+    ```
+
+    **预期输出**（小端序）：
+    ```
+    0 的内存表示: 00 00 00 00  → 二进制: 00000000 00000000 00000000 00000000
+    1 的内存表示: 3f 80 00 00  → 二进制: 00111111 10000000 00000000 00000000
+    -1 的内存表示: bf 80 00 00  → 二进制: 10111111 10000000 00000000 00000000
+    3.14 的内存表示: 40 48 f5 c3  → 二进制: 01000000 01001000 11110101 11000011
+    ```
 
 ---
 

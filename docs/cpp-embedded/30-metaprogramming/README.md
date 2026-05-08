@@ -119,13 +119,127 @@ GPIOA_MODER::set_bits<0b11, 0b01>();  // 编译期检查
 
 ## 练习题
 
-### 练习 1
+### 练习 1：编译期最大公约数
 
-用模板元编程实现编译期求最大公约数。
+**要求**：
 
-### 练习 2
+- 用 `constexpr` 函数实现编译期 GCD（最大公约数）
+- 用 `static_assert` 在编译期验证结果
+- 在 `main` 中打印多组测试
 
-用 `type_traits` + `if constexpr` 实现一个通用的 `serialize` 函数。
+??? note "参考答案"
+
+    ```cpp title="exercise01.cpp"
+    #include <iostream>
+
+    constexpr int gcd(int a, int b) {
+        while (b != 0) {
+            int t = b;
+            b = a % b;
+            a = t;
+        }
+        return a;
+    }
+
+    // 编译期验证
+    static_assert(gcd(12, 8) == 4,  "gcd(12,8) 应该是 4");
+    static_assert(gcd(100, 75) == 25, "gcd(100,75) 应该是 25");
+    static_assert(gcd(17, 13) == 1,  "gcd(17,13) 应该是 1");
+    static_assert(gcd(0, 5) == 5,    "gcd(0,5) 应该是 5");
+
+    // 编译期求 LCM
+    constexpr int lcm(int a, int b) {
+        return a / gcd(a, b) * b;
+    }
+
+    static_assert(lcm(4, 6) == 12, "lcm(4,6) 应该是 12");
+
+    int main()
+    {
+        std::cout << "gcd(12, 8)   = " << gcd(12, 8)   << std::endl;
+        std::cout << "gcd(100, 75) = " << gcd(100, 75) << std::endl;
+        std::cout << "gcd(17, 13)  = " << gcd(17, 13)  << std::endl;
+        std::cout << "lcm(4, 6)    = " << lcm(4, 6)    << std::endl;
+        std::cout << "lcm(12, 8)   = " << lcm(12, 8)   << std::endl;
+
+        // 编译期常量
+        constexpr int result = gcd(1024, 768);
+        std::cout << "gcd(1024, 768) = " << result << " (编译期计算)" << std::endl;
+
+        return 0;
+    }
+    ```
+
+    **预期输出**：
+    ```
+    gcd(12, 8)   = 4
+    gcd(100, 75) = 25
+    gcd(17, 13)  = 1
+    lcm(4, 6)    = 12
+    lcm(12, 8)   = 24
+    gcd(1024, 768) = 256 (编译期计算)
+    ```
+
+### 练习 2：通用 serialize 函数
+
+**要求**：
+
+- 用 `if constexpr` + `type_traits` 实现 `to_string_ex(T val)`
+- 对整数、浮点数、布尔、字符串分别处理
+- 测试多种类型
+
+??? note "参考答案"
+
+    ```cpp title="exercise02.cpp"
+    #include <iostream>
+    #include <string>
+    #include <type_traits>
+
+    template <typename T>
+    std::string to_string_ex(T value) {
+        if constexpr (std::is_same_v<T, bool>) {
+            return value ? "true" : "false";
+        } else if constexpr (std::is_integral_v<T>) {
+            return std::to_string(value);
+        } else if constexpr (std::is_floating_point_v<T>) {
+            // 去除末尾零
+            std::string s = std::to_string(value);
+            s.erase(s.find_last_not_of('0') + 1);
+            if (s.back() == '.') s += '0';
+            return s;
+        } else if constexpr (std::is_same_v<T, std::string>) {
+            return "\"" + value + "\"";
+        } else if constexpr (std::is_same_v<std::decay_t<T>, const char*>) {
+            return std::string("\"" ) + value + "\"";
+        } else {
+            return "<不支持的类型>";
+        }
+    }
+
+    int main()
+    {
+        std::cout << "int:    " << to_string_ex(42) << std::endl;
+        std::cout << "bool:   " << to_string_ex(true) << std::endl;
+        std::cout << "bool:   " << to_string_ex(false) << std::endl;
+        std::cout << "double: " << to_string_ex(3.14) << std::endl;
+        std::cout << "float:  " << to_string_ex(2.5f) << std::endl;
+        std::cout << "string: " << to_string_ex(std::string("hello")) << std::endl;
+        std::cout << "char*:  " << to_string_ex("world") << std::endl;
+
+        return 0;
+    }
+    ```
+
+    **预期输出**：
+    ```
+    int:    42
+    bool:   true
+    bool:   false
+    double: 3.14
+    float:  2.5
+    string: "hello"
+    char*:  "world"
+    ```
 
 ---
 

@@ -116,13 +116,92 @@ T safe_divide(T a, T b) {
 
 ## 练习题
 
-### 练习 1
+### 练习 1：模板特化
 
-为 `Formatter` 添加 `const char*` 的特化。
+**要求**：
 
-### 练习 2
+- 写函数模板 `to_string(T val)` 把任意类型转成字符串
+- 对 `bool` 类型做全特化：返回 `"true"` 或 `"false"` 而不是 `"1"` / `"0"`
+- 测试 `int`、`double`、`bool` 三种类型
 
-用变参模板实现 `max_of(args...)` 函数，返回所有参数中的最大值。
+??? note "参考答案"
+
+    ```cpp title="exercise01.cpp"
+    #include <iostream>
+    #include <string>
+
+    // 通用版本
+    template <typename T>
+    std::string my_to_string(T val) {
+        return std::to_string(val);
+    }
+
+    // bool 特化
+    template <>
+    std::string my_to_string<bool>(bool val) {
+        return val ? "true" : "false";
+    }
+
+    int main()
+    {
+        std::cout << "int:    " << my_to_string(42) << std::endl;
+        std::cout << "double: " << my_to_string(3.14) << std::endl;
+        std::cout << "bool:   " << my_to_string(true) << std::endl;
+        std::cout << "bool:   " << my_to_string(false) << std::endl;
+
+        return 0;
+    }
+    ```
+
+    **预期输出**：
+    ```
+    int:    42
+    double: 3.140000
+    bool:   true
+    bool:   false
+    ```
+
+### 练习 2：可变参数模板 print
+
+**要求**：
+
+- 用可变参数模板实现 `print(args...)`，打印任意个参数，空格分隔，末尾换行
+- 测试 `print(1, 2.5, "hello", true)`
+
+??? note "参考答案"
+
+    ```cpp title="exercise02.cpp"
+    #include <iostream>
+
+    // 递归终止
+    void print() {
+        std::cout << std::endl;
+    }
+
+    // 递归展开
+    template <typename T, typename... Args>
+    void print(T first, Args... rest) {
+        std::cout << first;
+        if constexpr (sizeof...(rest) > 0) std::cout << " ";
+        print(rest...);
+    }
+
+    int main()
+    {
+        print(1, 2.5, "hello", true);
+        print("C++", 17, "is", "great");
+        print(42);
+
+        return 0;
+    }
+    ```
+
+    **预期输出**：
+    ```
+    1 2.5 hello 1
+    C++ 17 is great
+    42
+    ```
 
 ---
 

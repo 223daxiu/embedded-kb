@@ -142,13 +142,169 @@ public:
 
 ## 练习题
 
-### 练习 1
+### 练习 1：2x2 矩阵类
 
-为 `Matrix2x2` 类重载 `+`、`*`、`<<` 运算符。
+**要求**：
 
-### 练习 2
+- 设计 `Matrix2x2` 类，内部用 `double data[2][2]` 存储
+- 重载 `+`（矩阵加法）、`*`（矩阵乘法）、`<<`（输出）
+- 测试矩阵运算并打印结果
 
-实现一个 `String` 类，重载 `+`（拼接）、`[]`（下标）、`==`（比较）。
+??? note "参考答案"
+
+    ```cpp title="exercise01.cpp"
+    #include <iostream>
+
+    class Matrix2x2 {
+        double data[2][2];
+    public:
+        Matrix2x2(double a=0, double b=0, double c=0, double d=0) {
+            data[0][0]=a; data[0][1]=b;
+            data[1][0]=c; data[1][1]=d;
+        }
+
+        Matrix2x2 operator+(const Matrix2x2 &other) const {
+            return Matrix2x2(
+                data[0][0]+other.data[0][0], data[0][1]+other.data[0][1],
+                data[1][0]+other.data[1][0], data[1][1]+other.data[1][1]
+            );
+        }
+
+        Matrix2x2 operator*(const Matrix2x2 &other) const {
+            return Matrix2x2(
+                data[0][0]*other.data[0][0] + data[0][1]*other.data[1][0],
+                data[0][0]*other.data[0][1] + data[0][1]*other.data[1][1],
+                data[1][0]*other.data[0][0] + data[1][1]*other.data[1][0],
+                data[1][0]*other.data[0][1] + data[1][1]*other.data[1][1]
+            );
+        }
+
+        friend std::ostream& operator<<(std::ostream &os, const Matrix2x2 &m) {
+            os << "|" << m.data[0][0] << " " << m.data[0][1] << "|" << std::endl
+               << "|" << m.data[1][0] << " " << m.data[1][1] << "|";
+            return os;
+        }
+    };
+
+    int main()
+    {
+        Matrix2x2 a(1, 2, 3, 4);
+        Matrix2x2 b(5, 6, 7, 8);
+
+        std::cout << "A =" << std::endl << a << std::endl;
+        std::cout << "B =" << std::endl << b << std::endl;
+        std::cout << "A + B =" << std::endl << (a + b) << std::endl;
+        std::cout << "A * B =" << std::endl << (a * b) << std::endl;
+
+        return 0;
+    }
+    ```
+
+    **预期输出**：
+    ```
+    A =
+    |1 2|
+    |3 4|
+    B =
+    |5 6|
+    |7 8|
+    A + B =
+    |6 8|
+    |10 12|
+    A * B =
+    |19 22|
+    |43 50|
+    ```
+
+### 练习 2：String 类运算符重载
+
+**要求**：
+
+- 在第10课的 `MyString` 基础上，重载：
+  - `+`（字符串拼接）
+  - `[]`（下标访问）
+  - `==`（字符串比较）
+  - `<<`（输出）
+
+??? note "参考答案"
+
+    ```cpp title="exercise02.cpp"
+    #include <iostream>
+    #include <cstring>
+
+    class MyString {
+        char *data_;
+        size_t len_;
+    public:
+        MyString(const char *s = "") : len_(strlen(s)), data_(new char[strlen(s)+1]) {
+            strcpy(data_, s);
+        }
+        ~MyString() { delete[] data_; }
+        MyString(const MyString &o) : len_(o.len_), data_(new char[o.len_+1]) {
+            strcpy(data_, o.data_);
+        }
+        MyString& operator=(const MyString &o) {
+            if (this != &o) {
+                delete[] data_;
+                len_ = o.len_;
+                data_ = new char[len_+1];
+                strcpy(data_, o.data_);
+            }
+            return *this;
+        }
+
+        // + 拼接
+        MyString operator+(const MyString &other) const {
+            char *buf = new char[len_ + other.len_ + 1];
+            strcpy(buf, data_);
+            strcat(buf, other.data_);
+            MyString result(buf);
+            delete[] buf;
+            return result;
+        }
+
+        // [] 下标
+        char& operator[](size_t i) { return data_[i]; }
+        const char& operator[](size_t i) const { return data_[i]; }
+
+        // == 比较
+        bool operator==(const MyString &other) const {
+            return strcmp(data_, other.data_) == 0;
+        }
+
+        // << 输出
+        friend std::ostream& operator<<(std::ostream &os, const MyString &s) {
+            os << s.data_;
+            return os;
+        }
+    };
+
+    int main()
+    {
+        MyString a("Hello");
+        MyString b(" World");
+        MyString c = a + b;
+
+        std::cout << "a = " << a << std::endl;
+        std::cout << "b = " << b << std::endl;
+        std::cout << "a + b = " << c << std::endl;
+        std::cout << "c[0] = " << c[0] << std::endl;
+        std::cout << "a == \"Hello\"? " << (a == MyString("Hello") ? "是" : "否") << std::endl;
+        std::cout << "a == b? " << (a == b ? "是" : "否") << std::endl;
+
+        return 0;
+    }
+    ```
+
+    **预期输出**：
+    ```
+    a = Hello
+    b =  World
+    a + b = Hello World
+    c[0] = H
+    a == "Hello"? 是
+    a == b? 否
+    ```
 
 ---
 

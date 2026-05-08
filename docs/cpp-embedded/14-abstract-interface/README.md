@@ -105,13 +105,144 @@ void transfer(IDriver &drv, const char *msg) {
 
 ## 练习题
 
-### 练习 1
+### 练习 1：接口设计
 
-设计 `ILogger` 接口（log/warn/error 方法），实现 `ConsoleLogger` 和 `FileLogger`。
+**要求**：
 
-### 练习 2
+- 定义接口 `IShape`，包含 `area()` 和 `name()` 纯虚函数
+- 实现 `Circle`、`Triangle`、`Square` 三个类
+- 写一个 `print_shape(const IShape&)` 函数打印图形信息
+- 用不同图形对象调用该函数
 
-设计一个插件系统：`IPlugin` 接口（init/run/stop），多个插件通过基类指针管理。
+??? note "参考答案"
+
+    ```cpp title="exercise01.cpp"
+    #include <iostream>
+    #include <cmath>
+    #include <string>
+
+    class IShape {
+    public:
+        virtual double area() const = 0;
+        virtual std::string name() const = 0;
+        virtual ~IShape() = default;
+    };
+
+    class Circle : public IShape {
+        double r;
+    public:
+        Circle(double radius) : r(radius) {}
+        double area() const override { return M_PI * r * r; }
+        std::string name() const override { return "圆形(r=" + std::to_string(r) + ")"; }
+    };
+
+    class Triangle : public IShape {
+        double base, height;
+    public:
+        Triangle(double b, double h) : base(b), height(h) {}
+        double area() const override { return 0.5 * base * height; }
+        std::string name() const override { return "三角形"; }
+    };
+
+    class Square : public IShape {
+        double side;
+    public:
+        Square(double s) : side(s) {}
+        double area() const override { return side * side; }
+        std::string name() const override { return "正方形(边=" + std::to_string(side) + ")"; }
+    };
+
+    void print_shape(const IShape &s) {
+        std::cout << s.name() << " → 面积 = " << s.area() << std::endl;
+    }
+
+    int main()
+    {
+        Circle c(5);
+        Triangle t(6, 4);
+        Square sq(3);
+
+        print_shape(c);
+        print_shape(t);
+        print_shape(sq);
+
+        return 0;
+    }
+    ```
+
+    **预期输出**：
+    ```
+    圆形(r=5.000000) → 面积 = 78.5398
+    三角形 → 面积 = 12
+    正方形(边=3.000000) → 面积 = 9
+    ```
+
+### 练习 2：嵌入式接口
+
+**要求**：
+
+- 定义 `ISensor` 接口，包含 `init()`、`read()` 和 `name()` 纯虚函数
+- 实现 `TempSensor`（返回温度）和 `HumiditySensor`（返回湿度）
+- 用接口指针数组统一管理多个传感器
+
+??? note "参考答案"
+
+    ```cpp title="exercise02.cpp"
+    #include <iostream>
+    #include <vector>
+    #include <memory>
+    #include <string>
+
+    class ISensor {
+    public:
+        virtual void init() = 0;
+        virtual double read() = 0;
+        virtual std::string name() const = 0;
+        virtual ~ISensor() = default;
+    };
+
+    class TempSensor : public ISensor {
+    public:
+        void init() override { std::cout << "温度传感器初始化" << std::endl; }
+        double read() override { return 25.6; }  // 模拟读取
+        std::string name() const override { return "温度传感器"; }
+    };
+
+    class HumiditySensor : public ISensor {
+    public:
+        void init() override { std::cout << "湿度传感器初始化" << std::endl; }
+        double read() override { return 65.2; }
+        std::string name() const override { return "湿度传感器"; }
+    };
+
+    int main()
+    {
+        std::vector<std::unique_ptr<ISensor>> sensors;
+        sensors.push_back(std::make_unique<TempSensor>());
+        sensors.push_back(std::make_unique<HumiditySensor>());
+
+        // 统一初始化
+        for (auto &s : sensors) s->init();
+
+        // 统一读取
+        std::cout << "\n--- 传感器读数 ---" << std::endl;
+        for (auto &s : sensors) {
+            std::cout << s->name() << ": " << s->read() << std::endl;
+        }
+
+        return 0;
+    }
+    ```
+
+    **预期输出**：
+    ```
+    温度传感器初始化
+    湿度传感器初始化
+
+    --- 传感器读数 ---
+    温度传感器: 25.6
+    湿度传感器: 65.2
+    ```
 
 ---
 

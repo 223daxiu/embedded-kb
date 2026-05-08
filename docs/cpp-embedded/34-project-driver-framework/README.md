@@ -211,9 +211,109 @@ int main() {
 
 ## 练习题
 
-### 练习
+### 练习：实现 UART 驱动
 
-在此框架上实现 UART 驱动，支持 `send()` 和 `recv()` 接口。
+**要求**：
+
+- 在现有 CRTP 驱动框架基础上实现 `UartDriver`
+- 支持 `send(const char*)` 和 `recv()` 接口
+- 用 `DriverGuard` RAII 管理生命周期
+- 模拟数据发送和接收
+
+??? note "参考答案"
+
+    ```cpp title="exercise.cpp"
+    #include <iostream>
+    #include <string>
+    #include <cstdint>
+
+    enum class DriverState { Uninitialized, Ready, Active, Error };
+
+    template <typename Derived>
+    class DriverBase {
+        DriverState state_ = DriverState::Uninitialized;
+    public:
+        bool init() {
+            if (state_ != DriverState::Uninitialized) return false;
+            if (static_cast<Derived*>(this)->do_init()) {
+                state_ = DriverState::Ready;
+                return true;
+            }
+            return false;
+        }
+        bool start() {
+            if (state_ != DriverState::Ready) return false;
+            state_ = DriverState::Active;
+            return true;
+        }
+        void stop() { if (state_ == DriverState::Active) state_ = DriverState::Ready; }
+        void deinit() {
+            stop();
+            static_cast<Derived*>(this)->do_deinit();
+            state_ = DriverState::Uninitialized;
+        }
+    };
+
+    template <typename Driver>
+    class DriverGuard {
+        Driver &drv_;
+    public:
+        DriverGuard(Driver &d) : drv_(d) { drv_.init(); drv_.start(); }
+        ~DriverGuard() { drv_.deinit(); }
+        Driver& get() { return drv_; }
+    };
+
+    class UartDriver : public DriverBase<UartDriver> {
+        friend class DriverBase<UartDriver>;
+        uint32_t baud_;
+
+        bool do_init() {
+            std::cout << "UART: 初始化 " << baud_ << " 8N1" << std::endl;
+            return true;
+        }
+        void do_deinit() {
+            std::cout << "UART: 关闭" << std::endl;
+        }
+    public:
+        UartDriver(uint32_t baud = 115200) : baud_(baud) {}
+
+        void send(const char *data) {
+            std::cout << "UART TX: " << data << std::endl;
+        }
+
+        std::string recv() {
+            std::string data = "OK";
+            std::cout << "UART RX: " << data << std::endl;
+            return data;
+        }
+    };
+
+    int main()
+    {
+        UartDriver uart(9600);
+        {
+            DriverGuard guard(uart);
+            guard.get().send("AT");
+            auto resp = guard.get().recv();
+            guard.get().send("AT+RST");
+            guard.get().recv();
+        }  // 自动 deinit
+
+        std::cout << "UART 已自动关闭" << std::endl;
+        return 0;
+    }
+    ```
+
+    **预期输出**：
+    ```
+    UART: 初始化 9600 8N1
+    UART TX: AT
+    UART RX: OK
+    UART TX: AT+RST
+    UART RX: OK
+    UART: 关闭
+    UART 已自动关闭
+    ```
 
 ---
 

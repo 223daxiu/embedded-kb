@@ -116,13 +116,86 @@ g++ -std=c++17 -Wall -Wextra -g main.cpp -o app
 
 ## 练习题
 
-### 练习 1
+### 练习 1：个人信息输出
 
-编写一个 C++ 程序，使用 `cout` 输出你的名字和年龄。
+**要求**：
 
-### 练习 2
+- 使用 `cout` 输出你的姓名、年龄和爱好
+- 使用 `endl` 换行，每项信息占一行
+- 使用 `std::string` 存储字符串（不要用 `char[]`）
 
-用 `auto` 声明 5 种不同类型的变量并打印。
+??? note "参考答案"
+
+    ```cpp title="exercise01.cpp"
+    #include <iostream>
+    #include <string>
+
+    int main()
+    {
+        std::string name = "张三";
+        int age = 20;
+        std::string hobby = "嵌入式开发";
+
+        std::cout << "姓名: " << name << std::endl;
+        std::cout << "年龄: " << age << std::endl;
+        std::cout << "爱好: " << hobby << std::endl;
+
+        return 0;
+    }
+    ```
+
+    **预期输出**：
+    ```
+    姓名: 张三
+    年龄: 20
+    爱好: 嵌入式开发
+    ```
+
+### 练习 2：auto 类型推导
+
+**要求**：
+
+- 用 `auto` 声明至少 5 种不同类型的变量（int, double, bool, string, char）
+- 打印每个变量的值
+- 使用 `typeid(变量).name()` 打印类型名（需要 `#include <typeinfo>`）
+
+??? note "参考答案"
+
+    ```cpp title="exercise02.cpp"
+    #include <iostream>
+    #include <string>
+    #include <typeinfo>
+
+    int main()
+    {
+        auto a = 42;                         // int
+        auto b = 3.14;                       // double
+        auto c = true;                       // bool
+        auto d = std::string("hello C++");   // std::string
+        auto e = 'A';                        // char
+        auto f = 100L;                       // long
+        auto g = nullptr;                    // std::nullptr_t
+
+        std::cout << "a = " << a << "  类型: " << typeid(a).name() << std::endl;
+        std::cout << "b = " << b << "  类型: " << typeid(b).name() << std::endl;
+        std::cout << "c = " << std::boolalpha << c << "  类型: " << typeid(c).name() << std::endl;
+        std::cout << "d = " << d << "  类型: " << typeid(d).name() << std::endl;
+        std::cout << "e = " << e << "  类型: " << typeid(e).name() << std::endl;
+        std::cout << "f = " << f << "  类型: " << typeid(f).name() << std::endl;
+
+        return 0;
+    }
+    ```
+
+    **预期输出**（MSVC 下，g++ 会显示缩写）：
+    ```
+    a = 42  类型: int
+    b = 3.14  类型: double
+    c = true  类型: bool
+    d = hello C++  类型: class std::basic_string<char,...>
+    e = A  类型: char
+    f = 100  类型: long
+    ```
 
 ---
 

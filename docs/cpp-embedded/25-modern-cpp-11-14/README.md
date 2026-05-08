@@ -124,13 +124,159 @@ int million = 1'000'000;     // 数字分隔符
 
 ## 练习题
 
-### 练习 1
+### 练习 1：现代 C++ 风格重写
 
-用 C++11/14 特性重写一个之前用 C 风格写的程序。
+**要求**：
 
-### 练习 2
+- 用 `auto`、范围 for、`initializer_list`、`enum class` 等 C++11 特性
+- 实现一个小程序：管理一组学生成绩，按等级分类（A/B/C/D）
+- 使用 `constexpr` 定义分数线
 
-使用 `enum class` + `switch` 实现状态机。
+??? note "参考答案"
+
+    ```cpp title="exercise01.cpp"
+    #include <iostream>
+    #include <vector>
+    #include <string>
+
+    enum class Grade { A, B, C, D };
+
+    constexpr int GRADE_A = 90;
+    constexpr int GRADE_B = 80;
+    constexpr int GRADE_C = 60;
+
+    Grade get_grade(int score) {
+        if (score >= GRADE_A) return Grade::A;
+        if (score >= GRADE_B) return Grade::B;
+        if (score >= GRADE_C) return Grade::C;
+        return Grade::D;
+    }
+
+    std::string grade_str(Grade g) {
+        switch (g) {
+            case Grade::A: return "优秀(A)";
+            case Grade::B: return "良好(B)";
+            case Grade::C: return "及格(C)";
+            case Grade::D: return "不及格(D)";
+        }
+        return "未知";
+    }
+
+    int main()
+    {
+        // 初始化列表
+        std::vector<std::pair<std::string, int>> students = {
+            {"张三", 95}, {"李四", 82}, {"王五", 67},
+            {"赵六", 55}, {"孙七", 91}
+        };
+
+        // 范围 for + auto + 结构化绑定
+        for (const auto &[name, score] : students) {
+            auto g = get_grade(score);
+            std::cout << name << ": " << score << " 分 → " << grade_str(g) << std::endl;
+        }
+
+        return 0;
+    }
+    ```
+
+    **预期输出**：
+    ```
+    张三: 95 分 → 优秀(A)
+    李四: 82 分 → 良好(B)
+    王五: 67 分 → 及格(C)
+    赵六: 55 分 → 不及格(D)
+    孙七: 91 分 → 优秀(A)
+    ```
+
+### 练习 2：enum class 状态机
+
+**要求**：
+
+- 用 `enum class` 定义状态（Idle、Running、Paused、Stopped）
+- 实现状态转换函数，用 `switch` 处理事件
+- 打印每次状态变化
+
+??? note "参考答案"
+
+    ```cpp title="exercise02.cpp"
+    #include <iostream>
+    #include <string>
+
+    enum class State { Idle, Running, Paused, Stopped };
+    enum class Event { Start, Pause, Resume, Stop, Reset };
+
+    std::string state_name(State s) {
+        switch (s) {
+            case State::Idle:    return "Idle";
+            case State::Running: return "Running";
+            case State::Paused:  return "Paused";
+            case State::Stopped: return "Stopped";
+        }
+        return "Unknown";
+    }
+
+    std::string event_name(Event e) {
+        switch (e) {
+            case Event::Start:  return "Start";
+            case Event::Pause:  return "Pause";
+            case Event::Resume: return "Resume";
+            case Event::Stop:   return "Stop";
+            case Event::Reset:  return "Reset";
+        }
+        return "Unknown";
+    }
+
+    State handle_event(State current, Event event) {
+        State next = current;
+        switch (current) {
+            case State::Idle:
+                if (event == Event::Start) next = State::Running;
+                break;
+            case State::Running:
+                if (event == Event::Pause) next = State::Paused;
+                if (event == Event::Stop)  next = State::Stopped;
+                break;
+            case State::Paused:
+                if (event == Event::Resume) next = State::Running;
+                if (event == Event::Stop)   next = State::Stopped;
+                break;
+            case State::Stopped:
+                if (event == Event::Reset) next = State::Idle;
+                break;
+        }
+
+        std::cout << state_name(current) << " --[" << event_name(event) << "]--> "
+                  << state_name(next);
+        if (next == current) std::cout << " (无效事件)";
+        std::cout << std::endl;
+
+        return next;
+    }
+
+    int main()
+    {
+        State s = State::Idle;
+        s = handle_event(s, Event::Start);
+        s = handle_event(s, Event::Pause);
+        s = handle_event(s, Event::Start);   // 无效
+        s = handle_event(s, Event::Resume);
+        s = handle_event(s, Event::Stop);
+        s = handle_event(s, Event::Reset);
+
+        return 0;
+    }
+    ```
+
+    **预期输出**：
+    ```
+    Idle --[Start]--> Running
+    Running --[Pause]--> Paused
+    Paused --[Start]--> Paused (无效事件)
+    Paused --[Resume]--> Running
+    Running --[Stop]--> Stopped
+    Stopped --[Reset]--> Idle
+    ```
 
 ---
 

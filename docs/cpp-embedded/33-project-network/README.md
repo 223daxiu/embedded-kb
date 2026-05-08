@@ -166,9 +166,85 @@ int main() {
 
 ## 练习题
 
-### 练习
+### 练习：HTTP GET 解析
 
-在此基础上增加：简单的 HTTP 请求解析（解析 GET 请求的 URL 路径）。
+**要求**：
+
+- 解析简单的 HTTP GET 请求字符串，提取方法、路径和 HTTP 版本
+- 解析请求头（Header）中的 `Host` 字段
+- 测试多个请求字符串
+
+??? note "参考答案"
+
+    ```cpp title="exercise.cpp"
+    #include <iostream>
+    #include <string>
+    #include <sstream>
+    #include <map>
+
+    struct HttpRequest {
+        std::string method;
+        std::string path;
+        std::string version;
+        std::map<std::string, std::string> headers;
+    };
+
+    HttpRequest parse_http(const std::string &raw) {
+        HttpRequest req;
+        std::istringstream iss(raw);
+
+        // 解析请求行
+        iss >> req.method >> req.path >> req.version;
+
+        // 解析头部
+        std::string line;
+        std::getline(iss, line);  // 跳过请求行末尾
+        while (std::getline(iss, line) && line != "\r" && !line.empty()) {
+            auto colon = line.find(':');
+            if (colon != std::string::npos) {
+                std::string key = line.substr(0, colon);
+                std::string val = line.substr(colon + 2);  // 跳过 ": "
+                // 去除末尾\r
+                if (!val.empty() && val.back() == '\r') val.pop_back();
+                req.headers[key] = val;
+            }
+        }
+        return req;
+    }
+
+    int main()
+    {
+        std::string raw =
+            "GET /api/sensors HTTP/1.1\r\n"
+            "Host: 192.168.1.100\r\n"
+            "User-Agent: EmbeddedClient/1.0\r\n"
+            "Accept: application/json\r\n"
+            "\r\n";
+
+        auto req = parse_http(raw);
+
+        std::cout << "方法: " << req.method << std::endl;
+        std::cout << "路径: " << req.path << std::endl;
+        std::cout << "版本: " << req.version << std::endl;
+        std::cout << "请求头:" << std::endl;
+        for (const auto &[k, v] : req.headers) {
+            std::cout << "  " << k << ": " << v << std::endl;
+        }
+
+        return 0;
+    }
+    ```
+
+    **预期输出**：
+    ```
+    方法: GET
+    路径: /api/sensors
+    版本: HTTP/1.1
+    请求头:
+      Accept: application/json
+      Host: 192.168.1.100
+      User-Agent: EmbeddedClient/1.0
+    ```
 
 ---
 

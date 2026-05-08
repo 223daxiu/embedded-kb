@@ -117,13 +117,146 @@ std::string create_string() {
 
 ## 练习题
 
-### 练习 1
+### 练习 1：移动构造对比
 
-为自定义的 `String` 类添加移动构造和移动赋值，对比拷贝和移动的性能。
+**要求**：
 
-### 练习 2
+- 为 `Buffer` 类实现拷贝构造和移动构造（打印提示）
+- 分别测试拷贝和移动的场景
+- 观察哪个被调用，理解差异
 
-写一个完美转发的 `log` 函数模板。
+??? note "参考答案"
+
+    ```cpp title="exercise01.cpp"
+    #include <iostream>
+    #include <cstring>
+    #include <utility>
+
+    class Buffer {
+        char *data_;
+        size_t size_;
+    public:
+        Buffer(size_t n) : size_(n), data_(new char[n]{}) {
+            std::cout << "构造 Buffer(" << size_ << ")" << std::endl;
+        }
+
+        ~Buffer() {
+            std::cout << "析构 Buffer(" << size_ << ") "
+                      << (data_ ? "释放内存" : "空壳") << std::endl;
+            delete[] data_;
+        }
+
+        // 拷贝构造
+        Buffer(const Buffer &other) : size_(other.size_), data_(new char[other.size_]) {
+            std::memcpy(data_, other.data_, size_);
+            std::cout << "拷贝构造 Buffer(" << size_ << ") - 深拷贝" << std::endl;
+        }
+
+        // 移动构造
+        Buffer(Buffer &&other) noexcept : data_(other.data_), size_(other.size_) {
+            other.data_ = nullptr;
+            other.size_ = 0;
+            std::cout << "移动构造 Buffer(" << size_ << ") - 零拷贝" << std::endl;
+        }
+
+        size_t size() const { return size_; }
+    };
+
+    Buffer create_buffer() {
+        Buffer b(1024);
+        return b;
+    }
+
+    int main()
+    {
+        std::cout << "=== 拷贝 ===" << std::endl;
+        Buffer a(100);
+        Buffer b = a;  // 拷贝构造
+
+        std::cout << "\n=== 移动 ===" << std::endl;
+        Buffer c = std::move(a);  // 移动构造
+        std::cout << "a.size() = " << a.size() << " (已被移动)" << std::endl;
+
+        std::cout << "\n=== 函数返回 ===" << std::endl;
+        Buffer d = create_buffer();  // 可能 RVO 或移动
+
+        std::cout << "\n=== 析构 ===" << std::endl;
+        return 0;
+    }
+    ```
+
+    **预期输出**（可能因 RVO 略有不同）：
+    ```
+    === 拷贝 ===
+    构造 Buffer(100)
+    拷贝构造 Buffer(100) - 深拷贝
+
+    === 移动 ===
+    移动构造 Buffer(100) - 零拷贝
+    a.size() = 0 (已被移动)
+
+    === 函数返回 ===
+    构造 Buffer(1024)
+
+    === 析构 ===
+    析构 Buffer(1024) 释放内存
+    析构 Buffer(100) 释放内存
+    析构 Buffer(0) 空壳
+    析构 Buffer(100) 释放内存
+    ```
+
+### 练习 2：完美转发 log 函数
+
+**要求**：
+
+- 写一个 `log(args...)` 函数模板，接受任意参数
+- 用 `std::forward` 完美转发参数给内部函数
+- 打印日志级别和消息内容
+
+??? note "参考答案"
+
+    ```cpp title="exercise02.cpp"
+    #include <iostream>
+    #include <string>
+    #include <sstream>
+
+    // 内部打印函数
+    template <typename... Args>
+    void print_impl(std::ostream &os, Args&&... args) {
+        ((os << args << " "), ...);
+        os << std::endl;
+    }
+
+    // 完美转发的 log 函数
+    template <typename... Args>
+    void log(const std::string &level, Args&&... args) {
+        std::cout << "[" << level << "] ";
+        print_impl(std::cout, std::forward<Args>(args)...);
+    }
+
+    int main()
+    {
+        log("INFO", "程序启动");
+        log("DEBUG", "变量 x =", 42, "地址:", 0x7fff);
+        log("WARN", "温度过高:", 85.5, "°C");
+        log("ERROR", "连接失败，重试次数:", 3);
+
+        // 测试右值
+        std::string msg = "Hello";
+        log("INFO", std::move(msg), "World");
+
+        return 0;
+    }
+    ```
+
+    **预期输出**：
+    ```
+    [INFO] 程序启动
+    [DEBUG] 变量 x = 42 地址: 32767
+    [WARN] 温度过高: 85.5 °C
+    [ERROR] 连接失败，重试次数: 3
+    [INFO] Hello World
+    ```
 
 ---
 

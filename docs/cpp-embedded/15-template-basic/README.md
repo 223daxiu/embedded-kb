@@ -79,13 +79,107 @@ FixedArray<10> arr;  // 编译期确定大小
 
 ## 练习题
 
-### 练习 1
+### 练习 1：通用 max 函数模板
 
-写函数模板 `swap_val`，交换任意类型的两个变量。
+**要求**：
 
-### 练习 2
+- 写函数模板 `my_max(T a, T b)` 返回较大值
+- 测试 `int`、`double`、`std::string` 三种类型
+- 不使用 `std::max`，自己实现
 
-实现类模板 `Pair<T1, T2>`，存储两个不同类型的值。
+??? note "参考答案"
+
+    ```cpp title="exercise01.cpp"
+    #include <iostream>
+    #include <string>
+
+    template <typename T>
+    T my_max(T a, T b) {
+        return (a > b) ? a : b;
+    }
+
+    int main()
+    {
+        std::cout << "max(3, 7) = " << my_max(3, 7) << std::endl;
+        std::cout << "max(3.14, 2.71) = " << my_max(3.14, 2.71) << std::endl;
+        std::cout << "max(\"apple\", \"banana\") = "
+                  << my_max(std::string("apple"), std::string("banana")) << std::endl;
+
+        return 0;
+    }
+    ```
+
+    **预期输出**：
+    ```
+    max(3, 7) = 7
+    max(3.14, 2.71) = 3.14
+    max("apple", "banana") = banana
+    ```
+
+### 练习 2：类模板 Stack
+
+**要求**：
+
+- 实现类模板 `Stack<T>`，用 `std::vector` 内部存储
+- 支持 `push`、`pop`、`top`、`empty`、`size` 操作
+- 分别用 `int` 和 `string` 实例化测试
+
+??? note "参考答案"
+
+    ```cpp title="exercise02.cpp"
+    #include <iostream>
+    #include <vector>
+    #include <string>
+    #include <stdexcept>
+
+    template <typename T>
+    class Stack {
+        std::vector<T> data_;
+    public:
+        void push(const T &val) { data_.push_back(val); }
+
+        void pop() {
+            if (data_.empty()) throw std::runtime_error("栈为空");
+            data_.pop_back();
+        }
+
+        const T& top() const {
+            if (data_.empty()) throw std::runtime_error("栈为空");
+            return data_.back();
+        }
+
+        bool empty() const { return data_.empty(); }
+        size_t size() const { return data_.size(); }
+    };
+
+    int main()
+    {
+        // int 栈
+        Stack<int> si;
+        si.push(10);
+        si.push(20);
+        si.push(30);
+        std::cout << "int栈 top = " << si.top() << ", size = " << si.size() << std::endl;
+        si.pop();
+        std::cout << "pop后 top = " << si.top() << std::endl;
+
+        // string 栈
+        Stack<std::string> ss;
+        ss.push("Hello");
+        ss.push("World");
+        std::cout << "\nstring栈 top = " << ss.top() << std::endl;
+
+        return 0;
+    }
+    ```
+
+    **预期输出**：
+    ```
+    int栈 top = 30, size = 3
+    pop后 top = 20
+
+    string栈 top = World
+    ```
 
 ---
 

@@ -149,13 +149,157 @@ std::vector<int> build() {
 
 ## 练习题
 
-### 练习 1
+### 练习 1：结构体内存对齐优化
 
-优化一个结构体的内存对齐，对比优化前后的 `sizeof`。
+**要求**：
 
-### 练习 2
+- 定义一个“坏”的结构体（成员顺序导致内存浪费）
+- 定义一个“好”的结构体（按大小降序排列）
+- 用 `sizeof` 和 `offsetof` 对比两者的大小和成员偏移
 
-实现一个固定大小的内存池，用在嵌入式场景中替代 `new/delete`。
+??? note "参考答案"
+
+    ```cpp title="exercise01.cpp"
+    #include <iostream>
+    #include <cstddef>
+
+    struct BadLayout {
+        char  a;    // 1 + 7 padding
+        double b;   // 8
+        char  c;    // 1 + 3 padding
+        int   d;    // 4
+    };
+
+    struct GoodLayout {
+        double b;   // 8
+        int    d;   // 4
+        char   a;   // 1
+        char   c;   // 1 + 2 padding
+    };
+
+    int main()
+    {
+        std::cout << "=== BadLayout ===" << std::endl;
+        std::cout << "sizeof = " << sizeof(BadLayout) << " 字节" << std::endl;
+        std::cout << "  a 偏移: " << offsetof(BadLayout, a) << std::endl;
+        std::cout << "  b 偏移: " << offsetof(BadLayout, b) << std::endl;
+        std::cout << "  c 偏移: " << offsetof(BadLayout, c) << std::endl;
+        std::cout << "  d 偏移: " << offsetof(BadLayout, d) << std::endl;
+
+        std::cout << "\n=== GoodLayout ===" << std::endl;
+        std::cout << "sizeof = " << sizeof(GoodLayout) << " 字节" << std::endl;
+        std::cout << "  b 偏移: " << offsetof(GoodLayout, b) << std::endl;
+        std::cout << "  d 偏移: " << offsetof(GoodLayout, d) << std::endl;
+        std::cout << "  a 偏移: " << offsetof(GoodLayout, a) << std::endl;
+        std::cout << "  c 偏移: " << offsetof(GoodLayout, c) << std::endl;
+
+        std::cout << "\n节省: " << sizeof(BadLayout) - sizeof(GoodLayout) << " 字节" << std::endl;
+
+        return 0;
+    }
+    ```
+
+    **预期输出**（典型 64 位系统）：
+    ```
+    === BadLayout ===
+    sizeof = 24 字节
+      a 偏移: 0
+      b 偏移: 8
+      c 偏移: 16
+      d 偏移: 20
+
+    === GoodLayout ===
+    sizeof = 16 字节
+      b 偏移: 0
+      d 偏移: 8
+      a 偏移: 12
+      c 偏移: 13
+
+    节省: 8 字节
+    ```
+
+### 练习 2：简易内存池
+
+**要求**：
+
+- 实现固定大小的 `FixedPool<T, N>` 内存池
+- 支持 `allocate()` 和 `deallocate()` 操作
+- 测试分配、释放、重新分配的流程
+
+??? note "参考答案"
+
+    ```cpp title="exercise02.cpp"
+    #include <iostream>
+    #include <array>
+
+    template <typename T, size_t N>
+    class FixedPool {
+        struct Block {
+            alignas(T) char data[sizeof(T)];
+            bool used = false;
+        };
+        std::array<Block, N> pool_;
+
+    public:
+        T* allocate() {
+            for (auto &block : pool_) {
+                if (!block.used) {
+                    block.used = true;
+                    return reinterpret_cast<T*>(block.data);
+                }
+            }
+            return nullptr;  // 池已满
+        }
+
+        void deallocate(T *ptr) {
+            for (auto &block : pool_) {
+                if (reinterpret_cast<T*>(block.data) == ptr) {
+                    block.used = false;
+                    return;
+                }
+            }
+        }
+
+        size_t used_count() const {
+            size_t count = 0;
+            for (const auto &b : pool_) if (b.used) count++;
+            return count;
+        }
+    };
+
+    int main()
+    {
+        FixedPool<int, 5> pool;
+
+        // 分配
+        int *a = pool.allocate(); *a = 10;
+        int *b = pool.allocate(); *b = 20;
+        int *c = pool.allocate(); *c = 30;
+        std::cout << "分配 3 个，已用: " << pool.used_count() << "/5" << std::endl;
+        std::cout << "*a=" << *a << " *b=" << *b << " *c=" << *c << std::endl;
+
+        // 释放
+        pool.deallocate(b);
+        std::cout << "\n释放 b 后，已用: " << pool.used_count() << "/5" << std::endl;
+
+        // 重新分配（复用 b 的位置）
+        int *d = pool.allocate(); *d = 40;
+        std::cout << "重新分配 d，已用: " << pool.used_count() << "/5" << std::endl;
+        std::cout << "*d=" << *d << std::endl;
+
+        return 0;
+    }
+    ```
+
+    **预期输出**：
+    ```
+    分配 3 个，已用: 3/5
+    *a=10 *b=20 *c=30
+
+    释放 b 后，已用: 2/5
+    重新分配 d，已用: 3/5
+    *d=40
+    ```
 
 ---
 

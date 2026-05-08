@@ -86,13 +86,123 @@ std::cout << arr.size() << std::endl;  // 5（编译期确定）
 
 ## 练习题
 
-### 练习 1
+### 练习 1：成绩管理系统
 
-用 `vector` 实现一个成绩管理系统：添加、排序、查找、删除。
+**要求**：
 
-### 练习 2
+- 用 `vector` 存储学生成绩
+- 实现添加、排序（升序/降序）、查找最高分/最低分/平均分
+- 删除不及格（<60）的成绩
+- 打印每步操作后的状态
 
-比较 `vector` 和 `list` 在头部插入 10000 个元素的性能差异。
+??? note "参考答案"
+
+    ```cpp title="exercise01.cpp"
+    #include <iostream>
+    #include <vector>
+    #include <algorithm>
+    #include <numeric>
+
+    void print_scores(const std::string &label, const std::vector<int> &scores) {
+        std::cout << label << ": [";
+        for (size_t i = 0; i < scores.size(); i++) {
+            if (i > 0) std::cout << ", ";
+            std::cout << scores[i];
+        }
+        std::cout << "]" << std::endl;
+    }
+
+    int main()
+    {
+        std::vector<int> scores = {78, 92, 55, 88, 45, 100, 67, 38, 95, 72};
+        print_scores("原始成绩", scores);
+
+        // 排序
+        std::sort(scores.begin(), scores.end());
+        print_scores("升序排序", scores);
+
+        // 最值和平均
+        auto [min_it, max_it] = std::minmax_element(scores.begin(), scores.end());
+        double avg = std::accumulate(scores.begin(), scores.end(), 0.0) / scores.size();
+        std::cout << "最低分: " << *min_it << "  最高分: " << *max_it
+                  << "  平均分: " << avg << std::endl;
+
+        // 删除不及格
+        scores.erase(
+            std::remove_if(scores.begin(), scores.end(), [](int s) { return s < 60; }),
+            scores.end()
+        );
+        print_scores("删除不及格后", scores);
+
+        return 0;
+    }
+    ```
+
+    **预期输出**：
+    ```
+    原始成绩: [78, 92, 55, 88, 45, 100, 67, 38, 95, 72]
+    升序排序: [38, 45, 55, 67, 72, 78, 88, 92, 95, 100]
+    最低分: 38  最高分: 100  平均分: 73
+    删除不及格后: [67, 72, 78, 88, 92, 95, 100]
+    ```
+
+### 练习 2：vector vs list 性能对比
+
+**要求**：
+
+- 分别用 `vector` 和 `list` 在头部插入 100000 个元素
+- 用 `<chrono>` 测量各自耗时
+- 打印对比结果，观察差异
+
+??? note "参考答案"
+
+    ```cpp title="exercise02.cpp"
+    #include <iostream>
+    #include <vector>
+    #include <list>
+    #include <chrono>
+
+    int main()
+    {
+        const int N = 100000;
+
+        // vector 头部插入
+        {
+            auto start = std::chrono::high_resolution_clock::now();
+            std::vector<int> v;
+            for (int i = 0; i < N; i++) {
+                v.insert(v.begin(), i);
+            }
+            auto end = std::chrono::high_resolution_clock::now();
+            auto ms = std::chrono::duration_cast<std::chrono::milliseconds>(end - start).count();
+            std::cout << "vector 头部插入 " << N << " 个元素: " << ms << " ms" << std::endl;
+        }
+
+        // list 头部插入
+        {
+            auto start = std::chrono::high_resolution_clock::now();
+            std::list<int> lst;
+            for (int i = 0; i < N; i++) {
+                lst.push_front(i);
+            }
+            auto end = std::chrono::high_resolution_clock::now();
+            auto ms = std::chrono::duration_cast<std::chrono::milliseconds>(end - start).count();
+            std::cout << "list   头部插入 " << N << " 个元素: " << ms << " ms" << std::endl;
+        }
+
+        std::cout << "\n结论: list 头部插入远快于 vector（O(1) vs O(n)）" << std::endl;
+
+        return 0;
+    }
+    ```
+
+    **预期输出**（耗时因机器而异）：
+    ```
+    vector 头部插入 100000 个元素: 2356 ms
+    list   头部插入 100000 个元素: 5 ms
+
+    结论: list 头部插入远快于 vector（O(1) vs O(n)）
+    ```
 
 ---
 

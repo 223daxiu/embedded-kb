@@ -117,13 +117,146 @@ ifs.read(reinterpret_cast<char*>(&r2), sizeof(r2));
 
 ## 练习题
 
-### 练习 1
+### 练习 1：学生信息文件读写
 
-把 5 个学生信息写入文件，再读取出来打印。
+**要求**：
 
-### 练习 2
+- 定义 `Student` 结构体（姓名、年龄、成绩）
+- 将 5 个学生信息写入 `students.txt` 文件
+- 从文件中读取并打印
+- 每行格式：`姓名 年龄 成绩`
 
-用 stringstream 解析 CSV 行 `"张三,85,92,78"`。
+??? note "参考答案"
+
+    ```cpp title="exercise01.cpp"
+    #include <iostream>
+    #include <fstream>
+    #include <string>
+    #include <iomanip>
+
+    struct Student {
+        std::string name;
+        int age;
+        double score;
+    };
+
+    int main()
+    {
+        // 写入
+        Student students[] = {
+            {"张三", 20, 95.5},
+            {"李四", 21, 88.0},
+            {"王五", 19, 72.3},
+            {"赵六", 22, 91.2},
+            {"钱七", 20, 85.7}
+        };
+
+        std::ofstream ofs("students.txt");
+        if (!ofs) {
+            std::cerr << "无法创建文件" << std::endl;
+            return 1;
+        }
+        for (const auto &s : students) {
+            ofs << s.name << " " << s.age << " " << s.score << std::endl;
+        }
+        ofs.close();
+        std::cout << "已写入 5 个学生信息\n" << std::endl;
+
+        // 读取
+        std::ifstream ifs("students.txt");
+        if (!ifs) {
+            std::cerr << "文件不存在" << std::endl;
+            return 1;
+        }
+
+        std::cout << std::left << std::setw(8) << "姓名"
+                  << std::right << std::setw(5) << "年龄"
+                  << std::setw(8) << "成绩" << std::endl;
+        std::cout << std::string(21, '-') << std::endl;
+
+        Student s;
+        while (ifs >> s.name >> s.age >> s.score) {
+            std::cout << std::left << std::setw(8) << s.name
+                      << std::right << std::setw(5) << s.age
+                      << std::fixed << std::setprecision(1)
+                      << std::setw(8) << s.score << std::endl;
+        }
+
+        return 0;
+    }
+    ```
+
+    **预期输出**：
+    ```
+    已写入 5 个学生信息
+
+    姓名       年龄    成绩
+    ---------------------
+    张三        20    95.5
+    李四        21    88.0
+    王五        19    72.3
+    赵六        22    91.2
+    钱七        20    85.7
+    ```
+
+### 练习 2：解析 CSV
+
+**要求**：
+
+- 用 `stringstream` + `getline` 解析 CSV 行 `"张三,85,92,78"`
+- 提取姓名和三科成绩
+- 计算并打印平均分
+
+??? note "参考答案"
+
+    ```cpp title="exercise02.cpp"
+    #include <iostream>
+    #include <sstream>
+    #include <string>
+    #include <vector>
+
+    int main()
+    {
+        std::vector<std::string> csv_lines = {
+            "张三,85,92,78",
+            "李四,90,88,95",
+            "王五,72,65,80"
+        };
+
+        for (const auto &line : csv_lines) {
+            std::istringstream iss(line);
+            std::string name, token;
+            std::vector<int> scores;
+
+            // 用逗号为分隔符读取
+            std::getline(iss, name, ',');
+            while (std::getline(iss, token, ',')) {
+                scores.push_back(std::stoi(token));
+            }
+
+            double avg = 0;
+            for (int s : scores) avg += s;
+            avg /= scores.size();
+
+            std::cout << name << ": ";
+            for (size_t i = 0; i < scores.size(); i++) {
+                if (i > 0) std::cout << ", ";
+                std::cout << scores[i];
+            }
+            std::cout << "  平均: " << std::fixed << std::setprecision(1)
+                      << avg << std::endl;
+        }
+
+        return 0;
+    }
+    ```
+
+    **预期输出**：
+    ```
+    张三: 85, 92, 78  平均: 85.0
+    李四: 90, 88, 95  平均: 91.0
+    王五: 72, 65, 80  平均: 72.3
+    ```
 
 ---
 

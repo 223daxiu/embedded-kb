@@ -107,13 +107,141 @@ public:
 
 ## 练习题
 
-### 练习 1
+### 练习 1：DynamicArray 类
 
-设计 `DynamicArray` 类，构造时分配内存，析构时释放。
+**要求**：
 
-### 练习 2
+- 设计 `DynamicArray` 类，构造时分配指定大小的 `int` 数组
+- 析构时释放内存
+- 提供 `set(index, value)` 和 `get(index)` 方法
+- 提供 `print()` 方法打印所有元素
+- 测试创建、赋值、打印、自动释放
 
-观察嵌套对象的构造析构顺序。
+??? note "参考答案"
+
+    ```cpp title="exercise01.cpp"
+    #include <iostream>
+
+    class DynamicArray {
+        int *data;
+        int size;
+    public:
+        DynamicArray(int n) : size(n), data(new int[n]{}) {
+            std::cout << "DynamicArray(大小=" << size << ") 构造" << std::endl;
+        }
+
+        ~DynamicArray() {
+            delete[] data;
+            std::cout << "DynamicArray(大小=" << size << ") 析构" << std::endl;
+        }
+
+        void set(int index, int value) {
+            if (index >= 0 && index < size) {
+                data[index] = value;
+            }
+        }
+
+        int get(int index) const {
+            if (index >= 0 && index < size) return data[index];
+            return -1;
+        }
+
+        void print() const {
+            std::cout << "[";
+            for (int i = 0; i < size; i++) {
+                if (i > 0) std::cout << ", ";
+                std::cout << data[i];
+            }
+            std::cout << "]" << std::endl;
+        }
+    };
+
+    int main()
+    {
+        {
+            DynamicArray arr(5);
+            arr.set(0, 10);
+            arr.set(1, 20);
+            arr.set(2, 30);
+            arr.set(3, 40);
+            arr.set(4, 50);
+            arr.print();
+        }  // 析构自动调用
+
+        std::cout << "程序结束" << std::endl;
+        return 0;
+    }
+    ```
+
+    **预期输出**：
+    ```
+    DynamicArray(大小=5) 构造
+    [10, 20, 30, 40, 50]
+    DynamicArray(大小=5) 析构
+    程序结束
+    ```
+
+### 练习 2：观察嵌套对象构造析构顺序
+
+**要求**：
+
+- 定义 `Engine` 和 `Car` 类，`Car` 包含一个 `Engine` 成员
+- 构造和析构中打印提示信息
+- 观察嵌套对象的构造/析构顺序
+
+??? note "参考答案"
+
+    ```cpp title="exercise02.cpp"
+    #include <iostream>
+    #include <string>
+
+    class Engine {
+        std::string type;
+    public:
+        Engine(const std::string &t) : type(t) {
+            std::cout << "  Engine(" << type << ") 构造" << std::endl;
+        }
+        ~Engine() {
+            std::cout << "  Engine(" << type << ") 析构" << std::endl;
+        }
+    };
+
+    class Car {
+        std::string brand;
+        Engine engine;  // 成员对象
+    public:
+        Car(const std::string &b, const std::string &e)
+            : brand(b), engine(e) {  // engine 先于 Car 构造体构造
+            std::cout << "Car(" << brand << ") 构造" << std::endl;
+        }
+        ~Car() {
+            std::cout << "Car(" << brand << ") 析构" << std::endl;
+        }
+    };
+
+    int main()
+    {
+        std::cout << "=== 创建 Car ===" << std::endl;
+        {
+            Car car("宝马", "V8");
+        }
+        std::cout << "=== Car 已销毁 ===" << std::endl;
+
+        return 0;
+    }
+    ```
+
+    **预期输出**：
+    ```
+    === 创建 Car ===
+      Engine(V8) 构造
+    Car(宝马) 构造
+    Car(宝马) 析构
+      Engine(V8) 析构
+    === Car 已销毁 ===
+    ```
+
+    > 规律：成员对象先构造，外层对象后构造；析构顺序相反。
 
 ---
 

@@ -127,13 +127,144 @@ std::cout << Connection::get_total() << std::endl;  // 3
 
 ## 练习题
 
-### 练习 1
+### 练习 1：Rectangle 类
 
-设计一个 `Rectangle` 类，包含宽和高，提供面积和周长方法。
+**要求**：
 
-### 练习 2
+- 设计 `Rectangle` 类，包含私有成员 `width` 和 `height`（double 类型）
+- 提供构造函数，支持指定宽高
+- 提供 `area()` 和 `perimeter()` 方法计算面积和周长
+- 提供 `print()` 方法输出信息
+- 创建多个矩形对象测试
 
-设计一个 `BankAccount` 类，支持存款、取款、查询余额，余额不能为负。
+??? note "参考答案"
+
+    ```cpp title="exercise01.cpp"
+    #include <iostream>
+
+    class Rectangle {
+    private:
+        double width;
+        double height;
+
+    public:
+        Rectangle(double w, double h) : width(w), height(h) {}
+
+        double area() const { return width * height; }
+        double perimeter() const { return 2 * (width + height); }
+
+        void print() const {
+            std::cout << "Rectangle(" << width << " x " << height << ")  "
+                      << "面积=" << area() << "  周长=" << perimeter() << std::endl;
+        }
+    };
+
+    int main()
+    {
+        Rectangle r1(5, 3);
+        Rectangle r2(10, 10);
+        Rectangle r3(7.5, 2.4);
+
+        r1.print();
+        r2.print();
+        r3.print();
+
+        return 0;
+    }
+    ```
+
+    **预期输出**：
+    ```
+    Rectangle(5 x 3)  面积=15  周长=16
+    Rectangle(10 x 10)  面积=100  周长=40
+    Rectangle(7.5 x 2.4)  面积=18  周长=19.8
+    ```
+
+### 练习 2：银行账户类
+
+**要求**：
+
+- 设计 `BankAccount` 类，包含私有成员 `owner`（字符串）和 `balance`（余额）
+- 提供 `deposit(double)` 存款方法（金额必须为正）
+- 提供 `withdraw(double)` 取款方法（余额不足时拒绝并提示）
+- 提供 `show()` 查询余额方法
+- 测试存款、取款、余额不足等场景
+
+??? note "参考答案"
+
+    ```cpp title="exercise02.cpp"
+    #include <iostream>
+    #include <string>
+    #include <iomanip>
+
+    class BankAccount {
+    private:
+        std::string owner;
+        double balance;
+
+    public:
+        BankAccount(const std::string &name, double init_balance = 0)
+            : owner(name), balance(init_balance) {}
+
+        void deposit(double amount) {
+            if (amount <= 0) {
+                std::cout << "✗ 存款金额必须为正数" << std::endl;
+                return;
+            }
+            balance += amount;
+            std::cout << "✓ 存款 " << std::fixed << std::setprecision(2)
+                      << amount << " 元成功" << std::endl;
+        }
+
+        void withdraw(double amount) {
+            if (amount <= 0) {
+                std::cout << "✗ 取款金额必须为正数" << std::endl;
+                return;
+            }
+            if (amount > balance) {
+                std::cout << "✗ 余额不足！当前余额: " << std::fixed
+                          << std::setprecision(2) << balance << " 元" << std::endl;
+                return;
+            }
+            balance -= amount;
+            std::cout << "✓ 取款 " << std::fixed << std::setprecision(2)
+                      << amount << " 元成功" << std::endl;
+        }
+
+        void show() const {
+            std::cout << "[账户] " << owner << "  余额: "
+                      << std::fixed << std::setprecision(2) << balance << " 元" << std::endl;
+        }
+    };
+
+    int main()
+    {
+        BankAccount acc("张三", 1000);
+        acc.show();
+
+        acc.deposit(500);
+        acc.show();
+
+        acc.withdraw(300);
+        acc.show();
+
+        acc.withdraw(2000);  // 余额不足
+        acc.show();
+
+        return 0;
+    }
+    ```
+
+    **预期输出**：
+    ```
+    [账户] 张三  余额: 1000.00 元
+    ✓ 存款 500.00 元成功
+    [账户] 张三  余额: 1500.00 元
+    ✓ 取款 300.00 元成功
+    [账户] 张三  余额: 1200.00 元
+    ✗ 余额不足！当前余额: 1200.00 元
+    [账户] 张三  余额: 1200.00 元
+    ```
 
 ---
 

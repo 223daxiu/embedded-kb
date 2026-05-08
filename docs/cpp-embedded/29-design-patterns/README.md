@@ -172,13 +172,152 @@ void use_driver(DriverBase<T> &drv) {
 
 ## 练习题
 
-### 练习 1
+### 练习 1：工厂 + 策略日志系统
 
-用工厂模式 + 策略模式实现一个日志系统（支持输出到控制台、文件、网络）。
+**要求**：
 
-### 练习 2
+- 定义 `ILogger` 接口（`log(string)`）
+- 实现 `ConsoleLogger` 和 `FileLogger`（模拟）
+- 用工厂函数根据字符串创建对应的 Logger
+- 通过接口指针统一调用
 
-用 CRTP 实现一个嵌入式外设驱动框架（UART、SPI、I2C）。
+??? note "参考答案"
+
+    ```cpp title="exercise01.cpp"
+    #include <iostream>
+    #include <memory>
+    #include <string>
+
+    class ILogger {
+    public:
+        virtual void log(const std::string &msg) = 0;
+        virtual ~ILogger() = default;
+    };
+
+    class ConsoleLogger : public ILogger {
+    public:
+        void log(const std::string &msg) override {
+            std::cout << "[控制台] " << msg << std::endl;
+        }
+    };
+
+    class FileLogger : public ILogger {
+        std::string filename_;
+    public:
+        FileLogger(const std::string &f) : filename_(f) {}
+        void log(const std::string &msg) override {
+            std::cout << "[文件:" << filename_ << "] " << msg << std::endl;
+        }
+    };
+
+    // 工厂函数
+    std::unique_ptr<ILogger> create_logger(const std::string &type) {
+        if (type == "console") return std::make_unique<ConsoleLogger>();
+        if (type == "file")    return std::make_unique<FileLogger>("app.log");
+        return nullptr;
+    }
+
+    int main()
+    {
+        auto logger1 = create_logger("console");
+        auto logger2 = create_logger("file");
+
+        logger1->log("程序启动");
+        logger2->log("程序启动");
+        logger1->log("处理完成");
+        logger2->log("处理完成");
+
+        return 0;
+    }
+    ```
+
+    **预期输出**：
+    ```
+    [控制台] 程序启动
+    [文件:app.log] 程序启动
+    [控制台] 处理完成
+    [文件:app.log] 处理完成
+    ```
+
+### 练习 2：CRTP 驱动框架
+
+**要求**：
+
+- 用 CRTP 实现基类 `DriverBase`，提供 `init()`、`read()`、`write()` 接口
+- 实现 `UartDriver` 和 `SpiDriver` 两个具体驱动
+- 用模板函数统一调用，无虚函数开销
+
+??? note "参考答案"
+
+    ```cpp title="exercise02.cpp"
+    #include <iostream>
+    #include <string>
+
+    template <typename Derived>
+    class DriverBase {
+    public:
+        void init() {
+            std::cout << "[初始化] ";
+            static_cast<Derived*>(this)->do_init();
+        }
+        int read() {
+            return static_cast<Derived*>(this)->do_read();
+        }
+        void write(int data) {
+            static_cast<Derived*>(this)->do_write(data);
+        }
+    };
+
+    class UartDriver : public DriverBase<UartDriver> {
+        friend class DriverBase<UartDriver>;
+        void do_init()  { std::cout << "UART 115200 8N1" << std::endl; }
+        int do_read()    { std::cout << "UART 读取" << std::endl; return 0x41; }
+        void do_write(int d) { std::cout << "UART 发送: 0x" << std::hex << d << std::dec << std::endl; }
+    };
+
+    class SpiDriver : public DriverBase<SpiDriver> {
+        friend class DriverBase<SpiDriver>;
+        void do_init()  { std::cout << "SPI Mode0 1MHz" << std::endl; }
+        int do_read()    { std::cout << "SPI 读取" << std::endl; return 0xFF; }
+        void do_write(int d) { std::cout << "SPI 发送: 0x" << std::hex << d << std::dec << std::endl; }
+    };
+
+    template <typename T>
+    void test_driver(DriverBase<T> &drv) {
+        drv.init();
+        drv.write(0xAA);
+        int val = drv.read();
+        std::cout << "读取结果: 0x" << std::hex << val << std::dec << std::endl;
+    }
+
+    int main()
+    {
+        std::cout << "=== UART ==="  << std::endl;
+        UartDriver uart;
+        test_driver(uart);
+
+        std::cout << "\n=== SPI ==="  << std::endl;
+        SpiDriver spi;
+        test_driver(spi);
+
+        return 0;
+    }
+    ```
+
+    **预期输出**：
+    ```
+    === UART ===
+    [初始化] UART 115200 8N1
+    UART 发送: 0xaa
+    UART 读取
+    读取结果: 0x41
+
+    === SPI ===
+    [初始化] SPI Mode0 1MHz
+    SPI 发送: 0xaa
+    SPI 读取
+    读取结果: 0xff
+    ```
 
 ---
 

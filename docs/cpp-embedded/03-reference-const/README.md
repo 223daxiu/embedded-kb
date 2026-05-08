@@ -106,13 +106,98 @@ void print(const std::string &s) {
 
 ## 练习题
 
-### 练习 1
+### 练习 1：引用传参
 
-写一个函数 `void increment(int &n)`，让传入的值加 1。
+**要求**：
 
-### 练习 2
+- 写函数 `void increment(int &n)`，让传入的值加 1
+- 写函数 `void swap(int &a, int &b)`，交换两个变量的值
+- 在 `main` 中调用并打印调用前后的值，验证修改生效
 
-写一个函数 `const std::string& longer(const std::string &a, const std::string &b)`，返回更长的那个字符串。
+??? note "参考答案"
+
+    ```cpp title="exercise01.cpp"
+    #include <iostream>
+
+    void increment(int &n) {
+        n++;
+    }
+
+    void swap(int &a, int &b) {
+        int temp = a;
+        a = b;
+        b = temp;
+    }
+
+    int main()
+    {
+        int x = 10;
+        std::cout << "increment 前: x = " << x << std::endl;
+        increment(x);
+        std::cout << "increment 后: x = " << x << std::endl;
+
+        int a = 100, b = 200;
+        std::cout << "swap 前: a = " << a << ", b = " << b << std::endl;
+        swap(a, b);
+        std::cout << "swap 后: a = " << a << ", b = " << b << std::endl;
+
+        return 0;
+    }
+    ```
+
+    **预期输出**：
+    ```
+    increment 前: x = 10
+    increment 后: x = 11
+    swap 前: a = 100, b = 200
+    swap 后: a = 200, b = 100
+    ```
+
+### 练习 2：const 引用返回
+
+**要求**：
+
+- 写函数 `const std::string& longer(const std::string &a, const std::string &b)`
+- 返回两个字符串中更长的那个
+- 长度相同时返回第一个
+- 测试多组数据验证正确性
+
+??? note "参考答案"
+
+    ```cpp title="exercise02.cpp"
+    #include <iostream>
+    #include <string>
+
+    const std::string& longer(const std::string &a, const std::string &b) {
+        return a.size() >= b.size() ? a : b;
+    }
+
+    int main()
+    {
+        std::string s1 = "hello";
+        std::string s2 = "world!!!";
+        std::string s3 = "hi";
+
+        std::cout << "longer(\"" << s1 << "\", \"" << s2 << "\") = \""
+                  << longer(s1, s2) << "\"" << std::endl;
+
+        std::cout << "longer(\"" << s1 << "\", \"" << s3 << "\") = \""
+                  << longer(s1, s3) << "\"" << std::endl;
+
+        // 验证返回的是引用（地址相同）
+        const std::string &result = longer(s1, s2);
+        std::cout << "返回的是引用: " << (&result == &s2 ? "是" : "否") << std::endl;
+
+        return 0;
+    }
+    ```
+
+    **预期输出**：
+    ```
+    longer("hello", "world!!!") = "world!!!"
+    longer("hello", "hi") = "hello"
+    返回的是引用: 是
+    ```
 
 ---
 

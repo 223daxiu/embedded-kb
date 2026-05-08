@@ -121,13 +121,134 @@ public:
 
 ## 练习题
 
-### 练习 1
+### 练习 1：Shape 继承体系
 
-设计 `Shape → Circle / Rectangle` 继承体系，包含面积方法。
+**要求**：
 
-### 练习 2
+- 设计基类 `Shape`，包含 `name` 和 `area()` 方法
+- 派生 `Circle`（半径）和 `Rectangle`（宽、高）
+- 每个类实现自己的 `area()` 和 `print()` 方法
+- 创建对象并打印信息
 
-理解构造析构顺序：三层继承 `A → B → C`。
+??? note "参考答案"
+
+    ```cpp title="exercise01.cpp"
+    #include <iostream>
+    #include <string>
+    #include <cmath>
+
+    class Shape {
+    protected:
+        std::string name;
+    public:
+        Shape(const std::string &n) : name(n) {}
+        virtual double area() const = 0;
+        virtual void print() const {
+            std::cout << name << ", 面积 = " << area() << std::endl;
+        }
+        virtual ~Shape() = default;
+    };
+
+    class Circle : public Shape {
+        double radius;
+    public:
+        Circle(double r) : Shape("圆形"), radius(r) {}
+        double area() const override {
+            return M_PI * radius * radius;
+        }
+        void print() const override {
+            std::cout << name << "(半径=" << radius << "), 面积 = "
+                      << std::fixed << std::setprecision(2) << area() << std::endl;
+        }
+    };
+
+    class Rectangle : public Shape {
+        double width, height;
+    public:
+        Rectangle(double w, double h) : Shape("矩形"), width(w), height(h) {}
+        double area() const override {
+            return width * height;
+        }
+        void print() const override {
+            std::cout << name << "(" << width << "x" << height << "), 面积 = "
+                      << area() << std::endl;
+        }
+    };
+
+    int main()
+    {
+        Circle c(5.0);
+        Rectangle r(4.0, 6.0);
+
+        c.print();
+        r.print();
+
+        return 0;
+    }
+    ```
+
+    **预期输出**：
+    ```
+    圆形(半径=5), 面积 = 78.54
+    矩形(4x6), 面积 = 24
+    ```
+
+### 练习 2：三层继承构造析构顺序
+
+**要求**：
+
+- 定义三个类 `A` → `B` → `C`（继承关系）
+- 每个类的构造和析构函数中打印提示
+- 观察并记录构造/析构顺序
+
+??? note "参考答案"
+
+    ```cpp title="exercise02.cpp"
+    #include <iostream>
+
+    class A {
+    public:
+        A()  { std::cout << "A 构造" << std::endl; }
+        ~A() { std::cout << "A 析构" << std::endl; }
+    };
+
+    class B : public A {
+    public:
+        B()  { std::cout << "B 构造" << std::endl; }
+        ~B() { std::cout << "B 析构" << std::endl; }
+    };
+
+    class C : public B {
+    public:
+        C()  { std::cout << "C 构造" << std::endl; }
+        ~C() { std::cout << "C 析构" << std::endl; }
+    };
+
+    int main()
+    {
+        std::cout << "=== 创建 C 对象 ===" << std::endl;
+        {
+            C obj;
+        }
+        std::cout << "=== 对象已销毁 ===" << std::endl;
+
+        return 0;
+    }
+    ```
+
+    **预期输出**：
+    ```
+    === 创建 C 对象 ===
+    A 构造
+    B 构造
+    C 构造
+    C 析构
+    B 析构
+    A 析构
+    === 对象已销毁 ===
+    ```
+
+    > 规律：构造从基类到派生类（A→B→C），析构顺序相反（C→B→A）。
 
 ---
 

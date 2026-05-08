@@ -80,13 +80,103 @@ std::string ds = std::to_string(3.14);
 
 ## 练习题
 
-### 练习 1
+### 练习 1：统计单词数量
 
-输入一个句子，统计单词数量。
+**要求**：
 
-### 练习 2
+- 输入一个句子（用 `getline` 读取整行）
+- 统计其中的单词数量（用空格分隔）
+- 打印单词数和每个单词
 
-实现字符串反转函数 `std::string reverse(const std::string &s)`。
+??? note "参考答案"
+
+    ```cpp title="exercise01.cpp"
+    #include <iostream>
+    #include <string>
+    #include <sstream>
+    #include <vector>
+
+    int main()
+    {
+        std::string sentence;
+        std::cout << "请输入一个句子: ";
+        std::getline(std::cin, sentence);
+
+        // 用 istringstream 拆分单词
+        std::istringstream iss(sentence);
+        std::vector<std::string> words;
+        std::string word;
+        while (iss >> word) {
+            words.push_back(word);
+        }
+
+        std::cout << "单词数量: " << words.size() << std::endl;
+        std::cout << "单词列表:" << std::endl;
+        for (size_t i = 0; i < words.size(); i++) {
+            std::cout << "  [" << i + 1 << "] " << words[i] << std::endl;
+        }
+
+        return 0;
+    }
+    ```
+
+    **运行示例**：
+    ```
+    请输入一个句子: Hello World from C++
+    单词数量: 4
+    单词列表:
+      [1] Hello
+      [2] World
+      [3] from
+      [4] C++
+    ```
+
+### 练习 2：字符串反转
+
+**要求**：
+
+- 实现 `std::string reverse(const std::string &s)` 函数
+- 不使用标准库的 `std::reverse`，手动实现
+- 测试多个用例（空串、单字符、回文串、普通字符串）
+
+??? note "参考答案"
+
+    ```cpp title="exercise02.cpp"
+    #include <iostream>
+    #include <string>
+
+    std::string reverse(const std::string &s) {
+        std::string result;
+        result.reserve(s.size());  // 预分配空间
+        for (int i = s.size() - 1; i >= 0; i--) {
+            result += s[i];
+        }
+        return result;
+    }
+
+    int main()
+    {
+        // 测试用例
+        std::string tests[] = {"", "A", "hello", "abcba", "C++ is great"};
+
+        for (const auto &t : tests) {
+            std::string rev = reverse(t);
+            std::cout << "\"" << t << "\" → \"" << rev << "\""
+                      << (t == rev ? "  (回文✓)" : "") << std::endl;
+        }
+
+        return 0;
+    }
+    ```
+
+    **预期输出**：
+    ```
+    "" → ""  (回文✓)
+    "A" → "A"  (回文✓)
+    "hello" → "olleh"
+    "abcba" → "abcba"  (回文✓)
+    "C++ is great" → "taerg si ++C"
+    ```
 
 ---
 

@@ -109,13 +109,132 @@ delete p;  // 如果没有虚析构，只调用 Base 的析构函数 → 内存�
 
 ## 练习题
 
-### 练习 1
+### 练习 1：虚函数多态
 
-设计一个动物园系统：`Animal` 基类，`Dog`/`Cat`/`Bird` 子类，多态调用 `speak()` 和 `move()`。
+**要求**：
 
-### 练习 2
+- 设计 `Animal` 基类，包含 `virtual void speak()` 纯虚函数
+- 派生 `Dog`、`Cat`、`Bird` 三个子类，各自实现 `speak()`
+- 用基类指针数组存储不同动物，循环调用 `speak()` 观察多态
+- 注意基类析构函数必须是 `virtual`
 
-用 `vector<unique_ptr<Shape>>` 存储多种图形，计算总面积。
+??? note "参考答案"
+
+    ```cpp title="exercise01.cpp"
+    #include <iostream>
+    #include <vector>
+    #include <memory>
+
+    class Animal {
+    public:
+        virtual void speak() const = 0;
+        virtual ~Animal() = default;
+    };
+
+    class Dog : public Animal {
+    public:
+        void speak() const override { std::cout << "狗: 汪汪汪！" << std::endl; }
+    };
+
+    class Cat : public Animal {
+    public:
+        void speak() const override { std::cout << "猫: 喵喵喵~" << std::endl; }
+    };
+
+    class Bird : public Animal {
+    public:
+        void speak() const override { std::cout << "鸟: 叽叽叽!" << std::endl; }
+    };
+
+    int main()
+    {
+        std::vector<std::unique_ptr<Animal>> zoo;
+        zoo.push_back(std::make_unique<Dog>());
+        zoo.push_back(std::make_unique<Cat>());
+        zoo.push_back(std::make_unique<Bird>());
+        zoo.push_back(std::make_unique<Dog>());
+
+        std::cout << "动物园:" << std::endl;
+        for (const auto &animal : zoo) {
+            animal->speak();  // 多态调用
+        }
+
+        return 0;
+    }
+    ```
+
+    **预期输出**：
+    ```
+    动物园:
+    狗: 汪汪汪！
+    猫: 喵喵喵~
+    鸟: 叽叽叽!
+    狗: 汪汪汪！
+    ```
+
+### 练习 2：不加 virtual 析构的后果
+
+**要求**：
+
+- 定义基类 `Base`（析构函数不加 `virtual`）和派生类 `Derived`
+- 派生类构造时 `new` 一块内存，析构时 `delete`
+- 用基类指针 `delete` 派生类对象，观察是否调用了派生类析构
+- 然后加上 `virtual`，对比结果
+
+??? note "参考答案"
+
+    ```cpp title="exercise02.cpp"
+    #include <iostream>
+
+    class Base {
+    public:
+        Base() { std::cout << "Base 构造" << std::endl; }
+        // 故意不加 virtual，观察问题
+        ~Base() { std::cout << "Base 析构" << std::endl; }
+    };
+
+    class Derived : public Base {
+        int *data;
+    public:
+        Derived() : data(new int[100]) {
+            std::cout << "Derived 构造 (分配内存)" << std::endl;
+        }
+        ~Derived() {
+            delete[] data;
+            std::cout << "Derived 析构 (释放内存)" << std::endl;
+        }
+    };
+
+    int main()
+    {
+        std::cout << "=== 用基类指针 delete ===" << std::endl;
+        Base *p = new Derived();
+        delete p;  // ⚠ Derived 析构不会被调用！内存泄漏！
+
+        std::cout << "\n修复方法: 给 Base 析构加 virtual" << std::endl;
+
+        return 0;
+    }
+    ```
+
+    **不加 virtual 的输出**（Derived 析构未调用，内存泄漏！）：
+    ```
+    === 用基类指针 delete ===
+    Base 构造
+    Derived 构造 (分配内存)
+    Base 析构
+
+    修复方法: 给 Base 析构加 virtual
+    ```
+
+    **加 virtual 后的正确输出**：
+    ```
+    === 用基类指针 delete ===
+    Base 构造
+    Derived 构造 (分配内存)
+    Derived 析构 (释放内存)
+    Base 析构
+    ```
 
 ---
 

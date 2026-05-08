@@ -138,13 +138,156 @@ constexpr auto BRR_115200 = calc_brr(72'000'000, 115200);  // 编译期算好
 
 ## 练习题
 
-### 练习 1
+### 练习 1：模板 GPIO 封装
 
-用模板实现一个零开销的 GPIO 封装。
+**要求**：
 
-### 练习 2
+- 用模板参数封装 GPIO 操作（基址、引脚号）
+- 实现 `init_output()`、`set()`、`clear()`、`toggle()` 静态方法
+- 模拟测试（不实际操作硬件，用打印代替）
+- 体现零开销抽象的思想
 
-用 CRTP + RAII 实现一个嵌入式 SPI 驱动。
+??? note "参考答案"
+
+    ```cpp title="exercise01.cpp"
+    #include <iostream>
+    #include <cstdint>
+
+    // 模拟寄存器（实际嵌入式中是硬件地址）
+    uint32_t simulated_moder = 0;
+    uint32_t simulated_odr = 0;
+
+    template <uint32_t* ModerReg, uint32_t* OdrReg, uint8_t PinNum>
+    class Gpio {
+    public:
+        static void init_output() {
+            uint32_t val = *ModerReg;
+            val &= ~(0b11 << (PinNum * 2));
+            val |=  (0b01 << (PinNum * 2));
+            *ModerReg = val;
+            std::cout << "GPIO Pin" << (int)PinNum << " 初始化为输出" << std::endl;
+        }
+
+        static void set() {
+            *OdrReg |= (1 << PinNum);
+            std::cout << "Pin" << (int)PinNum << " = HIGH" << std::endl;
+        }
+
+        static void clear() {
+            *OdrReg &= ~(1 << PinNum);
+            std::cout << "Pin" << (int)PinNum << " = LOW" << std::endl;
+        }
+
+        static void toggle() {
+            *OdrReg ^= (1 << PinNum);
+            bool state = (*OdrReg >> PinNum) & 1;
+            std::cout << "Pin" << (int)PinNum << " = " << (state ? "HIGH" : "LOW")
+                      << " (toggle)" << std::endl;
+        }
+    };
+
+    // 类型别名（实际使用时指向硬件地址）
+    using LED_Green  = Gpio<&simulated_moder, &simulated_odr, 5>;
+    using LED_Red    = Gpio<&simulated_moder, &simulated_odr, 13>;
+
+    int main()
+    {
+        LED_Green::init_output();
+        LED_Red::init_output();
+
+        LED_Green::set();
+        LED_Red::clear();
+        LED_Green::toggle();
+        LED_Green::toggle();
+
+        return 0;
+    }
+    ```
+
+    **预期输出**：
+    ```
+    GPIO Pin5 初始化为输出
+    GPIO Pin13 初始化为输出
+    Pin5 = HIGH
+    Pin13 = LOW
+    Pin5 = LOW (toggle)
+    Pin5 = HIGH (toggle)
+    ```
+
+### 练习 2：CRTP + RAII SPI 驱动
+
+**要求**：
+
+- 用 CRTP 实现 `PeripheralBase`（init/deinit）
+- 用 RAII `ScopedPeripheral` 自动管理生命周期
+- 实现 `SpiDriver`，模拟 SPI 传输
+
+??? note "参考答案"
+
+    ```cpp title="exercise02.cpp"
+    #include <iostream>
+    #include <cstdint>
+
+    template <typename Derived>
+    class PeripheralBase {
+    public:
+        void init() {
+            std::cout << "[初始化] ";
+            static_cast<Derived*>(this)->do_init();
+        }
+        void deinit() {
+            std::cout << "[反初始化] ";
+            static_cast<Derived*>(this)->do_deinit();
+        }
+    };
+
+    template <typename T>
+    class ScopedPeripheral {
+        T &dev_;
+    public:
+        ScopedPeripheral(T &dev) : dev_(dev) { dev_.init(); }
+        ~ScopedPeripheral() { dev_.deinit(); }
+        T& get() { return dev_; }
+        ScopedPeripheral(const ScopedPeripheral&) = delete;
+    };
+
+    class SpiDriver : public PeripheralBase<SpiDriver> {
+        friend class PeripheralBase<SpiDriver>;
+        void do_init()   { std::cout << "SPI: CPOL=0 CPHA=0 1MHz" << std::endl; }
+        void do_deinit() { std::cout << "SPI: 关闭" << std::endl; }
+    public:
+        uint8_t transfer(uint8_t tx) {
+            std::cout << "SPI TX: 0x" << std::hex << (int)tx;
+            uint8_t rx = ~tx;  // 模拟接收
+            std::cout << " → RX: 0x" << (int)rx << std::dec << std::endl;
+            return rx;
+        }
+    };
+
+    int main()
+    {
+        SpiDriver spi;
+        {
+            ScopedPeripheral guard(spi);
+            guard.get().transfer(0xAA);
+            guard.get().transfer(0x55);
+            guard.get().transfer(0x00);
+        }  // 自动 deinit
+
+        std::cout << "SPI 已自动关闭" << std::endl;
+        return 0;
+    }
+    ```
+
+    **预期输出**：
+    ```
+    [初始化] SPI: CPOL=0 CPHA=0 1MHz
+    SPI TX: 0xaa → RX: 0x55
+    SPI TX: 0x55 → RX: 0xaa
+    SPI TX: 0x0 → RX: 0xff
+    [反初始化] SPI: 关闭
+    SPI 已自动关闭
+    ```
 
 ---
 

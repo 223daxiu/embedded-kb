@@ -145,13 +145,117 @@ std::cout << (a == b) << std::endl;  // 0
 
 ## 练习题
 
-### 练习 1
+### 练习 1：std::optional 安全除法
 
-用 `std::optional` 实现安全的除法函数。
+**要求**：
 
-### 练习 2
+- 实现 `std::optional<double> safe_divide(double a, double b)`
+- 除数为 0 时返回 `std::nullopt`
+- 用 `value_or()` 和 `has_value()` 两种方式处理结果
 
-用 `std::variant` + `std::visit` 实现一个简易的计算器表达式节点。
+??? note "参考答案"
+
+    ```cpp title="exercise01.cpp"
+    #include <iostream>
+    #include <optional>
+
+    std::optional<double> safe_divide(double a, double b) {
+        if (b == 0) return std::nullopt;
+        return a / b;
+    }
+
+    int main()
+    {
+        // 正常情况
+        auto r1 = safe_divide(10, 3);
+        if (r1.has_value()) {
+            std::cout << "10 / 3 = " << r1.value() << std::endl;
+        }
+
+        // 异常情况
+        auto r2 = safe_divide(10, 0);
+        std::cout << "10 / 0 = " << r2.value_or(-1) << " (默认值)" << std::endl;
+
+        // C++17 if 初始化
+        if (auto r3 = safe_divide(100, 7); r3) {
+            std::cout << "100 / 7 = " << *r3 << std::endl;
+        }
+
+        return 0;
+    }
+    ```
+
+    **预期输出**：
+    ```
+    10 / 3 = 3.33333
+    10 / 0 = -1 (默认值)
+    100 / 7 = 14.2857
+    ```
+
+### 练习 2：std::variant 计算器节点
+
+**要求**：
+
+- 用 `std::variant` 定义表达式节点：可以是 `int`、`double` 或 `string`
+- 用 `std::visit` + Lambda 实现类型安全的打印
+- 测试不同类型的值
+
+??? note "参考答案"
+
+    ```cpp title="exercise02.cpp"
+    #include <iostream>
+    #include <variant>
+    #include <string>
+    #include <vector>
+
+    using Value = std::variant<int, double, std::string>;
+
+    // overloaded 辅助（C++17 惯用法）
+    template <class... Ts>
+    struct overloaded : Ts... { using Ts::operator()...; };
+    template <class... Ts>
+    overloaded(Ts...) -> overloaded<Ts...>;
+
+    void print_value(const Value &v) {
+        std::visit(overloaded{
+            [](int i)    { std::cout << "整数: " << i << std::endl; },
+            [](double d) { std::cout << "浮点: " << d << std::endl; },
+            [](const std::string &s) { std::cout << "字符串: \"" << s << "\"" << std::endl; }
+        }, v);
+    }
+
+    int main()
+    {
+        std::vector<Value> values = {42, 3.14, std::string("hello"), 100, 2.718};
+
+        for (const auto &v : values) {
+            print_value(v);
+        }
+
+        // 修改 variant
+        Value v = 42;
+        std::cout << "\n修改前: ";
+        print_value(v);
+
+        v = std::string("world");
+        std::cout << "修改后: ";
+        print_value(v);
+
+        return 0;
+    }
+    ```
+
+    **预期输出**：
+    ```
+    整数: 42
+    浮点: 3.14
+    字符串: "hello"
+    整数: 100
+    浮点: 2.718
+
+    修改前: 整数: 42
+    修改后: 字符串: "world"
+    ```
 
 ---
 

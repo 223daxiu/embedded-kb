@@ -96,13 +96,133 @@ for (auto it = range.first; it != range.second; ++it) {
 
 ## 练习题
 
-### 练习 1
+### 练习 1：单词频率统计
 
-用 `unordered_map` 统计一段文本中每个单词的出现频率。
+**要求**：
 
-### 练习 2
+- 定义一段英文文本字符串
+- 用 `istringstream` 拆分单词，用 `unordered_map` 统计频率
+- 按频率降序输出结果
 
-用 `set` 实现集合运算（交集、并集、差集）。
+??? note "参考答案"
+
+    ```cpp title="exercise01.cpp"
+    #include <iostream>
+    #include <string>
+    #include <sstream>
+    #include <unordered_map>
+    #include <vector>
+    #include <algorithm>
+
+    int main()
+    {
+        std::string text = "the cat sat on the mat and the cat ate the rat";
+        std::cout << "文本: " << text << std::endl;
+
+        // 统计频率
+        std::unordered_map<std::string, int> freq;
+        std::istringstream iss(text);
+        std::string word;
+        while (iss >> word) {
+            freq[word]++;
+        }
+
+        // 按频率降序排序
+        std::vector<std::pair<std::string, int>> sorted(freq.begin(), freq.end());
+        std::sort(sorted.begin(), sorted.end(),
+                  [](const auto &a, const auto &b) { return a.second > b.second; });
+
+        // 输出
+        std::cout << "\n单词频率统计:" << std::endl;
+        for (const auto &[w, c] : sorted) {
+            std::cout << "  " << w << ": " << c << " 次" << std::endl;
+        }
+
+        return 0;
+    }
+    ```
+
+    **预期输出**：
+    ```
+    文本: the cat sat on the mat and the cat ate the rat
+
+    单词频率统计:
+      the: 4 次
+      cat: 2 次
+      sat: 1 次
+      on: 1 次
+      mat: 1 次
+      and: 1 次
+      ate: 1 次
+      rat: 1 次
+    ```
+
+### 练习 2：集合运算
+
+**要求**：
+
+- 定义两个 `set<int>` 集合 A 和 B
+- 用 `std::set_intersection`、`std::set_union`、`std::set_difference` 计算交集、并集、差集
+- 打印每种运算的结果
+
+??? note "参考答案"
+
+    ```cpp title="exercise02.cpp"
+    #include <iostream>
+    #include <set>
+    #include <vector>
+    #include <algorithm>
+    #include <iterator>
+
+    void print_set(const std::string &label, const std::vector<int> &v) {
+        std::cout << label << ": {";
+        for (size_t i = 0; i < v.size(); i++) {
+            if (i > 0) std::cout << ", ";
+            std::cout << v[i];
+        }
+        std::cout << "}" << std::endl;
+    }
+
+    int main()
+    {
+        std::set<int> A = {1, 2, 3, 4, 5, 6};
+        std::set<int> B = {4, 5, 6, 7, 8, 9};
+
+        std::cout << "A = {1,2,3,4,5,6}" << std::endl;
+        std::cout << "B = {4,5,6,7,8,9}" << std::endl;
+        std::cout << std::endl;
+
+        // 交集
+        std::vector<int> inter;
+        std::set_intersection(A.begin(), A.end(), B.begin(), B.end(),
+                              std::back_inserter(inter));
+        print_set("A ∩ B", inter);
+
+        // 并集
+        std::vector<int> uni;
+        std::set_union(A.begin(), A.end(), B.begin(), B.end(),
+                       std::back_inserter(uni));
+        print_set("A ∪ B", uni);
+
+        // 差集
+        std::vector<int> diff;
+        std::set_difference(A.begin(), A.end(), B.begin(), B.end(),
+                            std::back_inserter(diff));
+        print_set("A - B", diff);
+
+        return 0;
+    }
+    ```
+
+    **预期输出**：
+    ```
+    A = {1,2,3,4,5,6}
+    B = {4,5,6,7,8,9}
+
+    A ∩ B: {4, 5, 6}
+    A ∪ B: {1, 2, 3, 4, 5, 6, 7, 8, 9}
+    A - B: {1, 2, 3}
+    ```
 
 ---
 

@@ -266,9 +266,104 @@ int main() {
 
 ## 练习题
 
-### 练习
+### 练习：扩展 JSON 解析器
 
-扩展解析器：支持 Unicode 转义（`\uXXXX`）和科学计数法（`1.5e10`）。
+**要求**：
+
+- 扩展解析器支持科学计数法（如 `1.5e10`、`-3.14E-2`）
+- 测试多种数字格式：整数、小数、科学计数法、负数
+- 验证解析结果的正确性
+
+??? note "参考答案"
+
+    ```cpp title="exercise.cpp"
+    #include <iostream>
+    #include <string>
+    #include <cmath>
+    #include <stdexcept>
+    #include <cctype>
+
+    class NumberParser {
+        std::string input_;
+        size_t pos_ = 0;
+
+        char peek() const { return pos_ < input_.size() ? input_[pos_] : '\0'; }
+        char advance() { return input_[pos_++]; }
+
+    public:
+        double parse(const std::string &input) {
+            input_ = input;
+            pos_ = 0;
+            double result = parse_number();
+            if (pos_ != input_.size())
+                throw std::runtime_error("未完全解析");
+            return result;
+        }
+
+    private:
+        double parse_number() {
+            size_t start = pos_;
+
+            // 符号
+            if (peek() == '-') advance();
+
+            // 整数部分
+            if (!std::isdigit(peek()))
+                throw std::runtime_error("无效数字");
+            while (std::isdigit(peek())) advance();
+
+            // 小数部分
+            if (peek() == '.') {
+                advance();
+                while (std::isdigit(peek())) advance();
+            }
+
+            // 科学计数法
+            if (peek() == 'e' || peek() == 'E') {
+                advance();
+                if (peek() == '+' || peek() == '-') advance();
+                if (!std::isdigit(peek()))
+                    throw std::runtime_error("无效指数");
+                while (std::isdigit(peek())) advance();
+            }
+
+            return std::stod(input_.substr(start, pos_ - start));
+        }
+    };
+
+    int main()
+    {
+        NumberParser parser;
+
+        std::string tests[] = {
+            "42", "-17", "3.14", "-0.5",
+            "1.5e10", "-3.14E-2", "6.022e23", "1E3"
+        };
+
+        for (const auto &t : tests) {
+            try {
+                double val = parser.parse(t);
+                std::cout << "\"" << t << "\" → " << val << std::endl;
+            } catch (const std::exception &e) {
+                std::cerr << "\"" << t << "\" 解析失败: " << e.what() << std::endl;
+            }
+        }
+
+        return 0;
+    }
+    ```
+
+    **预期输出**：
+    ```
+    "42" → 42
+    "-17" → -17
+    "3.14" → 3.14
+    "-0.5" → -0.5
+    "1.5e10" → 1.5e+10
+    "-3.14E-2" → -0.0314
+    "6.022e23" → 6.022e+23
+    "1E3" → 1000
+    ```
 
 ---
 

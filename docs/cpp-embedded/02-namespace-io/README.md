@@ -110,13 +110,93 @@ int main()
 
 ## 练习题
 
-### 练习 1
+### 练习 1：自定义命名空间
 
-定义一个命名空间 `math_utils`，包含 `add` 和 `multiply` 函数，在 main 中调用。
+**要求**：
 
-### 练习 2
+- 定义命名空间 `math_utils`，包含 `add(int,int)` 和 `multiply(int,int)` 函数
+- 在 `main` 中分别用 `math_utils::` 和 `using` 两种方式调用
+- 打印计算结果
 
-用 `cout` 和 `iomanip` 打印一个整齐的表格（3列：姓名、年龄、成绩）。
+??? note "参考答案"
+
+    ```cpp title="exercise01.cpp"
+    #include <iostream>
+
+    namespace math_utils {
+        int add(int a, int b) { return a + b; }
+        int multiply(int a, int b) { return a * b; }
+    }
+
+    int main()
+    {
+        // 方式1：完整限定名
+        std::cout << "3 + 5 = " << math_utils::add(3, 5) << std::endl;
+        std::cout << "3 * 5 = " << math_utils::multiply(3, 5) << std::endl;
+
+        // 方式2：using 声明
+        using math_utils::add;
+        std::cout << "10 + 20 = " << add(10, 20) << std::endl;
+
+        return 0;
+    }
+    ```
+
+    **预期输出**：
+    ```
+    3 + 5 = 8
+    3 * 5 = 15
+    10 + 20 = 30
+    ```
+
+### 练习 2：格式化表格输出
+
+**要求**：
+
+- 用 `setw`、`left`、`right` 打印至少 3 行数据的表格
+- 表格包含：姓名（左对齐10列）、年龄（右对齐5列）、成绩（右对齐8列，保留1位小数）
+- 先打印表头，然后打印分隔线，再打印数据
+
+??? note "参考答案"
+
+    ```cpp title="exercise02.cpp"
+    #include <iostream>
+    #include <iomanip>
+    #include <string>
+
+    int main()
+    {
+        // 表头
+        std::cout << std::left  << std::setw(10) << "姓名"
+                  << std::right << std::setw(5)  << "年龄"
+                  << std::right << std::setw(8)  << "成绩" << std::endl;
+        std::cout << std::string(23, '-') << std::endl;
+
+        // 数据
+        std::cout << std::left  << std::setw(10) << "张三"
+                  << std::right << std::setw(5)  << 20
+                  << std::right << std::setw(8)  << std::fixed << std::setprecision(1) << 95.5 << std::endl;
+
+        std::cout << std::left  << std::setw(10) << "李四"
+                  << std::right << std::setw(5)  << 21
+                  << std::right << std::setw(8)  << 88.0 << std::endl;
+
+        std::cout << std::left  << std::setw(10) << "王五"
+                  << std::right << std::setw(5)  << 19
+                  << std::right << std::setw(8)  << 72.3 << std::endl;
+
+        return 0;
+    }
+    ```
+
+    **预期输出**：
+    ```
+    姓名          年龄      成绩
+    -----------------------
+    张三          20    95.5
+    李四          21    88.0
+    王五          19    72.3
+    ```
 
 ---
 
